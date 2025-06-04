@@ -75,5 +75,13 @@ class Usuario {
 
         return $stmt->execute();
      }
+
+       public function buscarPorEmail($email) {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 

@@ -17,7 +17,7 @@ class usuarioController {
             $usuario->senha = $_POST('senha');
 
             if ($usuario->saveusuario()){
-                header('Location: /codigoprojeto/homepage');
+                header('Location: /CYPHER/HomeCliente.php');
             } else {
                 echo "Erro ao cadastrar.";
             }
@@ -42,7 +42,7 @@ class usuarioController {
             $usuario->id_usuario = $_POST['id_usuario'];
 
             if ($usuario->update()) {
-                header('Location: /codigoprojeto/usuariopage');
+                header('Location: /CYPHER/usuariopage');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }
@@ -61,4 +61,28 @@ class usuarioController {
             }
         }
     }
+
+    public function loginUsuario() {
+    session_start();
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $usuario = new Usuario();
+    $usuarioExistente = $usuario->buscarPorEmail($email);
+
+    if ($usuarioExistente && $senha == $usuarioExistente['senha']) {
+        $_SESSION['usuario_id'] = $usuarioExistente['id'];
+        $_SESSION['email'] = $usuarioExistente['email'];
+
+       
+
+        header('Location: /CYPHER/views/HomeCliente.php');
+        exit();
+    } else {
+        echo "Email ou senha incorretos!";
+    }
+}
+
+
 }

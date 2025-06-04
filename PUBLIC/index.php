@@ -12,13 +12,13 @@ require_once '../controllers/enderecoController.php';
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
-    case '/codigoprojeto/public/':
+    case '/CYPHER/public/':
         $controller = new usuarioController();
         $controller->Formulario();
         break;
-    case '/codigoprojeto/salvausuario':
+    case '/CYPHER/save-usuario':
         $controller =  new usuarioController();
-        $controller->salvausuario();
+        $controller->saveUsuario();
         break;
     case '/codigoprojeto/delete-cadastro':
             require_once '../controllers/usuarioController.php';
@@ -54,6 +54,11 @@ switch ($request) {
             require_once '../controllers/enderecoController.php';
             $controller = new enderecoController();
             $controller->showUpdateFormEnd($id_usuario);
+            break;
+
+           case '/ZYPHER_SNEAKERS/login-usuario':
+            $controller = new UsuarioController();  
+            $controller->loginUsuario();
             break;
 
     default:
