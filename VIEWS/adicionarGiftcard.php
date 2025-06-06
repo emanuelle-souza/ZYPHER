@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Giftcard Funcionario</title>
 </head>
 <body>
-    
-</body>
-</html>
-<h2>Adicionar Giftcard</h2>
-<form method="POST" action="/codigoprojeto/adicionar-giftcard">
+    <h2>Adicionar Giftcard</h2>
+    <form method="POST" action="/codigoprojeto/adicionar-giftcard">
     <label>Código:</label><br>
     <input type="text" name="codigo" required><br>
 
@@ -22,3 +19,5 @@
 
     <button type="submit">Adicionar Giftcard</button>
 </form>
+</body>
+</html>
