@@ -61,6 +61,11 @@ switch ($request) {
             $controller->loginUsuario();
             break;
 
+             case '/ZYPHER_SNEAKERS/list-usuarios':
+        $controller = new UsuarioController();
+        $controller->listUsuarios();
+        break;
+
     default:
         http_response_code(404);
         echo $request;

@@ -25,6 +25,9 @@ class Usuario {
                   VALUES (:nome, :email, :telefone, :cpf, :senha)";
         $stmt = $this->conn->prepare($query);
 
+        // Criptografar a senha corretamente
+        $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
+
         // Bind params to the query
         $stmt->bindParam(':nome', $this->nome);
         $stmt->bindParam(':email', $this->email);
@@ -83,5 +86,8 @@ class Usuario {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+
+
 }
 
