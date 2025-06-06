@@ -13,12 +13,14 @@ $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
     case '/CYPHER/public/':
+        require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->Formulario();
         break;
     case '/CYPHER/save-usuario':
+        require_once '../controllers/usuarioController.php';
         $controller =  new usuarioController();
-        $controller->saveUsuario();
+        $controller->salvaUsuario();
         break;
     case '/codigoprojeto/delete-cadastro':
         require_once '../controllers/usuarioController.php';
@@ -37,10 +39,12 @@ switch ($request) {
         $controller->updateUsuario();
         break;
     case '/codigoprojeto/public/':
+        require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->Formularioend();
         break;
     case '/codigoprojeto/salvaend':
+        require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->salvaendereco();
         break;
