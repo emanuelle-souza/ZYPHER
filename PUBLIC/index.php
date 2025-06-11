@@ -38,6 +38,28 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->updateUsuario();
         break;
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+        $id_usuario = $matches[1];
+        require_once '../controllers/FuncionarioController.php';
+        $controller = new FuncionarioController();
+        $controller->showUpdateForm($id_funcionario);
+        break;
+    case '/cypher/update_cadastro':
+        require_once '../controllers/FuncionarioController.php';
+        $controller = new FuncionarioController();
+        $controller->updateFuncionario();
+        break;
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+        $id_usuario = $matches[1];
+        require_once '../controllers/AdministradorController.php';
+        $controller = new AdministradorController();
+        $controller->showUpdateForm($id_adm);
+        break;
+    case '/cypher/update_cadastro':
+        require_once '../controllers/AdministradorController.php';
+        $controller = new AdiministradorController();
+        $controller->updateAdministrador();
+        break;
     case '/cypher/public/':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();

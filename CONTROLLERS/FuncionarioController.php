@@ -23,6 +23,28 @@ class FuncionarioController {
         echo "Erro ao entrar!";
     }
 }
+ public function showUpdateForm($id_funcionario){
+        $funcionario = new Funcionario();
+        $funcionarioinfo = $funcionario->getByid($id_funcionario);
+        include '../views/update_funcionario.php';
+    }
+
+    public function updateUsuario() {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $funcionario = new Usuario();
+            $funcionario->nome = $_POST['nome'];
+            $funcionario->email = $_POST['email']; 
+            $funcionario->senha = $_POST['senha'];
+            $funcionario->id_funcionario = $_POST['id_funcionario'];
+
+            if ($usuario->update()) {
+                header('Location: /cypher/funcionariopage');
+            } else {
+                echo "Erro ao atualizar o cadastro.";
+            }
+        }
+    }
 
     public function loginFuncionario() {
     session_start();
