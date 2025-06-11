@@ -64,12 +64,8 @@ switch ($request) {
         $controller->listUsuario();
         break;
     case '/cypher/login-usuario':
-        $controller = new UsuarioController();  
+        $controller = new usuarioController();  
         $controller->loginUsuario();
-        break;
-    case '/cypher/list-usuarios':
-        $controller = new UsuarioController();
-        $controller->listUsuarios();
         break;
     case '/cypher/adicionar-giftcard':
         require_once '../controllers/giftcardController.php';
