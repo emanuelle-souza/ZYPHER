@@ -82,6 +82,22 @@ switch ($request) {
         $controller = new GiftcardController();
         $controller->resgatarGiftcard();
         break;
+    case '/ZYPHER_SNEAKERS/save-funcionario':
+        $controller = new FuncionarioController();
+        $controller->saveFuncionario();
+        break;
+    case '/ZYPHER_SNEAKERS/login-funcionario':
+        $controller = new FuncionarioController();  
+        $controller->loginFuncionario();
+        break;
+    case '/ZYPHER_SNEAKERS/save-administrador':
+        $controller = new AdministradorController();
+        $controller->saveAdministrador();
+        break;
+    case '/ZYPHER_SNEAKERS/login-administrador':
+        $controller = new AdministradorController();  
+        $controller->loginAdministrador();
+        break;
 
     default:
         http_response_code(404);

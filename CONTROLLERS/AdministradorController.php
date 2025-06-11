@@ -1,0 +1,49 @@
+<?php
+require_once '../models/administrador.php';
+
+
+class AdministradorController {
+
+    public function showForm() {
+        // Exibe o formulário de cadastro de usuarios
+        require_once '../views/login_administrador.php';
+    }
+
+    public function saveAdministrador() {
+    // Cria um novo usuario
+    $administrador = new Administrador();
+    $administrador->email = $_POST['email'];
+    $administrador->senha = $_POST['senha']; 
+    $administrador->nome = $_POST['nome'];
+
+    // Salva no banco de dados
+    if ($administrador->save()) {
+        header('Location: /ZYPHER_SNEAKERS/controleuser.php');
+    } else {
+        echo "Erro ao entrar!";
+    }
+}
+
+    public function loginAdministrador() {
+    session_start();
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $administrador = new Administrador();
+    $administradorExistente = $administrador->buscarPorEmail($email);
+
+    if ($administradorExistente && password_verify($senha, $administradorExistente['senha'])) { 
+        $_SESSION['administrador_id'] = $administradorExistente['id'];
+        $_SESSION['email'] = $administradorExistente['email'];
+
+       
+
+        header('Location: /ZYPHER_SNEAKERS/views/controleuser.php');
+        exit();
+    } else {
+        echo "Email ou senha incorretos!";
+    }
+}
+
+}
