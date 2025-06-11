@@ -17,12 +17,18 @@ class usuarioController {
             $usuario->senha = $_POST('senha');
 
             if ($usuario->saveusuario()){
-                header('Location: /CYPHER/HomeCliente.php');
+                header('Location: /cypher/HomeCliente.php');
             } else {
                 echo "Erro ao cadastrar.";
             }
         }
     }
+
+     public function listUsuario() {
+        $usuario = new Usuario();
+        $usuario = $usuario->getAll();
+        include '../views/controleuser_list.php';
+    } 
 
     public function showUpdateForm($id_usuario){
         $usuario = new Usuario();
@@ -42,7 +48,7 @@ class usuarioController {
             $usuario->id_usuario = $_POST['id_usuario'];
 
             if ($usuario->update()) {
-                header('Location: /CYPHER/usuariopage');
+                header('Location: /cypher/usuariopage');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }
@@ -55,7 +61,7 @@ class usuarioController {
             $usuario->cpf = $_POST['cpf'];
 
             if ($usuario->deleteByCpf()) {
-                header('Location: /codigoprojeto/cadastro');
+                header('Location: /cypher/cadastro');
             } else {
                 echo "Erro ao excluir o cadastro.";
             }
@@ -77,7 +83,7 @@ class usuarioController {
 
        
 
-        header('Location: /CYPHER/views/HomeCliente.php');
+        header('Location: /cypher/views/HomeCliente.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

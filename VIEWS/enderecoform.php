@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de endereço</title>
-    <link rel="stylesheet" href="/codigoprojeto/views/css/endeform.css">
+    <link rel="stylesheet" href="/cypher/views/css/endeform.css">
 </head>
 <body>
     <div class="container">
@@ -51,8 +51,8 @@
     <p class= "text"><a href="">Ao cadastrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 </div></div>
  <div class="f2">
-        <img src="/codigoprojeto/public/assets/midia/ouvidoria.png" class="ouvidoria">
-        <img src="/codigoprojeto/public/assets/midia/logo.png" class="logo">
+        <img src="/cypher/public/assets/midia/ouvidoria.png" class="ouvidoria">
+        <img src="/cypher/public/assets/midia/logo.png" class="logo">
     </div>
 
 </body>

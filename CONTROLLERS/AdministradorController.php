@@ -18,7 +18,7 @@ class AdministradorController {
 
     // Salva no banco de dados
     if ($administrador->save()) {
-        header('Location: /ZYPHER_SNEAKERS/controleuser.php');
+        header('Location: /cypher/controleuser.php');
     } else {
         echo "Erro ao entrar!";
     }
@@ -39,7 +39,7 @@ class AdministradorController {
 
        
 
-        header('Location: /ZYPHER_SNEAKERS/views/controleuser.php');
+        header('Location: /cypher/views/controleuser.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

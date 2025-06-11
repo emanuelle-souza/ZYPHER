@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>SEJA MEMBRO</h1>
-    <form action="/ZYPHER_SNEAKERS/save-usuario" method="POST">
+    <form action="/cypher/save-usuario" method="POST">
         <label for="nome">NOME COMPLETO:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 

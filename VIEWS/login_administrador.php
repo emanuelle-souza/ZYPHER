@@ -7,14 +7,14 @@
 </head>
 <body>
     <h1>LOGIN ADMINISTRADOR</h1>
-    <form action="/ZYPHER_SNEAKERS/login-administrador" method="POST">
+    <form action="/cypher/login-administrador" method="POST">
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required><br><br>
 
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required><br>
 
-        <a href="/ZYPHER_SNEAKERS/views/recuperar_senha.php">ESQUECEU SENHA?</a><br><br>
+        <a href="/cypher/views/recuperar_senha.php">ESQUECEU SENHA?</a><br><br>
 
         <input type="submit" value="ENTRAR"><br><br>
     </form>

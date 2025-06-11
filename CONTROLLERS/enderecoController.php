@@ -20,7 +20,7 @@ class enderecoController {
             $endereco->estado = $_POST['estado'];
 
             if ($endereco->salvaend()){
-                header('Location: /codigoprojeto/checkout');
+                header('Location: /cypher/checkout');
             } else {
                 echo "Erro ao cadastrar endereço.";
             }
@@ -46,7 +46,7 @@ class enderecoController {
             $endereco->estado = $_POST['estado'];
 
             if ($endereco->update()) {
-                header('Location: /codigoprojeto/checkout');
+                header('Location: /cypher/checkout');
             } else {
                 echo "Erro ao atualizar o endereço.";
             }

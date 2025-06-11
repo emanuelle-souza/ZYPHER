@@ -18,7 +18,7 @@ class FuncionarioController {
 
     // Salva no banco de dados
     if ($funcionario->save()) {
-        header('Location: /ZYPHER_SNEAKERS/HomeFuncionario');
+        header('Location: /cypher/HomeFuncionario');
     } else {
         echo "Erro ao entrar!";
     }
@@ -39,7 +39,7 @@ class FuncionarioController {
 
        
 
-        header('Location: /ZYPHER_SNEAKERS/views/HomeFuncionario.php');
+        header('Location: /cypher/views/HomeFuncionario.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

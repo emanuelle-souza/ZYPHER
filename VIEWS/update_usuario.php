@@ -9,7 +9,7 @@
 <body>
 
 <h1>Atualizar Cadastro</h1>
-<form action="/codigoprojeto/update_cadastro" method="POST">
+<form action="/cypher/update_cadastro" method="POST">
     <input type="hidden" name="id_usuario" value="<?php echo $usuarioinfo['id_usuario']; ?>">
 
     <label for="nome">Nome:</label>
