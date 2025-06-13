@@ -9,7 +9,7 @@
 <body>
 
 <h1>Atualizar Endereço</h1>
-<form action="/codigoprojeto/update_endereco" method="POST">
+<form action="/cypher/update_endereco" method="POST">
     <input type="hidden" name="id_usuario" value="<?php echo $usuarioinfo['id_usuario']; ?>">
 
     <label for="nome">Nome:</label>

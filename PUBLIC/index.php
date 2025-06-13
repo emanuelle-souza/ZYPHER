@@ -12,89 +12,111 @@ require_once '../controllers/enderecoController.php';
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
-    case '/CYPHER/public/':
+    case '/cypher/public/':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->Formulario();
         break;
-    case '/CYPHER/save-usuario':
+    case '/cypher/save-usuario':
         require_once '../controllers/usuarioController.php';
         $controller =  new usuarioController();
         $controller->salvaUsuario();
         break;
-    case '/codigoprojeto/delete-cadastro':
+    case '/cypher/delete-cadastro':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->deleteUsuarioByCpf();
         break;
-    case (preg_match('/\/codigoprojeto\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->showUpdateForm($id_usuario);
         break;
-    case '/codigoprojeto/update_cadastro':
+    case '/cypher/update_cadastro':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->updateUsuario();
         break;
-    case '/codigoprojeto/public/':
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+        $id_usuario = $matches[1];
+        require_once '../controllers/FuncionarioController.php';
+        $controller = new FuncionarioController();
+        $controller->showUpdateForm($id_funcionario);
+        break;
+    case '/cypher/update_cadastro':
+        require_once '../controllers/FuncionarioController.php';
+        $controller = new FuncionarioController();
+        $controller->updateFuncionario();
+        break;
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+        $id_usuario = $matches[1];
+        require_once '../controllers/AdministradorController.php';
+        $controller = new AdministradorController();
+        $controller->showUpdateForm($id_adm);
+        break;
+    case '/cypher/update_cadastro':
+        require_once '../controllers/AdministradorController.php';
+        $controller = new AdiministradorController();
+        $controller->updateAdministrador();
+        break;
+    case '/cypher/public/':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->Formularioend();
         break;
-    case '/codigoprojeto/salvaend':
+    case '/cypher/salvaend':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->salvaendereco();
         break;
-    case '/codigoprojeto/update_endereco':
+    case '/cypher/update_endereco':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->updateendereco();
         break;
-    case (preg_match('/\/codigoprojeto\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->showUpdateFormEnd($id_usuario);
         break;
-    case '/ZYPHER_SNEAKERS/login-usuario':
-        $controller = new UsuarioController();  
+    case '/cypher/list-usuario':
+        $controller = new usuarioController();
+        $controller->listUsuario();
+        break;
+    case '/cypher/login-usuario':
+        $controller = new usuarioController();  
         $controller->loginUsuario();
         break;
-    case '/ZYPHER_SNEAKERS/list-usuarios':
-        $controller = new UsuarioController();
-        $controller->listUsuarios();
-        break;
-    case '/codigoprojeto/adicionar-giftcard':
+    case '/cypher/adicionar-giftcard':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->adicionarGiftcard();
         break;
-    case '/codigoprojeto/listar-giftcards':
+    case '/cypher/listar-giftcards':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->listarGiftcardsDisponiveis();
         break;
-    case '/codigoprojeto/resgatar-giftcard':
+    case '/cypher/resgatar-giftcard':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->resgatarGiftcard();
         break;
-    case '/ZYPHER_SNEAKERS/save-funcionario':
+    case '/cypher/save-funcionario':
         $controller = new FuncionarioController();
         $controller->saveFuncionario();
         break;
-    case '/ZYPHER_SNEAKERS/login-funcionario':
+    case '/cypher/login-funcionario':
         $controller = new FuncionarioController();  
         $controller->loginFuncionario();
         break;
-    case '/ZYPHER_SNEAKERS/save-administrador':
+    case '/cypher/save-administrador':
         $controller = new AdministradorController();
         $controller->saveAdministrador();
         break;
-    case '/ZYPHER_SNEAKERS/login-administrador':
+    case '/cypher/login-administrador':
         $controller = new AdministradorController();  
         $controller->loginAdministrador();
         break;

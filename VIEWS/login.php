@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>LOGIN</h1>
-    <form action="/ZYPHER_SNEAKERS/login-usuario" method="POST">
+    <form action="/cypher/login-usuario" method="POST">
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required><br><br>
 

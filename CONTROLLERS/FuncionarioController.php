@@ -18,11 +18,33 @@ class FuncionarioController {
 
     // Salva no banco de dados
     if ($funcionario->save()) {
-        header('Location: /ZYPHER_SNEAKERS/HomeFuncionario');
+        header('Location: /cypher/HomeFuncionario');
     } else {
         echo "Erro ao entrar!";
     }
 }
+ public function showUpdateForm($id_funcionario){
+        $funcionario = new Funcionario();
+        $funcionarioinfo = $funcionario->getByid($id_funcionario);
+        include '../views/update_funcionario.php';
+    }
+
+    public function updateUsuario() {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $funcionario = new Usuario();
+            $funcionario->nome = $_POST['nome'];
+            $funcionario->email = $_POST['email']; 
+            $funcionario->senha = $_POST['senha'];
+            $funcionario->id_funcionario = $_POST['id_funcionario'];
+
+            if ($usuario->update()) {
+                header('Location: /cypher/funcionariopage');
+            } else {
+                echo "Erro ao atualizar o cadastro.";
+            }
+        }
+    }
 
     public function loginFuncionario() {
     session_start();
@@ -39,7 +61,7 @@ class FuncionarioController {
 
        
 
-        header('Location: /ZYPHER_SNEAKERS/views/HomeFuncionario.php');
+        header('Location: /cypher/views/HomeFuncionario.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

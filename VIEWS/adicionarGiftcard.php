@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Adicionar Giftcard</h2>
-    <form method="POST" action="/codigoprojeto/adicionar-giftcard">
+    <form method="POST" action="/cypher/adicionar-giftcard">
     <label>Código:</label><br>
     <input type="text" name="codigo" required><br>
 

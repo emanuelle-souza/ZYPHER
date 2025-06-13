@@ -18,7 +18,7 @@
                 <strong>Código:</strong> <?= htmlspecialchars($gc['codigo']) ?> |
                 <strong>Saldo:</strong> R$ <?= number_format($gc['saldo'], 2, ',', '.') ?> |
                 <strong>Expira em:</strong> <?= $gc['expiracao'] ?>
-                <form method="POST" action="/codigoprojeto/resgatar-giftcard" style="display:inline;">
+                <form method="POST" action="/cypher/resgatar-giftcard" style="display:inline;">
                     <input type="hidden" name="codigo" value="<?= htmlspecialchars($gc['codigo']) ?>">
                     <button type="submit">Resgatar</button>
                 </form>

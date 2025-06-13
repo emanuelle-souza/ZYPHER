@@ -18,11 +18,34 @@ class AdministradorController {
 
     // Salva no banco de dados
     if ($administrador->save()) {
-        header('Location: /ZYPHER_SNEAKERS/controleuser.php');
+        header('Location: /cypher/controleuser.php');
     } else {
         echo "Erro ao entrar!";
     }
 }
+
+public function showUpdateForm($id_administrador){
+        $administrador = new Funcionario();
+        $administradorinfo = $administrador->getByid($id_administrador);
+        include '../views/update_administrador.php';
+    }
+
+    public function updateAdministrador() {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $administrador = new Administrador();
+            $administrador->nome = $_POST['nome'];
+            $administrador->email = $_POST['email']; 
+            $administrador->senha = $_POST['senha'];
+            $administrador->id_adm = $_POST['id_adm'];
+
+            if ($administrador->update()) {
+                header('Location: /cypher/administradorpage');
+            } else {
+                echo "Erro ao atualizar o cadastro.";
+            }
+        }
+    }
 
     public function loginAdministrador() {
     session_start();
@@ -39,7 +62,7 @@ class AdministradorController {
 
        
 
-        header('Location: /ZYPHER_SNEAKERS/views/controleuser.php');
+        header('Location: /cypher/views/controleuser.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";
