@@ -1,62 +1,44 @@
+<?php
+session_start();
+require_once '../controllers/ProdutoController.php';
+
+// Verifica se o usuário está logado
+$usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+
+// Busca os produtos
+$produtos = ProdutoController::listarProdutos();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zypher Sneakers - Homepage</title>
+    <title>Home - Zypher Sneakers</title>
 </head>
 <body>
-    <div class="container">  
+    <h1>Bem-vindo à Zypher Sneakers</h1>
 
-        <!-- MENU DO SITE -->
-        <header> 
-            <div class="menu-container">
-                <div class="logo">
-                    <a class="logo" href="#"><img src="../MIDIAS/logo_deitado.png.png" alt="Logo Zypher Sneakers"></a>
-                </div>
-                <div class="pesquisar">
-                    <input type="text" placeholder="Pesquisar...">
-                    <button><img src="../MIDIAS/pesquisar.png" alt="Pesquisar"></button>
-                </div>
-                <div class="icones">
-                    <a class="coroa" href="#"><img src="../MIDIAS/coroa.png" alt="coroa"></a>
-                    <a class="perfil" href="#"><img src="../MIDIAS/perfil.png" alt="perfil"></a>
-                    <a class="carrinho" href="#"><img src="../MIDIAS/carrinho.png" alt="carrinho"></a>
-                </div>
-            </div>
+    <!-- Barra superior -->
+    <div>
+        <?php if ($usuarioLogado): ?>
+            <a href="/views/perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>
+        <?php else: ?>
+            <a href="perfil_form.php">Perfil</a>
+        <?php endif; ?>
 
-            <nav>
-                <ul class="menu">
-                    <li><a href="#">FEMININO</a></li>
-                    <li><a href="#">MASCULINO</a></li>
-                    <li><a href="#">INFANTIL</a></li>
-                    <li><a href="#">ESPORTE</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- BANNER DE NOVIDADES -->
-        <section class="novidades">
-            <h1>NOVIDADES</h1>
-            <p>"Conforto que te leva além."</p>
-            <div class="banner">
-                <img src="../MIDIAS/novo_modelo.png" alt="Novo modelo de tênis">
-            </div>
-        </section>
-
-        <!-- PRODUTOS MAIS VENDIDOS -->
-        <section class="mais-vendidos">
-            <h2>MAIS VENDIDOS</h2>
-            <div id="produtos-container" class="produtos-grid">
-                <p>Carregando produtos...</p>
-            </div>
-        </section>
-
-        <!-- RODAPÉ -->
-        <footer>
-            <p>© 2025 Zypher Inc. Todos os direitos reservados.</p>
-            <p>Política de privacidade | Termos e condições</p>
-        </footer>
+        <a href="/views/carrinho.php">Carrinho</a>
     </div>
+
+    <h2>Produtos disponíveis</h2>
+
+    <ul>
+        <?php foreach ($produtos as $produto): ?>
+            <li>
+                <strong><?= htmlspecialchars($produto['nome']) ?></strong><br>
+                Marca: <?= htmlspecialchars($produto['marca']) ?><br>
+                Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
