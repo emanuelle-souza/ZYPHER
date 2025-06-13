@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Redefinir Senha</title>
+  <link rel="stylesheet" href="/cypher/views/css/*.css">
 </head>
 <body>
 

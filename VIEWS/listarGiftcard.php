@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giftcard membro</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/cypher/views/css/*.css">
 </head>
 <body>
     <h2>Giftcards Disponíveis</h2>

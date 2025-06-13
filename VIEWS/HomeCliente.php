@@ -15,6 +15,7 @@ $produtos = ProdutoController::listarProdutos();
     <meta charset="UTF-8">
     <title>Home - Zypher Sneakers</title>
 </head>
+<link rel="stylesheet" href="/cypher/views/css/*.css">
 <body>
     <h1>Bem-vindo à Zypher Sneakers</h1>
 
