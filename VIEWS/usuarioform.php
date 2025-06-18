@@ -10,7 +10,8 @@
     <div class="container">
     <div class="f1">
         <h1 class="title">CADASTRO</h1>
-        <p class ="text"> Cadastre-se agora para acessar ofertas exclusivas, acompanhar seus pedidos e <br>personalizar sua experiência de compra. É rápido, fácil e seguro!</p>
+        <p class ="text"> Cadastre-se agora para acessar ofertas exclusivas, acompanhar seus pedidos e 
+        <br>personalizar sua experiência de compra. É rápido, fácil e seguro!</p>
         <h4>Preencha seus dados e comece agora:</h4>
         <div class="form-box">
         <form action="/cypher/salvausuario" method="POST">
