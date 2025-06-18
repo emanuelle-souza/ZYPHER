@@ -121,6 +121,13 @@ switch ($request) {
         $controller->loginAdministrador();
         break;
 
+    
+    case '/ZYPHER_SNEAKERS/home':
+    case '/ZYPHER_SNEAKERS/':
+        $controller = new ProdutoController();
+        $controller->listarProdutos();
+        break;
+
     default:
         http_response_code(404);
         echo $request;
