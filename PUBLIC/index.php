@@ -122,8 +122,8 @@ switch ($request) {
         break;
 
     
-    case '/ZYPHER_SNEAKERS/home':
-    case '/ZYPHER_SNEAKERS/':
+    case '/cypher/home':
+    case '/cypher/':
         $controller = new ProdutoController();
         $controller->listarProdutos();
         break;
