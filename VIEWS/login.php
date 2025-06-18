@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login_cliente.css">
+    <link rel="stylesheet" href="">
     <title>LOGIN</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
         <input type="submit" value="ENTRAR"><br><br>
     </form>
 
-    <a href="">CADASTRAR-SE</a> <br><br>
-    <a href="">SOU MEMBRO</a>
+    <a href="usuarioform">CADASTRAR-SE</a> <br><br>
+    <a href="seja_membro">SOU MEMBRO</a>
 </body>
 </html>
