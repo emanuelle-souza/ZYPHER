@@ -7,7 +7,7 @@ class usuarioController {
         include '../views/usuarioform.php';
     }
 
-    public function salvausuario() {
+    public function saveusuario() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $usuario =  new Usuario();
             $usuario->nome = $_POST['nome'];
@@ -17,7 +17,7 @@ class usuarioController {
             $usuario->senha = $_POST('senha');
 
             if ($usuario->saveusuario()){
-                header('Location: /cypher/HomeCliente.php');
+                header('Location: /cypher/Home');
             } else {
                 echo "Erro ao cadastrar.";
             }
@@ -83,7 +83,7 @@ class usuarioController {
 
        
 
-        header('Location: /cypher/views/HomeCliente.php');
+        header('Location: /cypher/views/Home');
         exit();
     } else {
         echo "Email ou senha incorretos!";

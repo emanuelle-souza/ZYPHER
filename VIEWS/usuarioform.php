@@ -14,7 +14,7 @@
         <br>personalizar sua experiência de compra. É rápido, fácil e seguro!</p>
         <h4>Preencha seus dados e comece agora:</h4>
         <div class="form-box">
-        <form action="/cypher/salvausuario" method="POST">
+        <form action="/cypher/save-suario" method="POST">
         <div class="input-group">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br><br>
