@@ -122,7 +122,7 @@ switch ($request) {
         break;
 
     
-    case '/cypher/home':
+    case '/cypher/HomeCliente':
     case '/cypher/':
         $controller = new ProdutoController();
         $controller->listarProdutos();
