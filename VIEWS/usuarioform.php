@@ -41,8 +41,8 @@
     <p class= "text"><a href="">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 </div></div>
  <div class="f2">
-        <img src="/zypher/public/assets/midia/ouvidoria.png" class="ouvidoria">
-        <img src="/zypher/public/assets/midia/logo.png" class="logo">
+        <img src="/zypher/midia/ouvidoria.png" class="ouvidoria">
+        <img src="/zypher/midia/logo.png" class="logo">
     </div>
 
 </body>
