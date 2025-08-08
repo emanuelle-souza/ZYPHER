@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEJA MEMBRO</title>
-    <link rel="stylesheet" href="/cypher/views/css/*.css">
+    <link rel="stylesheet" href="/zypher/views/css/*.css">
 </head>
 <body>
     <h1>SEJA MEMBRO</h1>
-    <form action="/cypher/save-usuario" method="POST">
+    <form action="/zypher/save-usuario" method="POST">
         <label for="nome">NOME COMPLETO:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 

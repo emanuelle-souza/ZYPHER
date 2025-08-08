@@ -33,7 +33,7 @@ class Usuario {
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':telefone', $this->telefone);
         $stmt->bindParam(':cpf', $this->cpf);
-        $stmt->bindParam(':senha', $this->senha);
+        $stmt->bindParam(':senha', $this->senhaCriptografada);
 
         return $stmt->execute();
     }

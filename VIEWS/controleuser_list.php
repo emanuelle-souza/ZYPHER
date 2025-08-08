@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuários Cadastrados</title>
-    <link rel="stylesheet" href="/cypher/views/css/*.css">
+    <link rel="stylesheet" href="/zypher/views/css/*.css">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
         
         <td>
             <a href="/zypher-main/update-usuario/<?php echo $usuario['id_usuario']; ?>">Atualizar</a>
-            <form action="/cypher/delete-usuario" method="POST" style="display:inline;">
+            <form action="/zypher/delete-usuario" method="POST" style="display:inline;">
                 <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
                 <button type="submit">Excluir</button>
             </form>

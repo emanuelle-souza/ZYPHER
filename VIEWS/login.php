@@ -11,7 +11,7 @@
             <div class="login-wrapper">
                 <div class="container-login">
                     <h2>LOGIN</h2>
-                    <form action="/cypher/login-usuario" method="POST">
+                    <form action="/zypher/login-usuario" method="POST">
                         <input type="email" id="email" name="email" placeholder="E-MAIL:" required>
                         <input type="password" id="senha" name="senha" placeholder="SENHA:" required>
                         <div class="links">
