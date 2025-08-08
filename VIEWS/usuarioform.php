@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de usuario</title>
-    <link rel="stylesheet" href="/zypher/views/css/cadastro.css">
+    <link rel="stylesheet" href="/zypher/css/cadastro.css">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
         <br>personalizar sua experiência de compra. É rápido, fácil e seguro!</p>
         <h4>Preencha seus dados e comece agora:</h4>
         <div class="form-box">
-        <form action="/zypher/save-suario" method="POST">
+        <form action="/zypher/saveusuario" method="POST">
         <div class="input-group">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br><br>
@@ -38,7 +38,7 @@
             
             <input class="submit-btn" type="submit" value="Cadastrar usuario">
         </form>
-    <p class= "text"><a href="">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
+    <p class= "text"><a href="/zypher/views/PoliticaCliente.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 </div></div>
  <div class="f2">
         <img src="/zypher/midia/ouvidoria.png" class="ouvidoria">

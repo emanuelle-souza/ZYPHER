@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $valido = $stmt->fetch();
 
             if ($valido) {
-                header("Location: redefinir_senha.php");
+                header("Location: RedefinirSenha.php");
                 exit;
             } else {
                 $mensagem = "Código inválido ou expirado.";

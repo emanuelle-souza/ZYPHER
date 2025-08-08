@@ -17,10 +17,10 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->Formulario();
         break;
-    case '/zypher/save-usuario':
+    case '/zypher/saveusuario':
         require_once '../controllers/usuarioController.php';
         $controller =  new usuarioController();
-        $controller->salvaUsuario();
+        $controller->saveusuario();
         break;
     case '/zypher/delete-cadastro':
         require_once '../controllers/usuarioController.php';
@@ -85,7 +85,7 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->listUsuario();
         break;
-    case '/zypher/login-usuario':
+    case '/zypher/loginUsuario':
         $controller = new usuarioController();  
         $controller->loginUsuario();
         break;
@@ -121,7 +121,7 @@ switch ($request) {
         $controller->loginAdministrador();
         break;
  
-    case '/zypher/HomeCliente':
+    case '/zypher/HomeCliente.php':
         $controller = new ProdutoController();
         $controller->listarProdutos();
         break;

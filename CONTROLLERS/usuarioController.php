@@ -14,10 +14,10 @@ class usuarioController {
             $usuario->email = $_POST['email']; 
             $usuario->telefone = $_POST['telefone'];
             $usuario->cpf = $_POST['cpf'];
-            $usuario->senha = $_POST('senha');
+            $usuario->senha = $_POST['senha'];
 
             if ($usuario->saveusuario()){
-                header('Location: /zypher/HomeCliente');
+                header('Location: /zypher/views/HomeCliente.php');
             } else {
                 echo "Erro ao cadastrar.";
             }
@@ -27,13 +27,13 @@ class usuarioController {
      public function listUsuario() {
         $usuario = new Usuario();
         $usuario = $usuario->getAll();
-        include '../views/controleuser_list.php';
+        include '../views/Controleuserlist.php';
     } 
 
     public function showUpdateForm($id_usuario){
         $usuario = new Usuario();
         $usuarioinfo = $usuario->getByid($id_usuario);
-        include '../views/update_usuario.php';
+        include '../views/UpdateUsuario.php';
     }
 
     public function updateUsuario() {

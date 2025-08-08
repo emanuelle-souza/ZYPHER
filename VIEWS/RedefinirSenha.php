@@ -10,7 +10,7 @@ if (!$email) die("Acesso não autorizado.");
 <link rel="stylesheet" href="/zypher/views/css/*.css">
 <body>
     <h2>Digite sua nova senha</h2>
-    <form method="POST" action="salvar_nova_senha.php">
+    <form method="POST" action="SalvarNovaSenha.php">
         <label for="nova_senha">Nova senha:</label>
         <input type="password" name="nova_senha" required><br><br>
         <button type="submit">Salvar nova senha</button>
