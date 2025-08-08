@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Cadastro</title>
-    <link rel="stylesheet" href="/cypher/views/css/*.css">
+    <link rel="stylesheet" href="/zypher/views/css/*.css">
 </head>
 <body>
 
 <h1>Atualizar Cadastro</h1>
-<form action="/cypher/update_cadastro" method="POST">
+<form action="/zypher/update_cadastro" method="POST">
     <input type="hidden" name="id_funcionario" value="<?php echo $funcionarioinfo['id_funcionario']; ?>">
 
     <label for="nome">Nome:</label>

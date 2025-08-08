@@ -12,113 +12,118 @@ require_once '../controllers/enderecoController.php';
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
-    case '/cypher/public/':
+    case '/zypher/public/':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->Formulario();
         break;
-    case '/cypher/save-usuario':
+    case '/zypher/save-usuario':
         require_once '../controllers/usuarioController.php';
         $controller =  new usuarioController();
         $controller->salvaUsuario();
         break;
-    case '/cypher/delete-cadastro':
+    case '/zypher/delete-cadastro':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->deleteUsuarioByCpf();
         break;
-    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->showUpdateForm($id_usuario);
         break;
-    case '/cypher/update_cadastro':
+    case '/zypher/update_cadastro':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->updateUsuario();
         break;
-    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/FuncionarioController.php';
         $controller = new FuncionarioController();
         $controller->showUpdateForm($id_funcionario);
         break;
-    case '/cypher/update_cadastro':
+    case '/zypher/update_cadastro':
         require_once '../controllers/FuncionarioController.php';
         $controller = new FuncionarioController();
         $controller->updateFuncionario();
         break;
-    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/AdministradorController.php';
         $controller = new AdministradorController();
         $controller->showUpdateForm($id_adm);
         break;
-    case '/cypher/update_cadastro':
+    case '/zypher/update_cadastro':
         require_once '../controllers/AdministradorController.php';
         $controller = new AdiministradorController();
         $controller->updateAdministrador();
         break;
-    case '/cypher/public/':
+    case '/zypher/public/':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->Formularioend();
         break;
-    case '/cypher/salvaend':
+    case '/zypher/salvaend':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->salvaendereco();
         break;
-    case '/cypher/update_endereco':
+    case '/zypher/update_endereco':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->updateendereco();
         break;
-    case (preg_match('/\/cypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
         $controller->showUpdateFormEnd($id_usuario);
         break;
-    case '/cypher/list-usuario':
+    case '/zypher/list-usuario':
         $controller = new usuarioController();
         $controller->listUsuario();
         break;
-    case '/cypher/login-usuario':
+    case '/zypher/login-usuario':
         $controller = new usuarioController();  
         $controller->loginUsuario();
         break;
-    case '/cypher/adicionar-giftcard':
+    case '/zypher/adicionar-giftcard':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->adicionarGiftcard();
         break;
-    case '/cypher/listar-giftcards':
+    case '/zypher/listar-giftcards':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->listarGiftcardsDisponiveis();
         break;
-    case '/cypher/resgatar-giftcard':
+    case '/zypher/resgatar-giftcard':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->resgatarGiftcard();
         break;
-    case '/cypher/save-funcionario':
+    case '/zypher/save-funcionario':
         $controller = new FuncionarioController();
         $controller->saveFuncionario();
         break;
-    case '/cypher/login-funcionario':
+    case '/zypher/login-funcionario':
         $controller = new FuncionarioController();  
         $controller->loginFuncionario();
         break;
-    case '/cypher/save-administrador':
+    case '/zypher/save-administrador':
         $controller = new AdministradorController();
         $controller->saveAdministrador();
         break;
-    case '/cypher/login-administrador':
+    case '/zypher/login-administrador':
         $controller = new AdministradorController();  
         $controller->loginAdministrador();
+        break;
+ 
+    case '/zypher/HomeCliente':
+        $controller = new ProdutoController();
+        $controller->listarProdutos();
         break;
 
     default:

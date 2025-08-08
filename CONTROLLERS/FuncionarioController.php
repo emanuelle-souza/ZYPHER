@@ -18,7 +18,7 @@ class FuncionarioController {
 
     // Salva no banco de dados
     if ($funcionario->save()) {
-        header('Location: /cypher/HomeFuncionario');
+        header('Location: /zypher/HomeFuncionario');
     } else {
         echo "Erro ao entrar!";
     }
@@ -39,7 +39,7 @@ class FuncionarioController {
             $funcionario->id_funcionario = $_POST['id_funcionario'];
 
             if ($usuario->update()) {
-                header('Location: /cypher/funcionariopage');
+                header('Location: /zypher/funcionariopage');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }
@@ -61,7 +61,7 @@ class FuncionarioController {
 
        
 
-        header('Location: /cypher/views/HomeFuncionario.php');
+        header('Location: /zypher/views/HomeFuncionario.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

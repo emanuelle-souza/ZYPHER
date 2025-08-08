@@ -18,7 +18,7 @@ class AdministradorController {
 
     // Salva no banco de dados
     if ($administrador->save()) {
-        header('Location: /cypher/controleuser.php');
+        header('Location: /zypher/controleuser.php');
     } else {
         echo "Erro ao entrar!";
     }
@@ -40,7 +40,7 @@ public function showUpdateForm($id_administrador){
             $administrador->id_adm = $_POST['id_adm'];
 
             if ($administrador->update()) {
-                header('Location: /cypher/administradorpage');
+                header('Location: /zypher/administradorpage');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }
@@ -62,7 +62,7 @@ public function showUpdateForm($id_administrador){
 
        
 
-        header('Location: /cypher/views/controleuser.php');
+        header('Location: /zypher/views/controleuser.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";

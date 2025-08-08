@@ -21,7 +21,7 @@ class Usuario {
 
     // Método para salvar um cadastro
     public function saveusuario() {
-        $query = "INSERT INTO " . $this->table_name . " (nome, email, telefone, cpf, senha) 
+        $query = "INSERT INTO " . $this->table_name . "(nome, email, telefone, cpf, senha) 
                   VALUES (:nome, :email, :telefone, :cpf, :senha)";
         $stmt = $this->conn->prepare($query);
 
@@ -33,7 +33,7 @@ class Usuario {
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':telefone', $this->telefone);
         $stmt->bindParam(':cpf', $this->cpf);
-        $stmt->bindParam(':senha', $this->senha);
+        $stmt->bindParam(':senha', $this->senhaCriptografada);
 
         return $stmt->execute();
     }

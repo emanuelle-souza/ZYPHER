@@ -1,26 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login_cliente.css">
-    <title>LOGIN</title>
-</head>
-<body>
-    <h1>LOGIN</h1>
-    <form action="/cypher/login-usuario" method="POST">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br><br>
+ <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Zypher Sneakers</title>
+        <link rel="stylesheet" href="../CSS/login.css">
+    </head>
+    <body>
+        <main>
+            <div class="login-wrapper">
+                <div class="container-login">
+                    <h2>LOGIN</h2>
+                    <form action="/zypher/login-usuario" method="POST">
+                        <input type="email" id="email" name="email" placeholder="E-MAIL:" required>
+                        <input type="password" id="senha" name="senha" placeholder="SENHA:" required>
+                        <div class="links">
+                            <a href="">ESQUECEU A SENHA?</a>
+                        </div>
+                        <button type="submit" id="btn-login">ENTRAR</button>
+                    </form>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br>
-
-        <a href="recuperar_senha_form">ESQUECEU SENHA?</a><br><br>
-
-        <input type="submit" value="ENTRAR"><br><br>
-    </form>
-
-    <a href="">CADASTRAR-SE</a> <br><br>
-    <a href="">SOU MEMBRO</a>
-</body>
-</html>
+                    <div class="links" style="margin-top:18px;">
+                        <a href="">CADASTRAR-SE</a><br><br>
+                        <a href="">SOU MEMBRO</a>
+                    </div>
+                </div>
+                <div class="login-image-side">
+                    <img src="../MIDIA/logo_deitado.png" alt="Logo Zypher Sneakers">
+                </div>
+            </div>
+        </main>
+    </body>
+    </html>
