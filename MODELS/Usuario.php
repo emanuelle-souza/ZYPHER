@@ -57,7 +57,7 @@ class Usuario {
 
     // Método para atualizar um cadastro
     public function update() {
-        $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha, WHERE id_usuario = :id_usuario";
+        $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha WHERE id_usuario = :id_usuario";
         $stmt = $this->conn->prepare($query);
 
         // Bind params to the query
@@ -78,7 +78,8 @@ class Usuario {
 
         return $stmt->execute();
      }
-
+     // Método para buscar um usuario pelo email
+     
        public function buscarPorEmail($email) {
         $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
         $stmt = $this->conn->prepare($query);

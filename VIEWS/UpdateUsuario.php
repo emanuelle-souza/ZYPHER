@@ -11,24 +11,24 @@
 
 <h1>Atualizar Cadastro</h1>
 <form action="/zypher/update_cadastro" method="POST">
-    <input type="hidden" name="id_usuario" value="<?php echo $usuarioinfo['id_usuario']; ?>">
+    <input type="hidden" name="id_usuario">
 
     <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" value="<?php echo $usuarioinfo['nome']; ?>" required><br><br>
+    <input type="text" id="nome" name="nome"><br><br>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value="<?php echo $usuarioinfo['email']; ?>" required><br><br>
+    <input type="email" id="email" name="email"><br><br>
 
     <label for="telefone">Telefone:</label>
-    <input type="text" id="telefone" name="telefone" value="<?php echo $usuarioinfo['telefone']; ?>" required><br><br>
+    <input type="text" id="telefone" name="telefone"><br><br>
 
     <label for="cpf">CPF:</label>
-    <input type="number" id="cpf" name="cpf" value="<?php echo $usuarioinfo['cpf']; ?>"><br><br>
+    <input type="number" id="cpf" name="cpf"><br><br>
 
     <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha" value="<?php echo $usuarioinfo['senha']; ?>" required><br><br>
+    <input type="password" id="senha" name="senha"><br><br>
 
-    <input type="submit" value="Atualizar Cadastro">
+    <input type="submit" value="Atualizar Cadastro" href="PerfilUsuario.php" >
 </form>
 
 </body>

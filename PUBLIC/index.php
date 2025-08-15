@@ -7,12 +7,20 @@ error_reporting(E_ALL);
 
 require_once '../controllers/usuarioController.php';
 require_once '../controllers/enderecoController.php';
+require_once '../controllers/ProdutoController.php';
 
 // Lógica de roteamento
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
     case '/zypher/public/':
+        require_once '../controllers/ProdutoController.php';
+        $controllerProduto = new ProdutoController();
+        $controllerProduto->listarProdutos();
+        $controllerUsuario = new usuarioController();
+        $controllerUsuario->Formulario();
+        break;
+    case '/zypher/usuarioform.php':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->Formulario();

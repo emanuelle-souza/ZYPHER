@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>PERFIL DO USUÁRIO</h1>
-<button onclick="window.location.href='/zypher/update_cadastro'">ATUALIZAR PERFIL</button>
+<button onclick="window.location.href='UpdateUsuario.php'">ATUALIZAR PERFIL</button>
 <button onclick="window.location.href='/zypher/public'">SAIR</button>
 <button onclick="window.location.href='/zypher/delete-cadastro'">DELETAR</button>
 </body>

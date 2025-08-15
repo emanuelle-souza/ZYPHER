@@ -24,7 +24,7 @@ $produtos = ProdutoController::listarProdutos();
         <?php if ($usuarioLogado): ?>
             <a href="/views/perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>
         <?php else: ?>
-            <a href="perfil_form.php">Perfil</a>
+            <a href="PerfilUsuario.php">Perfil</a>
         <?php endif; ?>
 
         <a href="/views/carrinho.php">Carrinho</a>

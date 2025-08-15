@@ -48,7 +48,7 @@ class usuarioController {
             $usuario->id_usuario = $_POST['id_usuario'];
 
             if ($usuario->update()) {
-                header('Location: /zypher/usuariopage');
+                header('Location: /zypher/views/PerfilUsuario.php');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }
