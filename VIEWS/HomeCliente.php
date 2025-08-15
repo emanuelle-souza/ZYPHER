@@ -22,12 +22,12 @@ $produtos = ProdutoController::listarProdutos();
     <!-- Barra superior -->
     <div>
         <?php if ($usuarioLogado): ?>
-            <a href="/views/perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>
+            <a href="/views/Perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>
         <?php else: ?>
-            <a href="PerfilUsuario.php">Perfil</a>
+            <a href="/zypher/views/PerfilUsuario.php">Perfil</a>
         <?php endif; ?>
 
-        <a href="/views/carrinho.php">Carrinho</a>
+        <a href="/zypher/views/CarrinhoCliente.php">Carrinho</a>
     </div>
 
     <h2>Produtos disponíveis</h2>

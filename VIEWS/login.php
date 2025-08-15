@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login - Zypher Sneakers</title>
-        <link rel="stylesheet" href="/zypher/css/login.css">
+        <link rel="stylesheet" href="/zypher/css/LoginCliente.css">
     </head>
     <body>
         <main>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="login-image-side">
-                    <img src="../MIDIA/logo_deitado.png" alt="Logo Zypher Sneakers">
+                    <img src="../MIDIA/LogoDeitado.png.png" alt="Logo Zypher Sneakers">
                 </div>
             </div>
         </main>

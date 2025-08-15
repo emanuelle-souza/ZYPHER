@@ -16,7 +16,7 @@ body {
   overflow: hidden; /* Remove a rolagem */
 }
 
-.container {
+.container-login {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;

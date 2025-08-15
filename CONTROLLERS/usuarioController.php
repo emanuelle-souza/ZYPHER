@@ -68,6 +68,7 @@ class usuarioController {
         }
     }
 
+    
     public function loginUsuario() {
     session_start();
 

@@ -17,8 +17,9 @@ switch ($request) {
         require_once '../controllers/ProdutoController.php';
         $controllerProduto = new ProdutoController();
         $controllerProduto->listarProdutos();
-        $controllerUsuario = new usuarioController();
-        $controllerUsuario->Formulario();
+        //$controllerUsuario = new usuarioController();
+        //$controllerUsuario->();
+        require '../VIEWS/HomeCliente.php';
         break;
     case '/zypher/usuarioform.php':
         require_once '../controllers/usuarioController.php';
