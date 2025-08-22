@@ -10,16 +10,16 @@
     <header> 
         <div class="menu-container">
             <div class="logo">
-                <a class="logo" href="#"><img src="/zypher/MIDIAS/logo_deitado.png.png" alt="Logo Zypher Sneakers"></a>
+                <a class="logo" href="#"><img src="/zypher/MIDIA/LogoDeitado.png" alt="Logo Zypher Sneakers"></a>
             </div>
             <div class="pesquisar">
                 <input type="text" placeholder="Pesquisar...">
-                <button><img src="/zypher/MIDIAS/pesquisar.png" alt="Pesquisar"></button>
+                <button><img src="/zypher/MIDIA/pesquisar.png" alt="Pesquisar"></button>
             </div>
             <div class="icones">
-                <a class="coroa" href="#"><img src="/zypher/MIDIAS/coroa.png" alt="coroa"></a>
-                <a class="perfil" href="#"><img src="/zypher/MIDIAS/perfil.png" alt="perfil"></a>
-                <a class="carrinho" href="#"><img src="/zypher/MIDIAS/carrinho.png" alt="carrinho"></a>
+                <a class="coroa" href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a class="perfil" href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
+                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
             </div>
         </div>
     </header>

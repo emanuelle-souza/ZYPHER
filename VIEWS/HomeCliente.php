@@ -20,6 +20,10 @@ $produtos = ProdutoController::listarProdutos();
     <h1>Bem-vindo à Zypher Sneakers</h1>
 
     <!-- Barra superior -->
+     <div class="icones">
+                <a class="coroa" href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+            </div>
     <div>
         <?php if ($usuarioLogado): ?>
             <a href="/views/Perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>

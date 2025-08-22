@@ -303,13 +303,13 @@ X        /* Estilização dos formulários de pagamento */
                 </button>
             </div>
             <div class="icones">
-                <a class="coroa" href="#">
+                <a class="coroa" href="/zypher/views/SejaMembro.php">
                     <img src="https://cdn-icons-png.flaticon.com/512/6941/6941697.png" alt="coroa" width="32" height="32" style="filter: drop-shadow(0 1px 2px #bfa13b88);">
                 </a>
-                <a class="perfil" href="#">
+                <a class="perfil" href="/zypher/views/PerfilUsuario.php">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="perfil" width="32" height="32" style="filter: grayscale(1) brightness(0.6);">
                 </a>
-                <a class="carrinho" href="#">
+                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php">
                     <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="carrinho" width="32" height="32" style="filter: grayscale(1) brightness(0.6);">
                 </a>
             </div>
