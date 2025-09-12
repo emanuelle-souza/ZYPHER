@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login - Zypher Sneakers</title>
-        <link rel="stylesheet" href="/zypher/css/LoginCliente.css">
+        <link rel="stylesheet" href="../CSS/LoginCliente.css">
     </head>
     <body>
         <main>
