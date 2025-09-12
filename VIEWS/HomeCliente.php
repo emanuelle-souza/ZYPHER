@@ -9,41 +9,65 @@ $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null
 $produtos = ProdutoController::listarProdutos();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Home - Zypher Sneakers</title>
+    <title>Zypher Sneakers</title>
+    <link rel="stylesheet" href="../CSS/HomeCliente.css">
 </head>
-<link rel="stylesheet" href="../css/HomeCliente.css">
 <body>
-    <h1>Bem-vindo à Zypher Sneakers</h1>
-
-    <!-- Barra superior -->
-     <div class="icones">
-                <a class="coroa" href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+    <!-- Header -->
+    <header>
+        <div class="topo">
+            <div class="logo">
+            <a href="/zypher/VIEWS/HomeCliente.php">
+            <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+            </a>
+        </div>
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
             </div>
-    <div>
-        <?php if ($usuarioLogado): ?>
-            <a href="/views/Perfil.php?id=<?= $usuarioLogado ?>">Perfil</a>
-        <?php else: ?>
-            <a href="/zypher/views/PerfilUsuario.php">Perfil</a>
-        <?php endif; ?>
+            <div class="icones">
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
+            </div>
+        </div>
 
-        <a href="/zypher/views/CarrinhoCliente.php">Carrinho</a>
-    </div>
+        <!-- Menu -->
+        <nav>
+            <a href="#">Feminino</a>
+            <a href="#">Masculino</a>
+        </nav>
+    </header>
 
-    <h2>Produtos disponíveis</h2>
+    <!-- Seção Novidades -->
+    <section class="novidades">
+        <h2>NOVIDADES</h2>
+        <p>"Conforto que te leva além."</p>
+        <div class="destaque">
+            <img src="/zypher/MIDIA/Home.png" alt="Produto destaque">
+        </div>
+    </section>
 
-    <ul>
-        <?php foreach ($produtos as $produto): ?>
-            <li>
-                <strong><?= htmlspecialchars($produto['nome']) ?></strong><br>
-                Marca: <?= htmlspecialchars($produto['marca']) ?><br>
-                Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <!-- Mais Vendidos -->
+    <section class="mais-vendidos">
+        <h2>MAIS VENDIDOS</h2>
+        <div class="grid-produtos">
+            <?php foreach ($produtos as $produto): ?>
+                <div class="card">
+                    <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                        <h3><?= htmlspecialchars($produto['nome'] ?? 'Produto sem nome') ?></h3>
+                        <p><?= htmlspecialchars($produto['descricao'] ?? 'Descrição não disponível') ?></p>
+                        <span class="preco">
+                        R$ <?= number_format($produto['preco'] ?? 0, 2, ',', '.') ?>
+                        </span>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 </body>
 </html>

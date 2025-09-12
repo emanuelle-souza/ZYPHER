@@ -8,7 +8,7 @@ class ProdutoController {
     $pdo = $db->getConnection();
 
     try {
-        $stmt = $pdo->prepare("SELECT id, nome, marca, preco FROM produtos ORDER BY data_cadastro DESC");
+        $stmt = $pdo->prepare("SELECT id, nome, marca, descricao, preco, imagem FROM produtos ORDER BY data_cadastro DESC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
