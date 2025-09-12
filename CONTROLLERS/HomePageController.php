@@ -6,7 +6,7 @@ class HomePageController {
         global $pdo;
 
         try {
-            $query = "SELECT nome, marca, preco FROM produtos";
+            $query = "SELECT nome, marca, descricao, preco, imagem FROM produtos";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
             $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
