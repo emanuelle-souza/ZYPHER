@@ -9,17 +9,19 @@ require_once '../controllers/usuarioController.php';
 require_once '../controllers/enderecoController.php';
 require_once '../controllers/ProdutoController.php';
 
+
 // Lógica de roteamento
 $request = $_SERVER['REQUEST_URI'];
 
+
 switch ($request) {
     case '/zypher/public/':
-        require_once '../controllers/ProdutoController.php';
-        $controllerProduto = new ProdutoController();
-        $controllerProduto->listarProdutos();
+        require_once '../controllers/HomePageController.php';
+        $controllerProduto = new HomePageController();
+        $controllerProduto->exibirProdutos();
         //$controllerUsuario = new usuarioController();
         //$controllerUsuario->();
-        require '../VIEWS/HomeCliente.php';
+       //    require '../VIEWS/HomeCliente.php';
         break;
     case '/zypher/usuarioform.php':
         require_once '../controllers/usuarioController.php';

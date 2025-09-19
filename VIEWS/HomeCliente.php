@@ -1,12 +1,12 @@
 <?php
-session_start();
+//session_start();
 require_once '../controllers/ProdutoController.php';
 
 // Verifica se o usuário está logado
 $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
 
 // Busca os produtos
-$produtos = ProdutoController::listarProdutos();
+//$produtos = ProdutoController::listarProdutos();
 ?>
 
 

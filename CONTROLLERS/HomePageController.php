@@ -3,7 +3,8 @@ require_once '../config/database.php';
 
 class HomePageController {
     public function exibirProdutos() {
-        global $pdo;
+        $db = new Database();
+        $pdo = $db->getConnection();
 
         try {
             $query = "SELECT nome, marca, descricao, preco, imagem FROM produtos";
