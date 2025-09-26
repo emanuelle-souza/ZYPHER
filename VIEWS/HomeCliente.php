@@ -6,7 +6,7 @@ require_once '../controllers/ProdutoController.php';
 $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
 
 // Busca os produtos
-//$produtos = ProdutoController::listarProdutos();
+$produtos = ProdutoController::listarProdutos();
 ?>
 
 
@@ -15,7 +15,7 @@ $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null
 <head>
     <meta charset="UTF-8">
     <title>Zypher Sneakers</title>
-    <link rel="stylesheet" href="../CSS/HomeCliente.css">
+    <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
 </head>
 <body>
     <!-- Header -->

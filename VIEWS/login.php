@@ -28,18 +28,18 @@
     </form>
 </div>
 
-        <p class="CADASTRO"><a href="">CADASTRAR-SE</a></p>
+        <p class="CADASTRO"><a href="/zypher/views/usuarioform.php">CADASTRAR-SE</a></p>
        
         <p class="MEMBRO"><a href="">SOU MEMBRO</a></p>
 
-        <p class= "text"><a href="">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
+        <p class= "text"><a href="/zypher/views/PoliticaCliente.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 
     </div>
 
 
     <div class="f2">
-        <img src="..MIDIA/LogoDeitado.png" class="logo">
-        <img src="..MIDIA/ouvidoria.png" class="ouvidoria">
+        <img src="/zypher/midia/logo.png" class="logo">
+        <img src="/zypher/midia/ouvidoria.png" class="ouvidoria">
     </div>
     </div>
 </div>

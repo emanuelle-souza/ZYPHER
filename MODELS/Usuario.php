@@ -19,32 +19,36 @@ class Usuario {
         $this->conn = $database->getConnection();
     }
 
-    // Método para salvar um cadastro
     public function saveusuario() {
-        $query = "INSERT INTO " . $this->table_name . "(nome, email, telefone, cpf, senha) 
-                  VALUES (:nome, :email, :telefone, :cpf, :senha)";
-        $stmt = $this->conn->prepare($query);
+    // Verificar se o email já existe
+    $checkQuery = "SELECT id_usuario FROM " . $this->table_name . " WHERE email = :email";
+    $checkStmt = $this->conn->prepare($checkQuery);
+    $checkStmt->bindParam(':email', $this->email);
+    $checkStmt->execute();
 
-        // Criptografar a senha corretamente
-        $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
-
-        // Bind params to the query
-        $stmt->bindParam(':nome', $this->nome);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':telefone', $this->telefone);
-        $stmt->bindParam(':cpf', $this->cpf);
-        $stmt->bindParam(':senha', $senhaCriptografada);
-
-        return $stmt->execute();
+    if ($checkStmt->rowCount() > 0) {
+        // Já existe → atualizar
+        $query = "UPDATE " . $this->table_name . "
+                  SET nome = :nome, telefone = :telefone, cpf = :cpf, senha = :senha, membro = 1
+                  WHERE email = :email";
+    } else {
+        // Não existe → inserir novo
+        $query = "INSERT INTO " . $this->table_name . " 
+                  (nome, email, telefone, cpf, senha, membro)
+                  VALUES (:nome, :email, :telefone, :cpf, :senha, 1)";
     }
 
-    // Método para listar todos os cadastros
-    public function getAll() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->bindParam(':nome', $this->nome);
+    $stmt->bindParam(':email', $this->email);
+    $stmt->bindParam(':telefone', $this->telefone);
+    $stmt->bindParam(':cpf', $this->cpf);
+    $stmt->bindParam(':senha', $this->senha);
+
+    return $stmt->execute();
+}
+
 
     // Método para buscar um cadastro pelo ID
     public function getById($id_usuario) {
