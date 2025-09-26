@@ -25,8 +25,8 @@
                         <a href="">SOU MEMBRO</a>
                     </div>
                 </div>
-                <div class="login-image-side">
-                    <img src="../MIDIA/LogoDeitado.png.png" alt="Logo Zypher Sneakers">
+                <div class="logo">
+                    <img src="../MIDIA/LogoDeitado.png" alt="Logo Zypher Sneakers">
                 </div>
             </div>
         </main>
