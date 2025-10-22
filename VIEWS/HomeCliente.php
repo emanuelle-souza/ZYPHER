@@ -7,7 +7,14 @@ $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null
 
 // Busca os produtos
 $produtos = ProdutoController::listarProdutos();
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -33,7 +40,19 @@ $produtos = ProdutoController::listarProdutos();
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
                 <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
+                <?php if (!isset($_SESSION)) session_start(); ?>
+
+<?php if (isset($_SESSION['usuario_id'])): ?>
+    <!-- Usuário logado: vai para o perfil -->
+    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+    </a>
+<?php else: ?>
+    <!-- Usuário não logado: mostra opções de login/cadastro -->
+    <a href="/zypher/views/login.php" title="Entrar">
+        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+    </a>
+<?php endif; ?>
             </div>
         </div>
 
