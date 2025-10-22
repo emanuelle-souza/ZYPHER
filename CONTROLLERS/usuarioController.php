@@ -84,7 +84,7 @@ class usuarioController {
 
        
 
-        header('Location: /zypher/views/HomeCliente');
+        header('Location: /zypher/views/HomeCliente.php');
         exit();
     } else {
         echo "Email ou senha incorretos!";
