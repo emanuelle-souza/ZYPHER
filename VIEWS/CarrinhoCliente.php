@@ -138,42 +138,74 @@
             background: #1e7e34;
         }
         /* Header, pesquisar, icones, rodape (copiados do modelo) */
-        .pesquisar {
-            display: flex;
-            align-items: center;
-            background: #e4e4e4;
-            border-radius: 24px;
-            padding: 2px 10px 2px 12px;
-            width: 240px;
-            height: 38px;
-        }
-        .pesquisar input[type="text"] {
-            border: none;
-            background: transparent;
-            outline: none;
-            font-size: 1em;
-            flex: 1;
-            padding: 6px 0;
-            color: #222;
-        }
-        .pesquisar button {
-            background: none;
-            border: none;
-            padding: 0;
-            margin-left: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-        .pesquisar button img {
-            width: 20px;
-            height: 20px;
-            filter: grayscale(1) brightness(0.6);
-            display: block;
-        }
-        .icones a img {
-            vertical-align: middle;
-        }
+/* HEADER */
+header {
+    background: #172A4E;
+    color: #fff;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* espaço entre logo e texto */
+}
+
+.logo-img {
+    height: 35px; /* ajuste conforme o tamanho do design do Figma */
+    width: auto;
+}
+
+
+.busca {
+    display: flex;
+}
+
+.busca input {
+    padding: 6px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.busca button {
+    border: none;
+    padding: 6px 10px;
+    background: #d1d7d8;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.icones img {
+    width: 28px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* MENU */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #BAC2CF;
+    padding: 10px 0;
+}
+
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #8a90cc;
+}
+
         footer {
             background: #f4f4f4;
             text-align: center;
@@ -291,39 +323,31 @@ X        /* Estilização dos formulários de pagamento */
     </style>
 </head>
 <body>
+     <!-- Header -->
     <header>
-        <div class="menu-container">
+        <div class="topo">
             <div class="logo">
-                <a class="logo" href="#"><img src="../MIDIA/LogoDeitado.png.png" alt="Logo Zypher Sneakers"></a>
-            </div>
-            <div class="pesquisar">
-                <input type="text" placeholder="Pesquisar...">
-                <button>
-                    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Pesquisar">
-                </button>
+            <a href="/zypher/VIEWS/HomeCliente.php">
+            <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+            </a>
+        </div>
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
             </div>
             <div class="icones">
-                <a class="coroa" href="/zypher/views/SejaMembro.php">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6941/6941697.png" alt="coroa" width="32" height="32" style="filter: drop-shadow(0 1px 2px #bfa13b88);">
-                </a>
-                <a class="perfil" href="/zypher/views/PerfilUsuario.php">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="perfil" width="32" height="32" style="filter: grayscale(1) brightness(0.6);">
-                </a>
-                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="carrinho" width="32" height="32" style="filter: grayscale(1) brightness(0.6);">
-                </a>
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
             </div>
         </div>
-        <nav class="menu-categorias">
-            <ul>
-                <li><a href="#">FEMININO</a></li>
-                <li><a href="#">MASCULINO</a></li>
-                <li><a href="#">INFANTIL</a></li>
-                <li><a href="#">ESPORTE</a></li>
-            </ul>
+
+        <!-- Menu -->
+        <nav>
+            <a href="#">Feminino</a>
+            <a href="#">Masculino</a>
         </nav>
     </header>
-
     <main>
         <div class="container-carrinho" id="carrinho">
             <h2>Seu Carrinho</h2>

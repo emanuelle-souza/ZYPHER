@@ -8,12 +8,15 @@
 </head>
 <body>
     <h1>SEJA MEMBRO</h1>
-    <form action="/zypher/save-usuario" method="POST">
+    <form action="/zypher/saveusuario" method="POST">
         <label for="nome">NOME COMPLETO:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="cpf">CPF:</label>
         <input type="number" id="cpf" name="cpf" required><br><br>
+
+        <label for="telefone">TELEFONE:</label>
+        <input type="number" id="telefone" name="telefone" required><br><br> 
 
         <label for="email">E-MAIL:</label>
         <input type="email" id="email" name="email"><br><br>
