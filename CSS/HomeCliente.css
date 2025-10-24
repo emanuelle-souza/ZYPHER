@@ -1,165 +1,217 @@
-body {
+/* ===== RESET ===== */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HEADER */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #fff;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
 header {
-    background: #172A4E;
+    background: #0F1E3D;
     color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .topo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* espaço entre logo e texto */
+    padding: 12px 60px;
 }
 
 .logo-img {
-    height: 35px; /* ajuste conforme o tamanho do design do Figma */
-    width: auto;
+    height: 32px;
 }
 
-
+/* ===== BUSCA ===== */
 .busca {
     display: flex;
+    align-items: center;
 }
 
 .busca input {
-    padding: 6px;
+    padding: 7px 12px;
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    width: 180px;
 }
 
 .busca button {
     border: none;
-    padding: 6px 10px;
-    background: #d1d7d8;
-    border-radius: 0 5px 5px 0;
+    background: #d3d6da;
+    border-radius: 0 20px 20px 0;
+    padding: 7px 10px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
+.busca button:hover {
+    background: #bfc2c6;
+}
+
+/* ===== ICONES ===== */
 .icones img {
-    width: 28px;
-    margin-left: 15px;
+    width: 20px;
+    margin-left: 16px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
-/* MENU */
+.icones img:hover {
+    transform: scale(1.1);
+}
+
+/* ===== MENU ===== */
 nav {
+    background: #e8ecf3;
     display: flex;
     justify-content: center;
-    background: #BAC2CF;
-    padding: 10px 0;
+    padding: 8px 0;
+    position: relative;
+    top: 60px;
 }
 
 nav a {
-    margin: 0 20px;
+    color: #000;
     text-decoration: none;
-    color: #000000;
-    font-weight: bold;
+    font-weight: 600;
+    margin: 0 25px;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #8a90cc;
+    color: #1a3cff;
 }
 
-/* SEÇÃO NOVIDADES */
-.novidades {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.novidades h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
-}
-
-.novidades p {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.novidades img {
-    max-width: 800px;
+/* ===== BANNER ===== */
+.banner-principal {
+    position: relative;
     width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    height: 320px; /* banner mais fino e elegante */
+    margin-top: 120px;
+    overflow: hidden;
+    border-radius: 0 0 25px 25px;
 }
 
-/* MAIS VENDIDOS */
+.banner-principal video,
+.banner-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+}
+
+.texto-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+.texto-banner h2 {
+    font-size: 34px;
+    font-weight: 700;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+.texto-banner p {
+    font-size: 16px;
+    margin-top: 6px;
+    color: #e0e0e0;
+}
+
+/* ===== PRODUTOS ===== */
 .mais-vendidos {
-    padding: 40px 20px;
+    padding: 60px 50px;
     background: #fff;
+    text-align: center;
 }
 
 .mais-vendidos h2 {
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #0d1b2a;
 }
 
 .grid-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    background: #f9f9f9;
+    background: #f8f9fa;
     border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 18px;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .card img {
-    max-width: 100%;
-    height: 180px;
+    width: 100%;
+    height: 170px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .card h3 {
-    font-size: 18px;
-    margin: 5px 0;
+    font-size: 15px;
+    margin: 6px 0 2px;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
-    min-height: 40px;
+    min-height: 36px;
 }
 
 .card .preco {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
+    font-weight: 600;
+    margin-top: 8px;
     color: #0c2340;
 }
 
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
 
-.card-link:hover .card {
-  transform: scale(1.02);
-  transition: 0.2s ease;
+    nav {
+        top: 120px;
+    }
+
+    .banner-principal {
+        height: 200px;
+        margin-top: 160px;
+    }
+
+    .texto-banner h2 {
+        font-size: 22px;
+    }
 }
