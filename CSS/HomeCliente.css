@@ -1,43 +1,44 @@
+/* ===== RESET E BASE ===== */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #333;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #fff;
+    color: #222;
+    overflow-x: hidden;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
-    background: #172A4E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0d1b2a;
     color: #fff;
+    z-index: 1000;
 }
 
 .topo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* espaço entre logo e texto */
+    padding: 12px 50px;
 }
 
 .logo-img {
-    height: 35px; /* ajuste conforme o tamanho do design do Figma */
-    width: auto;
+    height: 40px;
 }
-
 
 .busca {
     display: flex;
 }
 
 .busca input {
-    padding: 6px;
+    padding: 6px 10px;
     border: none;
     border-radius: 5px 0 0 5px;
+    outline: none;
 }
 
 .busca button {
@@ -49,79 +50,98 @@ header {
 }
 
 .icones img {
-    width: 28px;
-    margin-left: 15px;
+    width: 26px;
+    margin-left: 18px;
     cursor: pointer;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 nav {
+    background: #e8ecf3;
     display: flex;
     justify-content: center;
-    background: #BAC2CF;
     padding: 10px 0;
 }
 
 nav a {
-    margin: 0 20px;
+    color: #000;
     text-decoration: none;
-    color: #000000;
-    font-weight: bold;
+    font-weight: 600;
+    margin: 0 25px;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #8a90cc;
+    color: #3b4cca;
 }
 
-/* SEÇÃO NOVIDADES */
-.novidades {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.novidades h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
-}
-
-.novidades p {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.novidades img {
-    max-width: 800px;
+/* ===== BANNER ===== */
+.banner-principal {
+    position: relative;
     width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    height: 100vh; /* ocupa a tela toda */
+    margin-top: 120px; /* para compensar o header fixo */
+    overflow: hidden;
 }
 
-/* MAIS VENDIDOS */
+.banner-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-banner {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.texto-banner h2 {
+    font-size: 58px;
+    letter-spacing: 3px;
+    margin: 0;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.8);
+}
+
+.texto-banner p {
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 12px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* ===== MAIS VENDIDOS ===== */
 .mais-vendidos {
-    padding: 40px 20px;
+    padding: 80px 40px;
     background: #fff;
+    text-align: center;
 }
 
 .mais-vendidos h2 {
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 40px;
 }
 
 .grid-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .card {
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.2s ease;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 20px;
 }
 
 .card:hover {
@@ -129,15 +149,15 @@ nav a:hover {
 }
 
 .card img {
-    max-width: 100%;
-    height: 180px;
+    width: 100%;
+    height: 200px;
     object-fit: contain;
     margin-bottom: 10px;
 }
 
 .card h3 {
     font-size: 18px;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .card p {
@@ -153,13 +173,23 @@ nav a:hover {
     color: #0c2340;
 }
 
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
+        padding: 10px;
+    }
 
-.card-link:hover .card {
-  transform: scale(1.02);
-  transition: 0.2s ease;
+    .banner-principal {
+        height: 70vh;
+        margin-top: 150px;
+    }
+
+    .texto-banner h2 {
+        font-size: 36px;
+    }
+
+    .texto-banner p {
+        font-size: 18px;
+    }
 }
