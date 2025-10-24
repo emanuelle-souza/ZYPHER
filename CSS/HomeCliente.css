@@ -152,3 +152,14 @@ nav a:hover {
     margin-top: 10px;
     color: #0c2340;
 }
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.card-link:hover .card {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
