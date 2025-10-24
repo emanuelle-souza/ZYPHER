@@ -1,58 +1,76 @@
-/* ===== RESET E BASE ===== */
-body {
+/* ===== RESET ===== */
+* {
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #fff;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #fff;
     color: #222;
     overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
 header {
+    background: #0F1E3D;
+    color: #fff;
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    background: #0d1b2a;
-    color: #fff;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .topo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 50px;
+    padding: 12px 60px;
 }
 
 .logo-img {
-    height: 40px;
+    height: 32px;
 }
 
+/* ===== BUSCA ===== */
 .busca {
     display: flex;
+    align-items: center;
 }
 
 .busca input {
-    padding: 6px 10px;
+    padding: 7px 12px;
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px 0 0 20px;
     outline: none;
+    width: 180px;
 }
 
 .busca button {
     border: none;
-    padding: 6px 10px;
-    background: #d1d7d8;
-    border-radius: 0 5px 5px 0;
+    background: #d3d6da;
+    border-radius: 0 20px 20px 0;
+    padding: 7px 10px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
+.busca button:hover {
+    background: #bfc2c6;
+}
+
+/* ===== ICONES ===== */
 .icones img {
-    width: 26px;
-    margin-left: 18px;
+    width: 20px;
+    margin-left: 16px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icones img:hover {
+    transform: scale(1.1);
 }
 
 /* ===== MENU ===== */
@@ -60,7 +78,9 @@ nav {
     background: #e8ecf3;
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 8px 0;
+    position: relative;
+    top: 60px;
 }
 
 nav a {
@@ -68,128 +88,130 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     margin: 0 25px;
-    font-size: 16px;
+    font-size: 14px;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #3b4cca;
+    color: #1a3cff;
 }
 
 /* ===== BANNER ===== */
 .banner-principal {
     position: relative;
     width: 100%;
-    height: 100vh; /* ocupa a tela toda */
-    margin-top: 120px; /* para compensar o header fixo */
+    height: 320px; /* banner mais fino e elegante */
+    margin-top: 120px;
     overflow: hidden;
+    border-radius: 0 0 25px 25px;
 }
 
+.banner-principal video,
 .banner-principal img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    filter: brightness(0.75);
 }
 
 .texto-banner {
     position: absolute;
-    bottom: 15%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    transform: translate(-50%, -50%);
     color: #fff;
+    text-align: center;
 }
 
 .texto-banner h2 {
-    font-size: 58px;
-    letter-spacing: 3px;
-    margin: 0;
-    text-shadow: 3px 3px 15px rgba(0,0,0,0.8);
+    font-size: 34px;
+    font-weight: 700;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
 .texto-banner p {
-    font-size: 22px;
-    font-style: italic;
-    margin-top: 12px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    font-size: 16px;
+    margin-top: 6px;
+    color: #e0e0e0;
 }
 
-/* ===== MAIS VENDIDOS ===== */
+/* ===== PRODUTOS ===== */
 .mais-vendidos {
-    padding: 80px 40px;
+    padding: 60px 50px;
     background: #fff;
     text-align: center;
 }
 
 .mais-vendidos h2 {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 40px;
+    color: #0d1b2a;
 }
 
 .grid-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 30px;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .card {
     background: #f8f9fa;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 18px;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 170px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .card h3 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 15px;
+    margin: 6px 0 2px;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
-    min-height: 40px;
+    min-height: 36px;
 }
 
 .card .preco {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
+    font-weight: 600;
+    margin-top: 8px;
     color: #0c2340;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
     .topo {
         flex-direction: column;
+        gap: 10px;
         padding: 10px;
     }
 
+    nav {
+        top: 120px;
+    }
+
     .banner-principal {
-        height: 70vh;
-        margin-top: 150px;
+        height: 200px;
+        margin-top: 160px;
     }
 
     .texto-banner h2 {
-        font-size: 36px;
-    }
-
-    .texto-banner p {
-        font-size: 18px;
+        font-size: 22px;
     }
 }
