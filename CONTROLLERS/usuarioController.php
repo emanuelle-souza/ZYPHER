@@ -85,7 +85,7 @@ class usuarioController {
             // Verifica senha — troque para password_verify se estiver usando hash
             if (password_verify($senha, $usuarioExistente['senha'])) {
     
-                // ⚠️ Aqui estava o erro principal: o campo é id_usuario
+   
                 $_SESSION['usuario_id'] = $usuarioExistente['id_usuario'];
                 $_SESSION['usuario_nome'] = $usuarioExistente['nome'];
                 $_SESSION['usuario_email'] = $usuarioExistente['email'];

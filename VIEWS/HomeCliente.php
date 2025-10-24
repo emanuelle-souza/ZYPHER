@@ -77,15 +77,18 @@ if (!isset($_SESSION)) {
         <h2>MAIS VENDIDOS</h2>
         <div class="grid-produtos">
             <?php foreach ($produtos as $produto): ?>
-                <div class="card">
-                    <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
-                        <h3><?= htmlspecialchars($produto['nome'] ?? 'Produto sem nome') ?></h3>
-                        <p><?= htmlspecialchars($produto['descricao'] ?? 'Descrição não disponível') ?></p>
-                        <span class="preco">
-                        R$ <?= number_format($produto['preco'] ?? 0, 2, ',', '.') ?>
-                        </span>
-                </div>
-            <?php endforeach; ?>
+    <a href="/zypher/VIEWS/Produto.php?id=<?= urlencode($produto['id']) ?>" class="card-link">
+        <div class="card">
+            <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+            <h3><?= htmlspecialchars($produto['nome'] ?? 'Produto sem nome') ?></h3>
+            <p><?= htmlspecialchars($produto['descricao'] ?? 'Descrição não disponível') ?></p>
+            <span class="preco">
+                R$ <?= number_format($produto['preco'] ?? 0, 2, ',', '.') ?>
+            </span>
+        </div>
+    </a>
+<?php endforeach; ?>
+
         </div>
     </section>
 </body>
