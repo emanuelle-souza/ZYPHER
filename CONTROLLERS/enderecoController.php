@@ -20,8 +20,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Redireciona para pagamento
     header("Location: /zypher/views/Pagamento.php");
     exit;
-} else {
-    // caso acesso direto
-    header("Location: /zypher/views/enderecoform.php");
-    exit;
-}
+} 
