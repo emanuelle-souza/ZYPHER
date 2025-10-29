@@ -12,96 +12,81 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== HEADER ===== */
+/* ---------- HEADER ---------- */
 header {
-    background: #0F1E3D;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: #172A4E;
+  color: #fff;
 }
 
 .topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .logo-img {
-    height: 32px;
+  height: 35px;
+  width: auto;
 }
 
-/* ===== BUSCA ===== */
 .busca {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .busca input {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    width: 180px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
 }
 
 .busca button {
-    border: none;
-    background: #d3d6da;
-    border-radius: 0 20px 20px 0;
-    padding: 7px 10px;
-    cursor: pointer;
-    transition: background 0.3s;
+  border: none;
+  padding: 6px 10px;
+  background: #d1d7d8;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 
-.busca button:hover {
-    background: #bfc2c6;
-}
-
-/* ===== ICONES ===== */
 .icones img {
-    width: 20px;
-    margin-left: 16px;
-    cursor: pointer;
-    transition: transform 0.2s;
+  width: 28px;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
-.icones img:hover {
-    transform: scale(1.1);
-}
-
-/* ===== MENU ===== */
+/* ---------- MENU ---------- */
 nav {
-    background: #e8ecf3;
-    display: flex;
-    justify-content: center;
-    padding: 8px 0;
-    position: relative;
-    top: 60px;
+  display: flex;
+  justify-content: center;
+  background: #BAC2CF;
+  padding: 10px 0;
 }
 
 nav a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 0 25px;
-    font-size: 14px;
-    transition: color 0.3s;
+  margin: 0 20px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #1a3cff;
+  color: #8a90cc;
 }
 
 /* ===== BANNER ===== */
 .banner-principal {
     position: relative;
     width: 100%;
-    height: 320px; /* banner mais fino e elegante */
-    margin-top: 120px;
+    height: 320px;
     overflow: hidden;
     border-radius: 0 0 25px 25px;
 }
@@ -157,6 +142,11 @@ nav a:hover {
     margin: 0 auto;
 }
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .card {
     background: #f8f9fa;
     border-radius: 12px;
@@ -202,13 +192,8 @@ nav a:hover {
         padding: 10px;
     }
 
-    nav {
-        top: 120px;
-    }
-
     .banner-principal {
         height: 200px;
-        margin-top: 160px;
     }
 
     .texto-banner h2 {

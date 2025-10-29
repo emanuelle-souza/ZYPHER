@@ -18,37 +18,31 @@ $produtos = ProdutoController::listarProdutos();
     <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="topo">
-            <div class="logo">
-                <a href="/zypher/VIEWS/HomeCliente.php">
-                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-                </a>
-            </div>
-
-            <div class="busca">
-                <input type="text" placeholder="Buscar...">
-                <button>🔍</button>
-            </div>
-
-            <div class="icones">
-                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-                <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <?php if ($usuarioLogado): ?>
-                    <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
-                <?php else: ?>
-                    <a href="/zypher/views/login.php"><img src="/zypher/MIDIA/perfil.png" alt="login"></a>
-                <?php endif; ?>
-            </div>
+   <header>
+    <div class="topo">
+        <div class="logo">
+            <a href="/zypher/views/HomeCliente.php">
+                <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+            </a>
         </div>
 
-        <!-- MENU -->
-        <nav>
-            <a href="#">Masculino</a>
-            <a href="#">Feminino</a>
-        </nav>
-    </header>
+        <div class="busca">
+            <input type="text" placeholder="Buscar...">
+            <button>🔍</button>
+        </div>
+
+        <div class="icones">
+            <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+            <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+            <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#">Feminino</a>
+        <a href="#">Masculino</a>
+    </nav>
+</header>
 
     <!-- BANNER (vídeo principal) -->
     <section class="banner-principal">
