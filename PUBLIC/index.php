@@ -137,6 +137,11 @@ switch ($request) {
         $controller->listarProdutos();
         break;
 
+    case '/zypher/login':
+    require_once '/zypher/views/login.php'; 
+    break;
+
+
     default:
         http_response_code(404);
         echo $request;

@@ -135,7 +135,7 @@ $id_produto = intval($produto['id'] ?? $id);
         <div class="avaliacao">
             <h4>Avaliação (1):</h4>
             <div class="avaliacao-item">
-                <img src="/zypher/MIDIA/usuario.jpg" alt="Usuário">
+                <img src="/zypher/MIDIA/perfil.png" alt="Usuário">
                 <div>
                     <strong>Sarah Souza</strong>
                     <p>Conforto, estabilidade e estilo impecável!</p>

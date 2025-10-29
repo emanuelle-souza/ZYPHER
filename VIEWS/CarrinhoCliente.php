@@ -3,7 +3,7 @@ session_start();
 require_once '../controllers/CarrinhoController.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: /zypher/VIEWS/LoginCliente.php?msg=precisa-logar");
+    header("Location: /zypher/login?msg=precisa-logar");
     exit;
 }
 
@@ -44,8 +44,9 @@ $total = 0;
 <?php else: ?>
     <!-- Usuário não logado: mostra opções de login/cadastro -->
     <a href="/zypher/views/login.php" title="Entrar">
-        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
-    </a>
+    <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+</a>
+
 <?php endif; ?>
             </div>
         </div>
