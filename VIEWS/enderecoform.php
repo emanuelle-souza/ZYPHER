@@ -1,59 +1,80 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../login?msg=precisa-logar");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de endereço</title>
-    <link rel="stylesheet" href="/zypher/views/css/endeform.css">
+    <title>Endereço de Entrega - Zypher Sneakers</title>
+    <link rel="stylesheet" href="/zypher/CSS/checkout.css">
 </head>
 <body>
-    <div class="container">
-    <div class="f1">
-        <h1 class="title">ENDEREÇO</h1>
-        <p class ="text"></h4>
-        <div class="form-box">
-        <form action="/codigoprojeto/salvaendereco" method="POST">
-        <div class="input-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br><br>
+    <header>
+        <div class="logo-topo">
+            <a href="/zypher/views/HomeCliente.php"><img src="/zypher/MIDIA/logo.png" alt="Zypher Sneakers"></a>
         </div>
-        <div class="input-group">
-            <label for="telefone">Telefone:</label>
-            <input type="number" id="telefone" name="telefone" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="cep">Cep:</label>
-            <input type="number" id="cep" name="cep" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="endereco_entrega">Endereco de entrega:</label>
-            <input type="text" id="endereco_entrega" name="endereco_entrega" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="numero">Número:</label>
-            <input type="number" id="numero" name="numero" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" required><br><br>
-        </div>
-        <div class="input-group">
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" required><br><br>
-        </div>
-            
-            <input class="submit-btn" type="submit" value="Cadastrar endereço">
-        </form>
-    <p class= "text"><a href="">Ao cadastrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
-</div></div>
- <div class="f2">
-        <img src="/zypher/public/assets/midia/ouvidoria.png" class="ouvidoria">
-        <img src="/zypher/public/assets/midia/logo.png" class="logo">
-    </div>
+    </header>
 
+    <main class="container-endereco">
+        <div class="card-endereco">
+            <h2>Formulário de Endereço</h2>
+            <form action="Pagamento.php" method="POST" id="formEndereco">
+                <label>Nome completo:</label>
+                <input type="text" name="nome" required>
+
+                <label>Telefone:</label>
+                <input type="text" name="telefone" required placeholder="(11) 99999-9999">
+
+                <label>E-mail:</label>
+                <input type="email" name="email" required>
+
+                <label>CEP:</label>
+                <input type="text" name="cep" id="cep" maxlength="9" required placeholder="00000-000">
+
+                <label>Endereço de Entrega:</label>
+                <input type="text" name="endereco" id="endereco" required>
+
+                <div class="linha-campos">
+                    <div>
+                        <label>N°:</label>
+                        <input type="text" name="numero" required>
+                    </div>
+                    <div>
+                        <label>Cidade:</label>
+                        <input type="text" name="cidade" id="cidade" required>
+                    </div>
+                    <div>
+                        <label>Estado:</label>
+                        <input type="text" name="estado" id="estado" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-enviar">CONTINUAR PARA PAGAMENTO</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+    // Auto preencher endereço via ViaCEP
+    document.getElementById('cep').addEventListener('blur', async function() {
+        const cep = this.value.replace(/\D/g, '');
+        if (cep.length === 8) {
+            const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const dados = await resposta.json();
+            if (!dados.erro) {
+                document.getElementById('endereco').value = dados.logradouro || '';
+                document.getElementById('cidade').value = dados.localidade || '';
+                document.getElementById('estado').value = dados.uf || '';
+            } else {
+                alert('CEP não encontrado.');
+            }
+        }
+    });
+    </script>
 </body>
 </html>
