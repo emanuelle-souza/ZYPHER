@@ -2,11 +2,13 @@
 session_start();
 require_once '../controllers/CarrinhoController.php';
 
+// Redireciona para o login se não estiver logado
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: /zypher/login?msg=precisa-logar");
     exit;
 }
 
+// Lista os itens do carrinho do usuário
 $itens = CarrinhoController::listarCarrinho($_SESSION['usuario_id']);
 $total = 0;
 ?>
@@ -23,10 +25,10 @@ $total = 0;
     <header>
         <div class="topo">
             <div class="logo">
-            <a href="/zypher/VIEWS/HomeCliente.php">
-            <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-            </a>
-        </div>
+                <a href="/zypher/views/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
+            </div>
             <div class="busca">
                 <input type="text" placeholder="Buscar...">
                 <button>🔍</button>
@@ -34,20 +36,18 @@ $total = 0;
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
                 <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <?php if (!isset($_SESSION)) session_start(); ?>
 
-<?php if (isset($_SESSION['usuario_id'])): ?>
-    <!-- Usuário logado: vai para o perfil -->
-    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
-        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
-    </a>
-<?php else: ?>
-    <!-- Usuário não logado: mostra opções de login/cadastro -->
-    <a href="/zypher/views/login.php" title="Entrar">
-    <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
-</a>
-
-<?php endif; ?>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <!-- Usuário logado: vai para o perfil -->
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <!-- Usuário não logado: mostra login -->
+                    <a href="/zypher/login" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -58,17 +58,18 @@ $total = 0;
         </nav>
     </header>
 
+    <!-- Conteúdo principal -->
     <main>
         <div class="container-carrinho">
             <h2>Seu Carrinho</h2>
-            
+
             <?php if (empty($itens)): ?>
                 <p class="carrinho-vazio">Seu carrinho está vazio 🛒</p>
             <?php else: ?>
                 <?php foreach ($itens as $item): ?>
                     <?php 
-                    $subtotal = $item['preco'] * $item['quantidade']; 
-                    $total += $subtotal;
+                        $subtotal = $item['preco'] * $item['quantidade']; 
+                        $total += $subtotal;
                     ?>
                     <div class="item-carrinho">
                         <div class="item-info">
@@ -101,6 +102,7 @@ $total = 0;
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="rodape">
             <div class="text">

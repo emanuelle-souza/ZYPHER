@@ -114,13 +114,13 @@ $id_produto = intval($produto['id'] ?? $id);
     <div class="tamanhos">
         <h3>Selecione um tamanho:</h3>
         <div class="botoes-tamanho">
-            <?php foreach ([38, 39, 40, 41, 42, 43, 44, 45] as $t): ?>
-                <label class="size-option">
-                    <input type="radio" name="tamanho" value="<?= $t ?>" required>
-                    <?= $t ?>
-                </label>
-            <?php endforeach; ?>
-        </div>
+  <?php foreach ([38, 39, 40, 41, 42, 43, 44, 45] as $t): ?>
+    <label class="size-btn">
+      <input type="radio" name="tamanho" value="<?= $t ?>" required style="display:none;"> <?= $t ?>
+    </label>
+  <?php endforeach; ?>
+</div>
+
     </div>
 
     <button type="submit" class="botao-carrinho">ADICIONAR AO CARRINHO</button>
@@ -150,7 +150,23 @@ $id_produto = intval($produto['id'] ?? $id);
     <p>© 2025 Zypher Sneakers. Todos os direitos reservados.</p>
 </footer>
 
-<!-- Script principal do produto -->
-<script src="/zypher/VIEWS/Produto.js"></script>
+<!-- Script principal do produto
+<script src="/zypher/VIEWS/Produto.js"></script> -->
+
+<script>
+  const sizeButtons = document.querySelectorAll('.size-btn');
+
+  sizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active de todos
+      sizeButtons.forEach(b => b.classList.remove('active'));
+      // Adiciona active ao clicado
+      btn.classList.add('active');
+      // Marca o input como checked
+      btn.querySelector('input').checked = true;
+    });
+  });
+</script>
+
 </body>
 </html>
