@@ -104,9 +104,10 @@ $total = 0;
     <p class="carrinho-total">
         Total: R$ <span id="valor-total"><?= number_format($total, 2, ',', '.') ?></span>
     </p>
-    <form action="../controllers/FinalizarCompra.php" method="POST">
-        <button type="submit" class="btn-finalizar">Finalizar Compra</button>
-    </form>
+<form action="../views/enderecoform.php" method="GET">
+    <button type="submit" class="btn-finalizar">Finalizar Compra</button>
+</form>
+
 </div>
 
             <?php endif; ?>

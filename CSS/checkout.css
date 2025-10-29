@@ -1,0 +1,81 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f6f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #172A4E;
+    padding: 15px 30px;
+}
+
+.logo-topo img {
+    height: 40px;
+}
+
+.container-endereco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+}
+
+.card-endereco {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 450px;
+}
+
+.card-endereco h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #172A4E;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.linha-campos {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.linha-campos div {
+    flex: 1;
+}
+
+.btn-enviar {
+    width: 100%;
+    background: #172A4E;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-enviar:hover {
+    background: #0d1d38;
+}

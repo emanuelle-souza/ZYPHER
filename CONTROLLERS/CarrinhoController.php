@@ -49,6 +49,24 @@ class CarrinhoController {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Retorna total numérico do carrinho do usuário (float)
+public static function calcularTotal($idUsuario) {
+    $db = new Database();
+    $pdo = $db->getConnection();
+
+    $stmt = $pdo->prepare("
+        SELECT SUM(p.preco * ci.quantidade) AS total
+        FROM carrinho_itens ci
+        INNER JOIN carrinho c ON ci.id_carrinho = c.id
+        INNER JOIN produtos p ON ci.id_produto = p.id
+        WHERE c.id_usuario = ?
+    ");
+    $stmt->execute([$idUsuario]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return isset($row['total']) ? (float)$row['total'] : 0.0;
+}
+
+
     public static function limparCarrinho($idUsuario) {
         $db = new Database();
         $pdo = $db->getConnection();
