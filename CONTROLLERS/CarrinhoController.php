@@ -1,15 +1,15 @@
 <?php
-require_once '../config/database.php';
+require_once __DIR__ . '/../config/database.php';
 
 class CarrinhoController {
+    // Adiciona produto (mantive seu código, só padronizei)
     public static function adicionarProduto($idUsuario, $idProduto, $tamanho, $quantidade = 1) {
         $db = new Database();
         $pdo = $db->getConnection();
 
-        // Verifica se o usuário já tem um carrinho
         $stmt = $pdo->prepare("SELECT id FROM carrinho WHERE id_usuario = ?");
         $stmt->execute([$idUsuario]);
-        $carrinho = $stmt->fetch();
+        $carrinho = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$carrinho) {
             $stmt = $pdo->prepare("INSERT INTO carrinho (id_usuario) VALUES (?)");
@@ -19,29 +19,27 @@ class CarrinhoController {
             $carrinhoId = $carrinho['id'];
         }
 
-        // Verifica se o item já existe
         $stmt = $pdo->prepare("SELECT * FROM carrinho_itens WHERE id_carrinho = ? AND id_produto = ? AND tamanho = ?");
         $stmt->execute([$carrinhoId, $idProduto, $tamanho]);
-        $item = $stmt->fetch();
+        $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($item) {
-            // Atualiza quantidade
             $novaQtd = $item['quantidade'] + $quantidade;
             $stmt = $pdo->prepare("UPDATE carrinho_itens SET quantidade = ? WHERE id = ?");
             $stmt->execute([$novaQtd, $item['id']]);
         } else {
-            // Adiciona novo item
             $stmt = $pdo->prepare("INSERT INTO carrinho_itens (id_carrinho, id_produto, tamanho, quantidade) VALUES (?, ?, ?, ?)");
             $stmt->execute([$carrinhoId, $idProduto, $tamanho, $quantidade]);
         }
     }
 
+    // Lista os itens do carrinho — **IMPORTANTE**: traga id do item e id_produto para evitar notices
     public static function listarCarrinho($idUsuario) {
         $db = new Database();
         $pdo = $db->getConnection();
 
         $stmt = $pdo->prepare("
-            SELECT p.nome, p.preco, p.imagem, ci.tamanho, ci.quantidade 
+            SELECT ci.id AS carrinho_item_id, ci.id_produto, p.nome, p.preco, p.imagem, ci.tamanho, ci.quantidade 
             FROM carrinho_itens ci
             INNER JOIN carrinho c ON ci.id_carrinho = c.id
             INNER JOIN produtos p ON ci.id_produto = p.id
@@ -58,20 +56,48 @@ class CarrinhoController {
         $stmt->execute([$idUsuario]);
     }
 
-    public static function removerItem($idUsuario, $idProduto, $tamanho) {
+    // Remove item (mantive, mas agora é robusto)
+public static function removerItem($idUsuario, $idProduto, $tamanho) {
     $db = new Database();
     $pdo = $db->getConnection();
 
-    // Encontra o carrinho do usuário
     $stmt = $pdo->prepare("SELECT id FROM carrinho WHERE id_usuario = ?");
     $stmt->execute([$idUsuario]);
-    $carrinho = $stmt->fetch();
+    $carrinho = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($carrinho) {
-        $stmt = $pdo->prepare("DELETE FROM carrinho_itens WHERE id_carrinho = ? AND id_produto = ? AND tamanho = ?");
-        $stmt->execute([$carrinho['id'], $idProduto, $tamanho]);
+    if (!$carrinho) {
+        throw new Exception("Carrinho não encontrado");
+    }
+
+    $stmt = $pdo->prepare("DELETE FROM carrinho_itens WHERE id_carrinho = ? AND id_produto = ? AND tamanho = ?");
+    $ok = $stmt->execute([$carrinho['id'], $idProduto, $tamanho]);
+
+    if (!$ok) {
+        throw new Exception("Falha ao remover item do banco");
     }
 }
 
+    // Atualiza quantidade (nova função) — se quantidade <=0 remove o item
+    public static function atualizarQuantidade($idUsuario, $idProduto, $tamanho, $quantidade) {
+        $db = new Database();
+        $pdo = $db->getConnection();
+
+        // busca id do carrinho
+        $stmt = $pdo->prepare("SELECT id FROM carrinho WHERE id_usuario = ?");
+        $stmt->execute([$idUsuario]);
+        $carrinho = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$carrinho) return false;
+
+        if ($quantidade <= 0) {
+            $stmt = $pdo->prepare("DELETE FROM carrinho_itens WHERE id_carrinho = ? AND id_produto = ? AND tamanho = ?");
+            $stmt->execute([$carrinho['id'], $idProduto, $tamanho]);
+            return true;
+        } else {
+            $stmt = $pdo->prepare("UPDATE carrinho_itens SET quantidade = ? WHERE id_carrinho = ? AND id_produto = ? AND tamanho = ?");
+            $stmt->execute([$quantidade, $carrinho['id'], $idProduto, $tamanho]);
+            return true;
+        }
+    }
 }
 ?>
