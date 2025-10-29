@@ -11,7 +11,7 @@ require_once '../controllers/ProdutoController.php';
 
 
 // Lógica de roteamento
-$request = $_SERVER['REQUEST_URI'];
+$request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
 switch ($request) {
@@ -137,8 +137,8 @@ switch ($request) {
         $controller->listarProdutos();
         break;
 
-    case '/zypher/login':
-    require_once '/zypher/views/login.php'; 
+case '/zypher/login':
+    require_once '../views/login.php';
     break;
 
 

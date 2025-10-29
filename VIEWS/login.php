@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login cliente</title>
-    <link rel="stylesheet" href="../CSS/LoginCliente.css">
+    <link rel="stylesheet" href="/zypher/CSS/LoginCliente.css">
 </head>
 <body>
     <div class="container">
@@ -45,7 +45,7 @@ if (!isset($_SESSION)) {
 
 
     <div class="f2">
-        <img src="/zypher/midia/logo.png" class="logo">
+        <img src="/zypher/midia/LogoDeitado.png" class="logo">
         <img src="/zypher/midia/ouvidoria.png" class="ouvidoria">
     </div>
     </div>
