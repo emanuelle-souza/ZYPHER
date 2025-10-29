@@ -46,7 +46,8 @@ if (!isset($_SESSION)) {
 
     <div class="f2">
         <img src="/zypher/midia/LogoDeitado.png" class="logo">
-        <img src="/zypher/midia/ouvidoria.png" class="ouvidoria">
+         <a href="/zypher/views/FaleConosco.php" class="ouvidoria" ><img src="/zypher/midia/ouvidoria.png"></a>
+        
     </div>
     </div>
 </div>

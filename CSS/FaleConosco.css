@@ -80,3 +80,180 @@ nav a {
 nav a:hover {
   color: #8a90cc;
 }
+
+/* Hero Section */
+.hero-section {
+    background-color: #F2F2F2;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.hero-section p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 60px 80px;
+    background-color: #2d2d2d;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-form label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+    font-family: 'Arial', sans-serif;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+.submit-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 12px 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.contact-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Thank You Section */
+.thank-you {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #e8e8e8;
+    padding: 30px 40px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .contact-section {
+        flex-direction: column;
+        padding: 40px;
+        align-items: center;
+    }
+
+    .contact-form,
+    .contact-image {
+        max-width: 100%;
+    }
+
+    nav {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .busca {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 14px;
+    }
+
+    .contact-section {
+        padding: 30px 20px;
+    }
+
+
+    footer {
+        padding: 20px;
+        font-size: 11px;
+    }
+}

@@ -68,11 +68,17 @@ body {
   
 }
 .ouvidoria {
-  position: fixed; /* fixo na tela */
-  max-width: 8%; /* Define uma largura máxima para a imagem */
-  max-height: 8%; /* Garante que a imagem não ultrapasse os limites */
-  margin-top: 600px; /* Move a imagem para cima ou para baixo */
-  margin-left: 600px; /* Move a imagem para a esquerda ou direita */;
+ position: fixed;
+  bottom: 120px;
+  right: 120px;
+  width: 80px;
+  height: 80px;
+  z-index: 9999;
+}
+
+.ouvidoria:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 
 .title {

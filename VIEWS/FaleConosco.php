@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fale Conosco - Zypher Sneakers</title>
-    <link rel="stylesheet" href="zypher/CSS/FaleConosco.css">
+    <link rel="stylesheet" href="/zypher/CSS/FaleConosco.css">
 </head>
 <body>
      <!-- Header -->
@@ -70,7 +70,7 @@
         </form>
 
         <div class="contact-image">
-            <img src="../MIDIA/faleconosco.jpg" alt="Sneaker Collection">
+            <img src="../MIDIA/faleconosco.png" alt="Sneaker Collection">
         </div>
     </section>
 
