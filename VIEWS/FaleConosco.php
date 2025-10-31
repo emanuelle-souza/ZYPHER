@@ -81,7 +81,10 @@
 
     <!-- Footer -->
     <footer>
-        <p>Copyright © 2025 Zypher Inc. Todos os direitos reservados. Logos Zypher, CNPJ 12.345.678/0001-47  |  Av. Paulista, 1000 São Ressano Garcia Pampas Gato - 01.23456-789</p>
+            <div class="rodape">
+                <p class= "text"><a href="#">© 2025 Zypher Company. Todos os direitos reservados.</a></p>
+            </div>
+        <p>Logos Zypher, CNPJ 12.345.678/0001-47  |  Av. Paulista, 1000 São Ressano Garcia Pampas Gato - 01.23456-789</p>
         <p>Política de privacidade  |  Avaliação de serviços  |  Anúncios legais  |  Termos e condições</p>
     </footer>
 </body>
