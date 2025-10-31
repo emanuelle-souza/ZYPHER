@@ -49,28 +49,6 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->updateUsuario();
         break;
-    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
-        $id_usuario = $matches[1];
-        require_once '../controllers/FuncionarioController.php';
-        $controller = new FuncionarioController();
-        $controller->showUpdateForm($id_funcionario);
-        break;
-    case '/zypher/update_cadastro':
-        require_once '../controllers/FuncionarioController.php';
-        $controller = new FuncionarioController();
-        $controller->updateFuncionario();
-        break;
-    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
-        $id_usuario = $matches[1];
-        require_once '../controllers/AdministradorController.php';
-        $controller = new AdministradorController();
-        $controller->showUpdateForm($id_adm);
-        break;
-    case '/zypher/update_cadastro':
-        require_once '../controllers/AdministradorController.php';
-        $controller = new AdiministradorController();
-        $controller->updateAdministrador();
-        break;
     case '/zypher/public/':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
@@ -114,22 +92,6 @@ switch ($request) {
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
         $controller->resgatarGiftcard();
-        break;
-    case '/zypher/save-funcionario':
-        $controller = new FuncionarioController();
-        $controller->saveFuncionario();
-        break;
-    case '/zypher/login-funcionario':
-        $controller = new FuncionarioController();  
-        $controller->loginFuncionario();
-        break;
-    case '/zypher/save-administrador':
-        $controller = new AdministradorController();
-        $controller->saveAdministrador();
-        break;
-    case '/zypher/login-administrador':
-        $controller = new AdministradorController();  
-        $controller->loginAdministrador();
         break;
  
     case '/zypher/HomeCliente.php':

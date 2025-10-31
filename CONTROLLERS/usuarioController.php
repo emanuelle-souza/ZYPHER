@@ -45,7 +45,7 @@ class usuarioController {
             $usuario->email = $_POST['email']; 
             $usuario->telefone = $_POST['telefone'];
             $usuario->cpf = $_POST['cpf'];
-            $usuario->senha = $_POST['senha'];
+            $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
             $usuario->id_usuario = $_POST['id_usuario'];
 
             if ($usuario->update()) {
