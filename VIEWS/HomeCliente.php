@@ -18,37 +18,42 @@ $produtos = ProdutoController::listarProdutos();
     <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
 </head>
 <body>
-   <header>
-    <div class="topo">
-        <div class="logo">
-            <a href="/zypher/views/HomeCliente.php">
-                <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-            </a>
+     <!-- Cabeçalho / Menu -->
+    <header>
+        <div class="topo">
+            <div class="logo">
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
+            </div>
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+            <div class="icones">
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
 
-        <div class="busca">
-            <input type="text" placeholder="Buscar...">
-            <button>🔍</button>
-        </div>
-
-        <div class="icones">
-            <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-            <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-            <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
-        </div>
-    </div>
-
-    <nav>
-        <a href="#">Feminino</a>
-        <a href="#">Masculino</a>
-    </nav>
-</header>
-
+        <nav class="menu">
+            <a href="#">Feminino</a>
+            <a href="#">Masculino</a>
+        </nav>
+    </header>
     <!-- BANNER (vídeo principal) -->
     <section class="banner-principal">
         <video autoplay muted loop playsinline>
             <source src="/zypher/MIDIA/home.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos em HTML5.
         </video>
         <div class="texto-banner">
             <h2>NOVIDADES</h2>
@@ -72,5 +77,19 @@ $produtos = ProdutoController::listarProdutos();
             <?php endforeach; ?>
         </div>
     </section>
+
+    
+    <footer>
+        <div class="footer-container">
+            <div class="text">
+                <a href="#">Política de Privacidade</a> | 
+                <a href="#">Termos de Uso</a> | 
+                <a href="#">Contato</a>
+                
+            </div>
+            <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

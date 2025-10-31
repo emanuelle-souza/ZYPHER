@@ -41,7 +41,7 @@ if (!$usuario) {
             </div>
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-                <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
                 <?php if (isset($_SESSION['usuario_id'])): ?>
                     <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
                         <img src="/zypher/MIDIA/perfil.png" alt="perfil">

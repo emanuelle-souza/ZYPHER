@@ -12,74 +12,105 @@ body {
     overflow-x: hidden;
 }
 
+/* Footer */
+footer {
+    background-color: #e8e8e8;
+    padding: 30px 40px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+footer p {
+    margin: 5px 0;
+    color: red;
+}
+
 /* ---------- HEADER ---------- */
-header {
-  background: #172A4E;
-  color: #fff;
-}
-
+/* ====== TOPO ====== */
 .topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #172A4E;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.topo .logo img {
+    height: 45px;
 }
 
-.logo-img {
-  height: 35px;
-  width: auto;
+/* ====== BUSCA ====== */
+.topo .busca {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden; /* faz o botão e input se encaixarem */
+    height: 35px;
+    background-color: white;
 }
 
-.busca {
-  display: flex;
-  align-items: center;
+.topo .busca input {
+    border: none;
+    padding: 0 10px;
+    flex: 1;
+    height: 100%;
+    font-size: 0.9rem;
+    outline: none;
 }
 
-.busca input {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  outline: none;
+.topo .busca button {
+    border: none;
+    background-color: #e0e0e0; /* cor do botão */
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 }
 
-.busca button {
-  border: none;
-  padding: 6px 10px;
-  background: #d1d7d8;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
+.topo .busca button:hover {
+    background-color: #d0d0d0;
 }
+
+.topo .busca button img {
+    width: 16px; /* tamanho da lupa */
+    height: 16px;
+}
+
 
 .icones img {
-  width: 28px;
-  margin-left: 15px;
-  cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
-/* ---------- MENU ---------- */
-nav {
-  display: flex;
-  justify-content: center;
-  background: #BAC2CF;
-  padding: 10px 0;
+.icones img:hover {
+    transform: scale(1.1);
 }
 
-nav a {
-  margin: 0 20px;
-  text-decoration: none;
-  color: #000000;
-  font-weight: bold;
-  transition: color 0.3s;
+/* ====== MENU ====== */
+.menu {
+    display: flex;
+    justify-content: center;
+    background: #BAC2CF;
+    padding: 10px 0;
 }
 
-nav a:hover {
-  color: #8a90cc;
+.menu a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #8a90cc;
 }
 
 /* ===== BANNER ===== */
@@ -183,6 +214,8 @@ nav a:hover {
     margin-top: 8px;
     color: #0c2340;
 }
+
+
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {

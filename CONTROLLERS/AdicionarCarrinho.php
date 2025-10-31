@@ -8,13 +8,13 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-$idUsuario = $_SESSION['usuario_id']; // antes estava id_usuario
+$idUsuario = $_SESSION['usuario_id'];
 $idProduto = $_POST['id_produto'];
 $tamanho = $_POST['tamanho'];
 
 CarrinhoController::adicionarProduto($idUsuario, $idProduto, $tamanho, 1);
 
-header("Location: /zypher/VIEWS/CarrinhoCliente.php");
+header("Location: /zypher/VIEWS/Carrinho.php");
 exit;
 
 ?>
