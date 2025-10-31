@@ -14,18 +14,18 @@ body {
 
 /* Footer */
 footer {
-    background-color: #e8e8e8;
-    padding: 30px 40px;
-    text-align: center;
-    color: #666;
-    font-size: 12px;
-    line-height: 1.8;
+    background-color: #e8e8e8 !important;
+    padding: 30px 40px !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+}
+footer p {
+    margin: 5px 0 !important;
+    color: #333 !important;
 }
 
-footer p {
-    margin: 5px 0;
-    color: red;
-}
 
 /* ---------- HEADER ---------- */
 /* ====== TOPO ====== */

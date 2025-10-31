@@ -79,17 +79,13 @@ $produtos = ProdutoController::listarProdutos();
     </section>
 
     
-    <footer>
-        <div class="footer-container">
-            <div class="text">
-                <a href="#">Política de Privacidade</a> | 
-                <a href="#">Termos de Uso</a> | 
-                <a href="#">Contato</a>
-                
-            </div>
-            <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+ <footer>
+    <a href="#">Política de Privacidade</a> | 
+    <a href="#">Termos de Uso</a> | 
+    <a href="#">Contato</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+</footer>
+
 
 </body>
 </html>

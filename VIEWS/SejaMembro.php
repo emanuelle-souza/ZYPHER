@@ -8,6 +8,11 @@
 </head>
 <body>
 
+       <!-- LOGO TOPO -->
+    <a href="/zypher/view/HomeCliente.php" class="logo-zypher">
+        <img src="/zypher/MIDIA/Logo.png" alt="Zypher Logo">
+    </a>
+
     <!-- SEÇÃO DE CADASTRO -->
     <section class="membro-section">
         <div class="container">
