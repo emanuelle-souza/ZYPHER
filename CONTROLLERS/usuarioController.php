@@ -18,7 +18,7 @@ class usuarioController {
 
 
             if ($usuario->saveusuario()){
-                header('Location: /zypher/views/HomeCliente.php');
+                header('Location: /zypher/views/login.php');
             } else {
                 echo "Erro ao cadastrar.";
             }
