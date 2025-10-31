@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login?msg=precisa-logar");
-    exit();
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
