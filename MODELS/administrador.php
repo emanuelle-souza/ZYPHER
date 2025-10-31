@@ -6,11 +6,10 @@ class Administrador {
     private $conn;
     private $table_name = "administrador";
 
-    public $administrador;
+    public $id_adm;
+    public $nome;
     public $email;
     public $senha;
-    public $nome;
-   
 
 
     public function __construct() {
@@ -18,19 +17,6 @@ class Administrador {
         $this->conn = $database->getConnection();
     }
 
- public function save() {
-    $query = "INSERT INTO " . $this->table_name . " (email, senha, nome) VALUES (:email, :senha, :nome)";
-    $stmt = $this->conn->prepare($query);
-
-    // Criptografar a senha corretamente
-    $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
-
-    $stmt->bindParam(':email', $this->email);
-    $stmt->bindParam(':senha', $senhaCriptografada);
-    $stmt->bindParam(':nome', $this->nome);
-
-    return $stmt->execute();
-}
 
     public function getAll() {
         $query = "SELECT * FROM " . $this->table_name;
