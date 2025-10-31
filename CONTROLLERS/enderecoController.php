@@ -17,7 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Aqui você poderia validar mais antes de salvar.
     $_SESSION['endereco_entrega'] = $endereco;
 
-    // Redireciona para pagamento
-    header("Location: /zypher/views/Pagamento.php");
-    exit;
+
 } 

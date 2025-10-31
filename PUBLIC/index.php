@@ -10,6 +10,7 @@ require_once '../controllers/enderecoController.php';
 require_once '../controllers/ProdutoController.php';
 
 
+
 // Lógica de roteamento
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -49,11 +50,7 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->updateUsuario();
         break;
-    case '/zypher/public/':
-        require_once '../controllers/enderecoController.php';
-        $controller = new enderecoController();
-        $controller->Formularioend();
-        break;
+
     case '/zypher/salvaend':
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();
