@@ -103,7 +103,11 @@ switch ($request) {
 case '/zypher/login':
     require_once '../views/login.php';
     break;
-
+    case '/zypher/loginAdministrador':
+        require_once '../controllers/AdministradorController.php';
+        $controller = new AdministradorController();  
+        $controller->loginAdministrador();
+        break;
 
     default:
         http_response_code(404);
