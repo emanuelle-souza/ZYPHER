@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>CONTROLE DO USUÁRIO</h1>
-<button onclick="window.location.href='/zypher/list-usuario/'">Listar usuários</button>
+<button onclick="window.location.href='/zypher/list-usuario/ControleuserList'>Listar usuários</button>
 </body>
 </html>
