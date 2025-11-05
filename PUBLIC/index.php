@@ -75,6 +75,10 @@ switch ($request) {
         $controller = new usuarioController();  
         $controller->loginUsuario();
         break;
+    case '/zypher/loginFuncionario':
+        $controller = new FuncionarioController();
+        $controller->loginFuncionario();
+        break;
     case '/zypher/adicionar-giftcard':
         require_once '../controllers/giftcardController.php';
         $controller = new GiftcardController();
