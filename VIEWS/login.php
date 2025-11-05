@@ -17,7 +17,7 @@ if (!isset($_SESSION)) {
     <div class="container">
         <div class="f1">
         <h1 class="title">LOGIN</h1>
-        <br><br><br>
+        <br>
         <h3 class ="text">Bem-vindo à Zypher Sneakers! Faça login para acessar as últimas novidades, promoções exclusivas e aproveitar a melhor experiência de compra.</h3>
        
         <div class="form-box">
@@ -35,9 +35,9 @@ if (!isset($_SESSION)) {
     </form>
 </div>
 
-        <p class="CADASTRO"><a href="/zypher/views/usuarioform.php">CADASTRAR-SE</a></p>
+        <p class="CADASTRO"><a href="/zypher/views/usuarioform.php">CADASTRAR-SE</a></p><br>
        
-        <p class="MEMBRO"><a href="/zypher/views/SejaMembro.php">SOU MEMBRO</a></p>
+        <p class="MEMBRO"><a href="/zypher/views/SejaMembro.php">SOU MEMBRO</a></p><br>
 
         <p class= "text"><a href="/zypher/views/PoliticaCliente.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 
@@ -46,7 +46,7 @@ if (!isset($_SESSION)) {
 
     <div class="f2">
         <img src="/zypher/midia/LogoDeitado.png" class="logo">
-         <a href="/zypher/views/FaleConosco.php" class="ouvidoria" ><img src="/zypher/midia/ouvidoria.png"></a>
+         <a href="/zypher/views/FaleConosco.php" class="ouvidoria" ><img class="ouvidoria-img" src="/zypher/midia/ouvidoria.png"></a>
         
     </div>
     </div>

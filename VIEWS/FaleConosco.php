@@ -7,43 +7,37 @@
     <link rel="stylesheet" href="/zypher/CSS/FaleConosco.css">
 </head>
 <body>
-     <!-- Header -->
+    <!-- Cabeçalho / Menu -->
     <header>
         <div class="topo">
             <div class="logo">
-            <a href="/zypher/VIEWS/HomeCliente.php">
-            <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-            </a>
-        </div>
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
+            </div>
             <div class="busca">
                 <input type="text" placeholder="Buscar...">
                 <button>🔍</button>
             </div>
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-                <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <?php if (!isset($_SESSION)) session_start(); ?>
-
-<?php if (isset($_SESSION['usuario_id'])): ?>
-    <!-- Usuário logado: vai para o perfil -->
-    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
-        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
-    </a>
-<?php else: ?>
-    <!-- Usuário não logado: mostra opções de login/cadastro -->
-    <a href="/zypher/views/login.php" title="Entrar">
-        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
-    </a>
-<?php endif; ?>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
 
-        <!-- Menu -->
-        <nav>
+        <nav class="menu">
             <a href="#">Feminino</a>
             <a href="#">Masculino</a>
         </nav>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero-section">

@@ -11,7 +11,7 @@
     <div class="container">
         <div class="f1">
         <h1 class="title">LOGIN FUNCIONÁRIO</h1>
-        <br><br><br>
+        <br>
         <h3 class ="text">Bem-vindo à Zypher Sneakers! Faça login para editar as últimas novidades e lançar promoções exclusivas para clientes.</h3>
        
         <div class="form-box">
