@@ -37,7 +37,7 @@ class usuarioController {
         include '../views/UpdateUsuario.php';
     }
 
-    public function updateUsuario() {
+    public function updatemembro() {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = new Usuario();
@@ -47,9 +47,10 @@ class usuarioController {
             $usuario->cpf = $_POST['cpf'];
             $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
             $usuario->id_usuario = $_POST['id_usuario'];
+            $usuario->membro = $_POST['SET: TRUE'];
 
             if ($usuario->update()) {
-                header('Location: /zypher/views/PerfilUsuario.php');
+                header('Location: /zypher/views/PerfilMembro.php');
             } else {
                 echo "Erro ao atualizar o cadastro.";
             }

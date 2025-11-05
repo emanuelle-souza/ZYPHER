@@ -32,13 +32,14 @@
             <div class="membro-form">
                 <h3>Cadastro aos Membros</h3>
                 <form>
+                    <form action="/zypher/updatemembro" method="POST">
                     <input type="text" placeholder="Nome" required>
-                    <input type="text" placeholder="Sobrenome" required>
-                    <input type="text" placeholder="CPF" required>
-                    <input type="text" placeholder="Celular" required>
+                    <input type="number" placeholder="CPF" required>
+                    <input type="number" placeholder="Telefone" required>
                     <input type="email" placeholder="E-mail" required>
                     <input type="password" placeholder="Senha" required>
-                    <button type="submit">Enviar</button>
+                    <input class="submit-btn" type="submit" value="Entrar como Membro">
+        </form>
                 </form>
                 <p class="login">Já é membro? <a href="#">Acesse agora.</a></p>
             </div>

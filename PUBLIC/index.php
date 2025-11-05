@@ -39,16 +39,16 @@ switch ($request) {
         $controller = new usuarioController();
         $controller->deleteUsuarioByCpf();
         break;
-    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/updateusuario\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
         $controller->showUpdateForm($id_usuario);
         break;
-    case '/zypher/update_cadastro':
+    case '/zypher/saveusuario':
         require_once '../controllers/usuarioController.php';
         $controller = new usuarioController();
-        $controller->updateUsuario();
+        $controller->saveusuario();
         break;
 
     case '/zypher/salvaend':
@@ -61,7 +61,7 @@ switch ($request) {
         $controller = new enderecoController();
         $controller->updateendereco();
         break;
-    case (preg_match('/\/zypher\/update_cadastro\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/zypher\/update_endereco\/(\d+)/', $request, $matches) ? true : false):
         $id_usuario = $matches[1];
         require_once '../controllers/enderecoController.php';
         $controller = new enderecoController();

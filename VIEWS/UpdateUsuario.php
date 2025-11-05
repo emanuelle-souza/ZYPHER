@@ -10,7 +10,7 @@
 <body>
 
 <h1>Atualizar Cadastro</h1>
-<form action="/zypher/update_cadastro" method="POST">
+<form action="/zypher/saveusuario" method="POST">
     <input type="hidden" name="id_usuario">
 
     <label for="nome">Nome:</label>

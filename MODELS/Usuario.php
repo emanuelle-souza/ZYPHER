@@ -60,20 +60,20 @@ class Usuario {
     }
 
     // Método para atualizar um cadastro
-    public function update() {
-        $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha WHERE id_usuario = :id_usuario";
-        $stmt = $this->conn->prepare($query);
+    // public function updateUsuario() {
+    //     $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha WHERE id_usuario = :id_usuario";
+    //     $stmt = $this->conn->prepare($query);
 
-        // Bind params to the query
-        $stmt->bindParam(':nome', $this->nome);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':telefone', $this->telefone);
-        $stmt->bindParam(':cpf', $this->cpf);
-        $stmt->bindParam(':senha', $this->senha);
-        $stmt->bindParam(':id_usuario', $this->id_usuario);
+    //     // Bind params to the query
+    //     $stmt->bindParam(':nome', $this->nome);
+    //     $stmt->bindParam(':email', $this->email);
+    //     $stmt->bindParam(':telefone', $this->telefone);
+    //     $stmt->bindParam(':cpf', $this->cpf);
+    //     $stmt->bindParam(':senha', $this->senha);
+    //     $stmt->bindParam(':id_usuario', $this->id_usuario);
 
-        return $stmt->execute();
-    }
+    //     return $stmt->execute();
+    // }
      // Método para excluir um usuario pelo cpf
      public function deleteByCpf() {
         $query = "DELETE FROM " . $this->table_name . " WHERE cpf = :cpf";
@@ -90,6 +90,21 @@ class Usuario {
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updatemembro() {
+        $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha, membro = TRUE WHERE id_usuario = :id_usuario";
+        $stmt = $this->conn->prepare($query);
+
+        // Bind params to the query
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':telefone', $this->telefone);
+        $stmt->bindParam(':cpf', $this->cpf);
+        $stmt->bindParam(':senha', $this->senha);
+        $stmt->bindParam(':id_usuario', $this->id_usuario);
+        
+        return $stmt->execute();
     }
 
 
