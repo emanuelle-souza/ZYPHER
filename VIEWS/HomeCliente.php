@@ -16,6 +16,7 @@ $produtos = ProdutoController::listarProdutos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zypher Sneakers</title>
     <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
+    
 </head>
 <body>
      <!-- Cabeçalho / Menu -->
