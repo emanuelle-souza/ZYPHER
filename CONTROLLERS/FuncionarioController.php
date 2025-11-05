@@ -29,10 +29,10 @@ class FuncionarioController {
         include '../views/update_funcionario.php';
     }
 
-    public function updateUsuario() {
+    public function updateFuncionario() {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $funcionario = new Usuario();
+            $funcionario = new Funcionario();
             $funcionario->nome = $_POST['nome'];
             $funcionario->email = $_POST['email']; 
             $funcionario->senha = $_POST['senha'];
@@ -55,17 +55,28 @@ class FuncionarioController {
     $funcionario = new Funcionario();
     $funcionarioExistente = $funcionario->buscarPorEmail($email);
 
-    if ($funcionarioExistente && password_verify($senha, $funcionarioExistente['senha'])) { 
-        $_SESSION['funcionario_id'] = $funcionarioExistente['id'];
-        $_SESSION['email'] = $funcionarioExistente['email'];
+    if ($funcionarioExistente) {
+            // Verifica senha — troque para password_verify se estiver usando hash
+            if (password_verify($senha, $funcionarioExistente['senha'])) {
 
-       
+                $_SESSION['funcionario_id'] = $funcionarioExistente['id_funcionario'];
+                $_SESSION['funcionario_nome'] = $funcionarioExistente['nome'];
+                $_SESSION['funcionario_email'] = $funcionarioExistente['email'];
 
-        header('Location: /zypher/views/HomeFuncionario.php');
-        exit();
-    } else {
-        echo "Email ou senha incorretos!";
+                           // Redireciona para a home
+                header('Location: /zypher/views/HomeFuncionario.php');
+                exit();
+            } else {
+                echo "<script>alert('Senha incorreta!'); window.location.href='/zypher/views/loginFuncionario.php';</script>";
+            }
+        } else {
+            echo "<script>alert('Funcionário não encontrado!'); window.location.href='/zypher/views/login.php';</script>";
+        }
     }
-}
+    
 
 }
+
+    
+
+     
