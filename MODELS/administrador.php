@@ -17,12 +17,19 @@ class Administrador {
         $this->conn = $database->getConnection();
     }
 
-
     public function getAll() {
         $query = "SELECT * FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getById($id_adm) {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id_adm = :id_adm";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id_adm', $id_adm);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function buscarPorEmail($email) {

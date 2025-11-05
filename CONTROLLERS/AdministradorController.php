@@ -21,6 +21,7 @@ class AdministradorController {
                 $_SESSION['id_adm'] = $administradorExistente['id_adm'];
                 $_SESSION['nome'] = $administradorExistente['nome'];
                 $_SESSION['email'] = $administradorExistente['email'];
+                $_SESSION['senha'] = $administradorExistente['senha'];
     
                 // Redireciona para a home
                 header('Location: /zypher/views/Controleuser.php');
