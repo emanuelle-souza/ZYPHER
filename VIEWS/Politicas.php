@@ -4,22 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Políticas - Zypher Sneakers</title>
-  <link rel="stylesheet" href="/zypher/css/PoliticaCliente.css" />
+  <link rel="stylesheet" href="/zypher/CSS/Politica.css" />
 </head>
 <body>
-    <header> 
-        <div class="menu-container">
+     <header>
+        <div class="topo">
             <div class="logo">
-                <a class="logo" href="#"><img src="/zypher/MIDIA/LogoDeitado.png" alt="Logo Zypher Sneakers"></a>
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
             </div>
-            <div class="pesquisar">
-                <input type="text" placeholder="Pesquisar...">
-                <button><img src="/zypher/MIDIA/pesquisar.png" alt="Pesquisar"></button>
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
             </div>
             <div class="icones">
-                <a class="coroa" href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-                <a class="perfil" href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
-                <a class="carrinho" href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -44,10 +54,11 @@
       </section>
 
          <!--RODAPÉ-->
-         <footer>
-            <div class="rodape">
-                <p class= "text"><a href="#">© 2025 Zypher Company. Todos os direitos reservados.</a></p>
-            </div>
-        </footer>
+ <footer>
+    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+    <a href="#">Termos de Uso</a> | 
+    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+</footer>
 </body>
 </html>

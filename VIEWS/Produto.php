@@ -61,31 +61,38 @@ $id_produto = intval($produto['id'] ?? $id);
     </style>
 </head>
 <body>
-<header>
-    <div class="topo">
-        <div class="logo">
-            <a href="/zypher/views/HomeCliente.php">
-                <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-            </a>
+  <!-- Cabeçalho / Menu -->
+    <header>
+        <div class="topo">
+            <div class="logo">
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
+            </div>
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+            <div class="icones">
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
 
-        <div class="busca">
-            <input type="text" placeholder="Buscar...">
-            <button>🔍</button>
-        </div>
-
-        <div class="icones">
-            <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-            <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-            <a href="/zypher/views/PerfilUsuario.php"><img src="/zypher/MIDIA/perfil.png" alt="perfil"></a>
-        </div>
-    </div>
-
-    <nav>
-        <a href="#">Feminino</a>
-        <a href="#">Masculino</a>
-    </nav>
-</header>
+        <nav class="menu">
+            <a href="#">Feminino</a>
+            <a href="#">Masculino</a>
+        </nav>
+    </header>
 
 <main class="produto-container">
     <section class="imagens">
@@ -147,11 +154,13 @@ $id_produto = intval($produto['id'] ?? $id);
 </main>
 
 <footer>
-    <p>© 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+    <a href="#">Termos de Uso</a> | 
+    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
 </footer>
 
-<!-- Script principal do produto
-<script src="/zypher/VIEWS/Produto.js"></script> -->
+
 
 <script>
   const sizeButtons = document.querySelectorAll('.size-btn');

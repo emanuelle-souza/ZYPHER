@@ -115,16 +115,12 @@ $total = 0;
         </div>
     </main>
 
-    <footer>
-        <div class="footer">
-            <div class="text">
-                <a href="#">Política de Privacidade</a> | 
-                <a href="#">Termos de Uso</a> | 
-                <a href="#">Contato</a>
-            </div>
-            <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+     <footer>
+    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+    <a href="#">Termos de Uso</a> | 
+    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+</footer>
 
     <script>
     // Funções utilitárias
