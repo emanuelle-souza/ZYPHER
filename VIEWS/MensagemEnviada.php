@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="busca">
-                <input type="text" placeholder="nike">
+                <input type="text" placeholder="Buscar">
                 <button>🔍</button>
             </div>
             <div class="icones">
