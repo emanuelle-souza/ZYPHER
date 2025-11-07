@@ -54,11 +54,12 @@
       </section>
 
          <!--RODAPÉ-->
- <footer>
-    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
-    <a href="#">Termos de Uso</a> | 
-    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
-    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
-</footer>
+   <!-- Footer -->
+    <footer>
+        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+          <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
+        <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+        <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
