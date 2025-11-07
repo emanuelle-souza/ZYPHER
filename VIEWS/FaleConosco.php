@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="busca">
-                <input type="text" placeholder="nike">
+                <input type="text" placeholder="Burcar">
                 <button>🔍</button>
             </div>
             <div class="icones">
@@ -62,12 +62,12 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nome">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" placeholder="" required>
+                            <input type="text" id="nome" name="nome" placeholder="Insira seu nome completo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="" required>
+                            <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                         <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn" onclick="return true;">
                         <span>✈</span> Enviar Mensagem
                     </button>
                 </form>
