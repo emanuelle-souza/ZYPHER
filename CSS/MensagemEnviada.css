@@ -1,0 +1,271 @@
+/* ===== Imports ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #FAFAFA;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #172A4E;
+}
+
+.topo .logo img {
+    height: 45px;
+}
+
+/* ====== BUSCA ====== */
+.topo .busca {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 35px;
+    background-color: white;
+}
+
+.topo .busca input {
+    border: none;
+    padding: 0 10px;
+    flex: 1;
+    height: 100%;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.topo .busca button {
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.topo .busca button:hover {
+    background-color: #d0d0d0;
+}
+
+.icones {
+    display: flex;
+    align-items: center;
+}
+
+.icones img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icones img:hover {
+    transform: scale(1.1);
+}
+
+/* ====== MENU ====== */
+.menu {
+    display: flex;
+    justify-content: center;
+    background: #BAC2CF;
+    padding: 10px 0;
+}
+
+.menu a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #8a90cc;
+}
+
+/* ====== SEÇÃO DE CONFIRMAÇÃO ====== */
+.confirmacao-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background-color: #FFFFFF;
+}
+
+.confirmacao-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+}
+
+/* Ícone de Sucesso */
+.success-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Título */
+.confirmacao-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Mensagem */
+.mensagem {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botão */
+.btn-enviar-outra {
+    display: inline-block;
+    background-color: #1E1E1E;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.btn-enviar-outra:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    background-color: #E8E8E8;
+    padding: 30px 40px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: auto;
+}
+
+footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #172A4E;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .busca {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .menu {
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .confirmacao-section {
+        padding: 60px 20px;
+    }
+
+    .confirmacao-container {
+        padding: 20px;
+    }
+
+    .confirmacao-container h1 {
+        font-size: 28px;
+    }
+
+    .mensagem {
+        font-size: 14px;
+    }
+
+    .success-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    footer {
+        padding: 20px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmacao-container h1 {
+        font-size: 24px;
+    }
+
+    .btn-enviar-outra {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}

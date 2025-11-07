@@ -80,8 +80,8 @@
                         <label for="mensagem">Mensagem *</label>
                         <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
                     </div>
-
-                    <button type="submit" class="submit-btn">
+ 
+                    <button href="/zypher/VIEWS/MensagemEnviada.php" class="submit-btn">
                         <span>✈</span> Enviar Mensagem
                     </button>
                 </form>
