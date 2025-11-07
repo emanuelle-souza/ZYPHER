@@ -1,0 +1,167 @@
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #172A4E;
+}
+
+.topo .logo img {
+    height: 45px;
+}
+
+/* ====== BUSCA ====== */
+.topo .busca {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 35px;
+    background-color: white;
+}
+
+.topo .busca input {
+    border: none;
+    padding: 0 10px;
+    flex: 1;
+    height: 100%;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.topo .busca button {
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.topo .busca button:hover {
+    background-color: #d0d0d0;
+}
+
+.icones img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icones img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* ========== MAIN ========== */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.titulo-painel {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.resumo-e-lista {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.resumo {
+    flex: 1;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.lista-usuarios {
+    flex: 1;
+}
+
+.btn-usuario {
+    display: flex;
+    align-items: center;
+    background: #7d8cb8;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-usuario:hover {
+    background: #5a6699;
+}
+
+.btn-usuario img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+/* Tabela do histórico */
+.table-historico {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-historico th, .table-historico td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-historico th {
+    background-color: #172A4E;
+    color: white;
+}
+
+/* Modal background transparente já tratado inline */
+
+/* Botão fechar da modal */
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #172A4E;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: #0f1f3a;
+}

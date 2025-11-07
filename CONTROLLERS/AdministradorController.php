@@ -15,9 +15,8 @@ class AdministradorController {
 
     if ($administradorExistente) {
             // Verifica senha — troque para password_verify se estiver usando hash
-            if (password_verify($senha, $administradorExistente['senha'])) {
+            if ($senha == $administradorExistente['senha']){
     
-   
                 $_SESSION['id_adm'] = $administradorExistente['id_adm'];
                 $_SESSION['nome'] = $administradorExistente['nome'];
                 $_SESSION['email'] = $administradorExistente['email'];
@@ -27,7 +26,9 @@ class AdministradorController {
                 header('Location: /zypher/views/Controleuser.php');
                 exit();
             } else {
+
         echo "Email ou senha incorretos!";
+        ;
     }
 }
 }
