@@ -5,5 +5,6 @@ session_destroy(); // Encerra a sessão completamente
 
 // Redireciona o usuário para a tela de login
 header("Location: /zypher/views/login.php");
+header("Location: /zypher/views/LoginAdministrador.php");
 exit();
 ?>

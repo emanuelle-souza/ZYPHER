@@ -1,42 +1,35 @@
 <?php
-
-require_once '../config/database.php';
-
 class Administrador {
-    private $conn;
-    private $table_name = "administrador";
-
-    public $id_adm;
-    public $nome;
-    public $email;
-    public $senha;
-
+    private $pdo;
 
     public function __construct() {
+        require_once __DIR__ . '/../config/database.php';
         $database = new Database();
-        $this->conn = $database->getConnection();
+        $pdo = $database->getConnection();
+        $this->pdo = $pdo;
     }
 
-    public function getAll() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getById($id_adm) {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE id_adm = :id_adm";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id_adm', $id_adm);
-        $stmt->execute();
+   
+    public function buscarPorEmail($email) {
+        $sql = "SELECT * FROM administrador WHERE email = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorEmail($email) {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+    public function login($email, $senha) {
+        $admin = $this->buscarPorEmail($email);
+        if ($admin && $senha === $admin['senha']) {
+            return $admin;
+        }
+        return false;
+    }
+
+    public function getById($id) {
+        $sql = "SELECT id_adm as id, nome, email, telefone FROM administrador WHERE id_adm = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
+?>

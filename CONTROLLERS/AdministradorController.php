@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/database.php';
 require_once '../models/administrador.php';
 
 
@@ -22,7 +23,7 @@ class AdministradorController {
                 $_SESSION['email'] = $administradorExistente['email'];
                 $_SESSION['senha'] = $administradorExistente['senha'];
     
-                // Redireciona para a home
+                
                 header('Location: /zypher/views/Controleuser.php');
                 exit();
             } else {

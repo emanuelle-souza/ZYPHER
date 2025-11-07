@@ -18,47 +18,6 @@ body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; }
     height: 45px;
 }
 
-/* ====== BUSCA ====== */
-.topo .busca {
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden; /* faz o botão e input se encaixarem */
-    height: 35px;
-    background-color: white;
-}
-
-.topo .busca input {
-    border: none;
-    padding: 0 10px;
-    flex: 1;
-    height: 100%;
-    font-size: 0.9rem;
-    outline: none;
-}
-
-.topo .busca button {
-    border: none;
-    background-color: #e0e0e0; /* cor do botão */
-    cursor: pointer;
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-
-.topo .busca button:hover {
-    background-color: #d0d0d0;
-}
-
-.topo .busca button img {
-    width: 16px; /* tamanho da lupa */
-    height: 16px;
-}
-
-
 .icones img {
     width: 30px;
     height: 30px;
@@ -108,13 +67,29 @@ body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; }
     font-weight: bold; font-size: 0.9rem; margin-right: 1rem;
 }
 
+/* Footer */
 footer {
-    text-align: center; padding: 2rem 1rem; color: #666; font-size: 0.9rem; margin-top: 3rem;
-    border-top: 1px solid #eee;
+    background-color: #E8E8E8;
+    padding: 30px 40px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.8;
 }
-footer a { color: #007bff; text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-footer p { margin-top: 0.5rem; }
+
+footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #172A4E;
+}
+
+footer p {
+    margin-top: 10px;
+}
 
 /* MODAL */
 .modal-content { border-radius: 16px; }

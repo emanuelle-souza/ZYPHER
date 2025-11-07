@@ -73,24 +73,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
     <header>
         <div class="topo">
             <div class="logo">
-                <a href="/zypher/VIEWS/HomeCliente.php">
                     <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-                </a>
-            </div>
-            <div class="busca">
-                <input type="text" placeholder="Buscar...">
-                <button>🔍</button>
+                
             </div>
             <div class="icones">
-                <?php if (isset($_SESSION['usuario_id'])): ?>
-                    <a href="/zypher/views/PerfilAdministrador.php" title="Meu Perfil">
-                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
-                    </a>
-                <?php else: ?>
-                    <a href="/zypher/views/LoginAdministrador.php" title="Entrar">
-                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
-                    </a>
-                <?php endif; ?>
+                <?php if (isset($_SESSION['id_adm'])): ?>
+        <a href="/zypher/views/PerfilAdministrador.php" title="Perfil do Admin">
+            <img src="/zypher/MIDIA/perfil.png" alt="Perfil" width="24">
+        </a>
+    <?php endif; ?>
             </div>
         </div>
 </header>
