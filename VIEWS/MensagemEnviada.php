@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/zypher/CSS/MensagemEnviada.css">
 </head>
 <body>
-    <!-- Cabeçalho / Menu -->
+   <!-- Cabeçalho / Menu -->
     <header>
         <div class="topo">
             <div class="logo">
