@@ -58,16 +58,16 @@
             <div class="form-container">
                 <h2>Envie sua Mensagem</h2>
                 
-                <form class="contact-form" action="/zypher/fale_conosco.php" method="POST">
+                <form class="contact-form" action="/zypher/VIEWS/MensagemEnviada.php" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nome">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" placeholder="maria.stecca" required>
+                            <input type="text" id="nome" name="nome" placeholder="" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="maria.stecca@aluno.senai.br" required>
+                            <input type="email" id="email" name="email" placeholder="" required>
                         </div>
                     </div>
 
@@ -80,8 +80,8 @@
                         <label for="mensagem">Mensagem *</label>
                         <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
                     </div>
- 
-                    <button href="/zypher/VIEWS/MensagemEnviada.php" class="submit-btn">
+
+                    <button type="submit" class="submit-btn">
                         <span>✈</span> Enviar Mensagem
                     </button>
                 </form>
