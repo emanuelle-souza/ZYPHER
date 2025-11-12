@@ -38,7 +38,7 @@
                     <input type="number" placeholder="Telefone" required>
                     <input type="email" placeholder="E-mail" required>
                     <input type="password" placeholder="Senha" required>
-                    <input class="submit-btn" type="submit" value="Entrar como Membro">
+                    <input class="submit-btn" type="submit" value="Cadastre-se como Membro">
         </form>
                 </form>
                 <p class="login">Já é membro? <a href="#">Acesse agora.</a></p>
