@@ -25,20 +25,19 @@ footer p {
     color: #333 !important;
 }
 
+/* =======================
+      CONFIGURAÇÕES DE MENU
+      - PRINCIPAL
+      - CATEGORIAS
+    ======================= */
 /* ---------- HEADER ---------- */
 /* ====== TOPO ====== */
 .topo {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 10px 40px;
     background-color: #172A4E;
-    position: relative;
-}
-
-.topo .logo {
-    position: absolute;
-    left: 40px;
 }
 
 .topo .logo img {
@@ -50,51 +49,39 @@ footer p {
     display: flex;
     align-items: center;
     border-radius: 8px;
-    overflow: hidden;
-    height: 40px;
-    background-color: #FFFFFF;
-    width: 520px;
-    border: none;
+    overflow: hidden; /* faz o botão e input se encaixarem */
+    height: 35px;
+    background-color: white;
 }
 
 .topo .busca input {
     border: none;
-    padding: 0 15px;
+    padding: 0 10px;
     flex: 1;
     height: 100%;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     outline: none;
-    background-color: transparent;
-    color: #333;
-}
-
-.topo .busca input::placeholder {
-    color: #999;
 }
 
 .topo .busca button {
     border: none;
-    background-color: transparent;
+    background-color: #e0e0e0; /* cor do botão */
     cursor: pointer;
-    width: 45px;
+    width: 40px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s;
-    font-size: 16px;
-    color: #666;
+    transition: background-color 0.3s;
 }
 
 .topo .busca button:hover {
-    opacity: 0.7;
+    background-color: #d0d0d0;
 }
 
-.icones {
-    position: absolute;
-    right: 40px;
-    display: flex;
-    align-items: center;
+.topo .busca button img {
+    width: 16px; /* tamanho da lupa */
+    height: 16px;
 }
 
 .icones img {
@@ -109,74 +96,34 @@ footer p {
     transform: scale(1.1);
 }
 
-/* Conteúdo principal */
+/* Conteúdo principal - Termos de Uso */
 .termos {
     max-width: 700px; 
-    margin: 50px auto;
+    margin: 50px auto; /* Centraliza horizontalmente */
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #555;
     padding: 20px;
-    margin-top: -10px;
+    margin-top: -10px; /* Espaço acima do conteúdo */
 }
 
-.termos h1 {
+.termos h1 { /* Título */
     font-size: 32px;
     margin-bottom: 20px;
     color: #333;
 }
 
-.termos h1::after {
-    content: "";
-    display: block;
+.termos h1::after { /* Linha abaixo do título */
+    content: ""; /* Cria uma linha */
+    display: block; /* Faz a linha ocupar toda a largura do elemento pai */
     width: 100%;
     height: 2px;
-    background-color: #ccc;
+    background-color: #ccc; /* cor da linha */
     margin-top: 10px;
 } 
 
 .termos p {
     font-size: 16px;
     line-height: 1.6;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .topo {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-        position: static;
-    }
-
-    .topo .logo {
-        position: static;
-    }
-
-    .topo .busca {
-        width: 100%;
-        max-width: 520px;
-    }
-
-    .icones {
-        position: static;
-    }
-
-    .termos {
-        padding: 15px;
-        margin: 30px auto;
-    }
-
-    .termos h1 {
-        font-size: 26px;
-    }
-
-    .termos p {
-        font-size: 14px;
-    }
-
-    footer {
-        padding: 20px !important;
-        font-size: 11px !important;
-    }
+    text-align: left; /* Alinha o texto à esquerda para melhor legibilidade */
 }
