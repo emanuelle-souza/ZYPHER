@@ -2,21 +2,73 @@
 session_start();
 require_once __DIR__ . '/../controllers/CarrinhoController.php';
 
-// Redireciona para o login se não estiver logado
+// Redireciona se não estiver logado
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: /zypher/login?msg=precisa-logar");
     exit;
 }
 
-// Lista os itens do carrinho do usuário
-$itens = CarrinhoController::listarCarrinho($_SESSION['usuario_id']);
+// 🔹 Conexão com o banco
+$pdo = new PDO("mysql:host=localhost;dbname=ZYPHER_SNEAKERS;charset=utf8", "root", "");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// 🔹 Sempre inicializa as variáveis
+$itens = [];
 $total = 0;
-foreach ($itens as $item) {
-    $preco = isset($item['preco']) ? (float)$item['preco'] : 0;
-    $quantidade = isset($item['quantidade']) ? (int)$item['quantidade'] : 1;
-    $total += $preco * $quantidade;
+
+// 🔹 Busca os itens do carrinho do usuário
+$itens = CarrinhoController::listarCarrinho($_SESSION['usuario_id']);
+if (is_array($itens)) {
+    foreach ($itens as $item) {
+        $preco = isset($item['preco']) ? (float)$item['preco'] : 0;
+        $quantidade = isset($item['quantidade']) ? (int)$item['quantidade'] : 1;
+        $total += $preco * $quantidade;
+    }
+}
+
+// 🔹 Se o pagamento foi confirmado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento'])) {
+    $id_usuario = $_SESSION['usuario_id'];
+    $total = (float)($_POST['total'] ?? 0);
+    $cupom_codigo = $_POST['cupom'] ?? null;
+    $cupom_desconto = (float)($_POST['desconto'] ?? 0);
+
+    // Cria o pedido
+    $stmt = $pdo->prepare("
+        INSERT INTO pedido (id_usuario, total, cupom_codigo, cupom_desconto, status, data_pedido)
+        VALUES (:id_usuario, :total, :cupom_codigo, :cupom_desconto, 'Pendente', NOW())
+    ");
+    $stmt->execute([
+        ':id_usuario' => $id_usuario,
+        ':total' => $total,
+        ':cupom_codigo' => $cupom_codigo,
+        ':cupom_desconto' => $cupom_desconto
+    ]);
+
+    $id_pedido = $pdo->lastInsertId();
+
+    // Insere itens do carrinho em pedido_produto
+    $stmt_item = $pdo->prepare("
+        INSERT INTO pedido_produto (id_pedido, id_produto, quantidade)
+        VALUES (:id_pedido, :id_produto, :quantidade)
+    ");
+
+    foreach ($itens as $item) {
+        $stmt_item->execute([
+            ':id_pedido' => $id_pedido,
+            ':id_produto' => $item['id_produto'],
+            ':quantidade' => $item['quantidade']
+        ]);
+    }
+
+    // Limpa carrinho
+    CarrinhoController::limparCarrinho($id_usuario);
+
+    echo json_encode(['sucesso' => true]);
+    exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -189,8 +241,29 @@ function formatarValidade(input) {
 
 // Simula confirmação
 function confirmarPagamento(tipo) {
-    document.getElementById('modal-confirmado').style.display = 'flex';
+    const total = (subtotal - desconto).toFixed(2);
+    const cupom = document.getElementById('cupom').value.trim();
+    const descontoValor = desconto.toFixed(2);
+
+    fetch('', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: `confirmar_pagamento=1&total=${total}&cupom=${cupom}&desconto=${descontoValor}`
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.sucesso) {
+            document.getElementById('modal-confirmado').style.display = 'flex';
+        } else {
+            alert('Erro ao registrar pedido.');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Falha na comunicação com o servidor.');
+    });
 }
+
 function fecharModal() {
     window.location.href = '/zypher/VIEWS/HomeCliente.php';
 }

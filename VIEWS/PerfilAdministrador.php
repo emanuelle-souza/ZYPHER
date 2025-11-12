@@ -34,7 +34,7 @@ if (!isset($_SESSION['id_adm'])) {
                     <a href="/zypher/views/Controleuser.php" class="btn-custom btn-dashboard">
                         Voltar ao Dashboard
                     </a>
-                    <a href="/zypher/views/logout_admin.php" class="btn-custom btn-sair">
+                    <a href="/zypher/views/logout-adm.php" class="btn-custom btn-sair">
                         Sair
                     </a>
                 </div>
