@@ -21,7 +21,7 @@
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
                 <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <?php if (isset($_SESSION['usuario_id'])): ?>
+<?php if (isset($_SESSION['usuario_id'])): ?>
                     <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
                         <img src="/zypher/MIDIA/perfil.png" alt="perfil">
                     </a>
@@ -38,33 +38,30 @@
     <section class="politicas">
         <h1>POLÍTICAS</h1>
         <p>
-          <strong>Políticas de Compra e Entrega – Zypher Sneakers</strong><br><br>
-          
+          <strong>Políticas de Compra e Entrega – Zypher Sneakers</strong><br><br> <!--o Strong destaca algo-->
           <strong>1. Compra:</strong><br>
           Ao comprar na Zypher Sneakers, você concorda com nossos termos e condições. Garantimos a segurança das suas transações.<br><br>
-          
           <strong>2. Entrega:</strong><br>
           Os prazos de entrega variam conforme sua localização. Acompanhe seu pedido diretamente no site.<br><br>
-          
           <strong>3. Trocas e Devoluções:</strong><br>
           Aceitamos trocas e devoluções em até 7 dias após o recebimento, desde que o produto esteja sem uso e na embalagem original.<br><br>
-          
           <strong>4. Atendimento ao Cliente:</strong><br>
           Nosso time está disponível para dúvidas e suporte via chat ou e-mail.<br><br>
-          
           <strong>5. Privacidade:</strong><br>
-          Protegemos seus dados com segurança, garantindo a confidencialidade de suas informações.<br><br>
-          
+          Protegemos seus dados com segurança, garantindo a confidencialidade de suas informações.<br>
           Obrigado por escolher a Zypher Sneakers!
         </p>
       </section>
 
-    <!--RODAPÉ-->
+         <!--RODAPÉ-->
+   <!-- Footer -->
     <footer>
-        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
-        <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
+        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> |
+          <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> |
         <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
         <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
+
+
