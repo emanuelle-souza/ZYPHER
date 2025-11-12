@@ -173,12 +173,16 @@ body {
     background-color: #30448d;
 }
 
-/* ====== RODAPÉ ====== */
-.rodape {
-    background: #f4f4f4;
+/* Footer */
+footer {
+    background-color: #e8e8e8;
+    padding: 30px 40px;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-    flex-shrink: 0;
-    width: 100%;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+footer p {
+    margin: 5px 0;
 }
