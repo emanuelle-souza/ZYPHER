@@ -69,7 +69,7 @@ $id_produto = intval($produto['id'] ?? $id);
                     <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
                 </a>
             </div>
-<div class="busca">
+                <div class="busca">
                 <button type="button">
                     <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
                 </button>
@@ -90,11 +90,11 @@ $id_produto = intval($produto['id'] ?? $id);
             </div>
         </div>
 
-        <nav class="menu">
-            <a href="#">Feminino</a>
-            <a href="#">Masculino</a>
-            <a href="#">Explorar</a>
-            <a href="#">Sobre nós</a>
+       <nav class="menu">
+            <a href="/zypher/views/Feminino.php">Feminino</a>
+            <a href="/zypher/views/Masculino.php">Masculino</a>
+            <a href="/zypher/views/Explorar.php">Explorar</a>
+            <a href="/zypher/views/QuemSomos.php">Sobre nós</a>
         </nav>
     </header>
 

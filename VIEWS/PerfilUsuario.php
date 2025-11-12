@@ -56,11 +56,11 @@ if (!$usuario) {
             </div>
         </div>
 
-        <nav class="menu">
-            <a href="#">Feminino</a>
-            <a href="#">Masculino</a>
-            <a href="#">Explorar</a>
-            <a href="#">Sobre nós</a>
+       <nav class="menu">
+            <a href="/zypher/views/Feminino.php">Feminino</a>
+            <a href="/zypher/views/Masculino.php">Masculino</a>
+            <a href="/zypher/views/Explorar.php">Explorar</a>
+            <a href="/zypher/views/QuemSomos.php">Sobre nós</a>
         </nav>
     </header>
 
@@ -86,7 +86,6 @@ if (!$usuario) {
                 <p><strong>CPF:</strong> <?= htmlspecialchars($usuario['cpf']) ?></p>
 
                 <div class="botoes">
-                    <button onclick="window.location.href='usuarioform.php'">CADASTRO</button>
                     <button onclick="window.location.href='UpdateUsuario.php'">ATUALIZAR PERFIL</button>
                     <button onclick="window.location.href='/zypher/views/logout.php'">SAIR</button>
                 </div>

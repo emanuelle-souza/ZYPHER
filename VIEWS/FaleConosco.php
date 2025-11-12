@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -35,12 +39,11 @@
                 <?php endif; ?>
             </div>
         </div>
-
-        <nav class="menu">
-            <a href="#">Feminino</a>
-            <a href="#">Masculino</a>
-            <a href="#">Explorar</a>
-            <a href="#">Sobre nós</a>
+       <nav class="menu">
+            <a href="/zypher/views/Feminino.php">Feminino</a>
+            <a href="/zypher/views/Masculino.php">Masculino</a>
+            <a href="/zypher/views/Explorar.php">Explorar</a>
+            <a href="/zypher/views/QuemSomos.php">Sobre nós</a>
         </nav>
     </header>
 

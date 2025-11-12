@@ -7,8 +7,8 @@ if (!isset($_SESSION)) {
 
 $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
 
-// Busca apenas produtos da categoria "Feminino" (id_categoria = 1)
-$produtosFemininos = ProdutoController::listarPorCategoria(1);
+// Busca apenas produtos da categoria "Feminino" (id_categoria = 2)
+$produtosMasculinos = ProdutoController::listarPorCategoria(2);
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +16,9 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feminino | Zypher Sneakers</title>
+    <title>Masculino | Zypher Sneakers</title>
     <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
-    <link rel="stylesheet" href="/zypher/CSS/Feminino.css"> <!-- Opcional: estilos específicos -->
+    <link rel="stylesheet" href="/zypher/CSS/Masculino.css"> <!-- Opcional: estilos específicos -->
 </head>
 <body>
 
@@ -63,21 +63,21 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
 <section class="banner-feminino">
     <div class="banner-overlay"></div>
     <div class="banner-content">
-        <h2>COLEÇÃO FEMININA</h2>
+        <h2>COLEÇÃO MASCULINO</h2>
         <p>Estilo, conforto e elegância</p>
     </div>
 </section>
 
     <!-- PRODUTOS FEMININOS -->
     <section class="mais-vendidos">
-        <h2>EXPLORAR FEMININO</h2>
-        <?php if (empty($produtosFemininos)): ?>
+        <h2>EXPLORAR MASCULINO</h2>
+        <?php if (empty($produtosMasculinos)): ?>
             <p style="text-align: center; color: #666; font-size: 1.1rem; margin-top: 20px;">
-                Nenhum produto feminino disponível no momento.
+                Nenhum produto masculino disponível no momento.
             </p>
         <?php else: ?>
             <div class="grid-produtos">
-                <?php foreach ($produtosFemininos as $produto): ?>
+                <?php foreach ($produtosMasculinos as $produto): ?>
                     <a href="/zypher/VIEWS/Produto.php?id=<?= urlencode($produto['id']) ?>" class="card-link">
                         <div class="card">
                             <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
