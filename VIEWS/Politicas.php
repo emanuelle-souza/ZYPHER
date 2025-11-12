@@ -21,7 +21,7 @@
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
                 <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <?php if (isset($_SESSION['usuario_id'])): ?>
+<?php if (isset($_SESSION['usuario_id'])): ?>
                     <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
                         <img src="/zypher/MIDIA/perfil.png" alt="perfil">
                     </a>
@@ -56,10 +56,12 @@
          <!--RODAPÉ-->
    <!-- Footer -->
     <footer>
-        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
-          <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
+        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> |
+          <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> |
         <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
         <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
+
+
