@@ -1,74 +1,182 @@
 <?php
-// Página estática "Quem Somos" para o projeto Zypher
-// Local: VIEWS/QuemSomos.php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+$usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos - Zypher Sneakers</title>
-    <!-- Ajustei o caminho do CSS para a pasta CSS do projeto -->
-    <link rel="stylesheet" href="../CSS/menu.css">
-    <style>
-        /* Layout específico da página Quem Somos, mantendo identidade visual */
-        html, body { height: 100%; margin: 0; padding: 0; }
-        body { font-family: Arial, sans-serif; background: #f4f4f4; display: flex; flex-direction: column; min-height: 100vh; }
-        main { flex: 1 0 auto; }
-        .sobre-wrapper { max-width: 1100px; margin: 36px auto; display: flex; gap: 0; align-items: stretch; }
-        .sobre-conteudo { background: #f0f0f0; padding: 64px 64px; flex: 1; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
-        .sobre-conteudo h1 { font-size: 48px; color: #223a5e; margin: 0 0 24px 0; letter-spacing: 1px; }
-        .sobre-conteudo p { color: #7b7b7b; line-height: 1.8; font-size: 18px; max-width: 640px; margin: 0 auto; text-align: center; }
-
-        .coluna-equipe { width: 360px; background: #0b0b0b; color: #fff; padding: 40px 36px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; position: relative; }
-        .coluna-equipe h2 { font-size: 44px; margin: 8px 0 26px 0; align-self: center; letter-spacing: 2px; }
-        .membro { display: flex; gap: 18px; align-items: center; margin: 18px 0; width: 100%; }
-        .membro .box { width: 56px; height: 56px; background: #d9d9d9; border-radius: 2px; flex-shrink: 0; }
-        .membro span { color: #e9e9e9; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
-        .membro:last-child .box { background: #9b9b9b; }
-
-    /* Ícone de fone no canto inferior direito da coluna preta */
-    .coluna-equipe .fone { position: absolute; right: 18px; bottom: 18px; opacity: 0.95; }
-
-    /* Footer styles moved to global CSS (CSS/menu.css) */
-
-        @media (max-width: 980px) {
-            .sobre-wrapper { flex-direction: column; max-width: 900px; }
-            .coluna-equipe { width: 100%; order: 2; padding: 28px; }
-            .sobre-conteudo { padding: 36px 24px; order: 1; }
-            .sobre-conteudo h1 { font-size: 34px; }
-        }
-    </style>
+    <title>Sobre Nós - Zypher Sneakers</title>
+    <link rel="stylesheet" href="/zypher/CSS/SobreNos.css">
 </head>
 <body>
-    <?php include 'inc/header.php'; ?>
-
-    <main>
-        <div class="sobre-wrapper">
-            <section class="sobre-conteudo">
-                <h1>QUEM SOMOS?</h1>
-                <p>
-                    A Zypher Sneakers nasceu da paixão pelo streetwear e da busca por inovação no mundo dos tênis. Criamos modelos que unem estilo, conforto e tecnologia, proporcionando uma experiência única a cada passo. Nosso compromisso é oferecer produtos de alta qualidade, design autêntico e que expressem a individualidade de quem os usa. Seja para o dia a dia ou para momentos especiais, a Zypher Sneakers é mais do que um tênis – é uma atitude. Explore, experimente e faça parte dessa revolução!
-                </p>
-            </section>
-            <aside class="coluna-equipe">
-                <h2>EQUIPE</h2>
-                <div class="membro"><div class="box"></div><span>EMANUELLE</span></div>
-                <div class="membro"><div class="box"></div><span>KAYLANE</span></div>
-                <div class="membro"><div class="box"></div><span>MARIA JULIA</span></div>
-                <div class="membro"><div class="box"></div><span>MIGUEL. Z</span></div>
-                <div class="membro"><div class="box"></div><span>PEDRO. W</span></div>
-
-                <div class="fone">
-                    <!-- Headphone icon similar to image -->
-                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C7.03 2 3 6.03 3 11v5a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6v-1a6 6 0 0 1 12 0v1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a3 3 0 0 0 3-3v-5c0-4.97-4.03-9-9-9z" fill="#ffffff" opacity="0.95"/>
-                    </svg>
-                </div>
-            </aside>
+     <!-- Cabeçalho / Menu -->
+    <header>
+        <div class="topo">
+            <div class="logo">
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
+            </div>
+<div class="busca">
+                <button type="button">
+                    <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
+                </button>
+                <input type="text" placeholder="Buscar tênis...">
+            </div>
+            <div class="icones">
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
-    </main>
 
-    <?php include 'inc/footer.php'; ?>
+        <nav class="menu">
+            <a href="#">Feminino</a>
+            <a href="#">Masculino</a>
+            <a href="#">Explorar</a>
+            <a href="#">Sobre nós</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Sobre a Zypher Sneakers</h1>
+            <p>Conforto que te leva além</p>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="historia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossa História</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="texto-historia">
+                <p>
+                    A <strong>Zypher Sneakers</strong> nasceu da paixão por tênis e do desejo de oferecer 
+                    produtos de qualidade excepcional para todos os estilos de vida. Desde 2020, temos 
+                    nos dedicado a trazer as melhores marcas e modelos para nossos clientes.
+                </p>
+                <p>
+                    Acreditamos que o calçado certo pode transformar não apenas seu visual, mas toda 
+                    sua experiência diária. Por isso, selecionamos cuidadosamente cada produto em nosso 
+                    catálogo, priorizando conforto, durabilidade e estilo.
+                </p>
+                <p>
+                    Hoje, atendemos milhares de clientes em todo o Brasil, sempre com o compromisso de 
+                    oferecer a melhor experiência de compra e produtos que realmente fazem a diferença 
+                    no dia a dia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossos Valores -->
+    <section class="valores">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Valores</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="grid-valores">
+                <div class="card-valor">
+                    <div class="icone-valor icone-paixao">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
+                    </div>
+                    <h3>Paixão</h3>
+                    <p>Amamos o que fazemos e isso se reflete em cada produto que oferecemos</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icone-valor icone-qualidade">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Qualidade</h3>
+                    <p>Selecionamos apenas produtos que atendem nossos altos padrões de excelência</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icone-valor icone-inovacao">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"/>
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                        </svg>
+                    </div>
+                    <h3>Inovação</h3>
+                    <p>Sempre em busca das últimas tendências e tecnologias em calçados</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icone-valor icone-comunidade">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Comunidade</h3>
+                    <p>Valorizamos cada cliente e construímos relações duradouras</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas -->
+    <section class="estatisticas">
+        <div class="container">
+            <div class="grid-stats">
+                <div class="stat">
+                    <p class="numero">5+</p>
+                    <p class="label">Anos de Experiência</p>
+                </div>
+                <div class="stat">
+                    <p class="numero">50k+</p>
+                    <p class="label">Clientes Satisfeitos</p>
+                </div>
+                <div class="stat">
+                    <p class="numero">1000+</p>
+                    <p class="label">Produtos Vendidos</p>
+                </div>
+                <div class="stat">
+                    <p class="numero">98%</p>
+                    <p class="label">Taxa de Satisfação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer>
+    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+    <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
+    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
