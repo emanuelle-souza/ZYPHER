@@ -100,15 +100,20 @@ switch ($request) {
         $controller->listarProdutos();
         break;
 
-case '/zypher/login':
-    require_once '../views/login.php';
-    break;
+    case '/zypher/login':
+        require_once '../views/login.php';
+        break;
     case '/zypher/loginAdministrador':
         require_once '../controllers/AdministradorController.php';
         $controller = new AdministradorController();  
         $controller->loginAdministrador();
         break;
-
+    case (preg_match('/\/zypher\/updatemembro\/(\d+)/', $request, $matches) ? true : false):
+        $id_usuario = $matches[1];
+        require_once '../controllers/usuarioController.php';
+        $controller = new usuarioController();
+        $controller->showUpdateForm($id_usuario);
+        break;
     default:
         http_response_code(404);
         echo $request;

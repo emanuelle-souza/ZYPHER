@@ -38,6 +38,12 @@ class usuarioController {
         include '../views/UpdateUsuario.php';
     }
 
+    public function updatemembro($id_usuario){
+        $usuario = new Usuario();
+        $usuarioinfo = $usuario->getByid($id_usuario);
+        include '../views/SejaMembro.php';
+    }
+
     // public function updatemembro() {
 
     //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -102,7 +108,38 @@ class usuarioController {
             echo "<script>alert('Usuário não encontrado!'); window.location.href='/zypher/views/login.php';</script>";
         }
     }
+
+    public function loginMembro() {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
     
+        // Captura dados do formulário
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+    
+        $usuario = new Usuario();
+        $usuarioExistente = $usuario->buscarPorEmail($email);
+    
+        if ($usuarioExistente) {
+            // Verifica senha — troque para password_verify se estiver usando hash
+            if (password_verify($senha, $usuarioExistente['senha'])) {
+    
+   
+                $_SESSION['usuario_id'] = $usuarioExistente['id_usuario'];
+                $_SESSION['usuario_nome'] = $usuarioExistente['nome'];
+                $_SESSION['usuario_email'] = $usuarioExistente['email'];
+    
+                // Redireciona para a home
+                header('Location: /zypher/views/*.php');
+                exit();
+            } else {
+                echo "<script>alert('Senha incorreta!'); window.location.href='/zypher/views/login.php';</script>";
+            }
+        } else {
+            echo "<script>alert('Usuário não encontrado!'); window.location.href='/zypher/views/login.php';</script>";
+        }
+    }
 
 
 }

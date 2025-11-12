@@ -112,8 +112,16 @@ public function updatemembro() {
                   SET nome = :nome, telefone = :telefone, cpf = :cpf, senha = :senha, membro = 1
                   WHERE email = :email";
     } 
+    $stmt = $this->conn->prepare($query);
 
+    $stmt->bindParam(':nome', $this->nome);
+    $stmt->bindParam(':email', $this->email);
+    $stmt->bindParam(':telefone', $this->telefone);
+    $stmt->bindParam(':cpf', $this->cpf);
+    $stmt->bindParam(':senha', $this->senha);
 
+    return $stmt->execute();
 }
 
 }
+
