@@ -107,6 +107,14 @@ class Usuario {
         return $stmt->execute();
     }
 
+    public function atualizarFoto($id, $caminho)
+{
+    $sql = "UPDATE usuario SET foto_perfil = ? WHERE id_usuario = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([$caminho, $id]);
+}
+
+
 
 
 }

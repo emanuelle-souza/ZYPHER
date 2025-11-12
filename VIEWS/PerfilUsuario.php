@@ -65,7 +65,15 @@ if (!$usuario) {
         <h1>PERFIL DO USUÁRIO</h1>
 
         <section class="perfil-card">
-            <img src="/zypher/MIDIA/perfil.png" alt="Foto de Perfil" class="foto-perfil">
+            <form action="/zypher/views/uploadFoto.php" method="POST" enctype="multipart/form-data" class="form-foto">
+    <input type="hidden" name="id_usuario" value="<?= $_SESSION['usuario_id'] ?>">
+    <label for="foto-upload">
+        <img src="<?= !empty($usuario['foto_perfil']) ? htmlspecialchars($usuario['foto_perfil']) : '/zypher/MIDIA/perfil.png' ?>" 
+             alt="Foto de Perfil" class="foto-perfil" id="foto-preview">
+    </label>
+    <input type="file" name="foto" id="foto-upload" accept="image/*" style="display: none;" onchange="this.form.submit()">
+</form>
+
 
             <div class="info">
                 <h2><?= htmlspecialchars($usuario['nome']) ?></h2>

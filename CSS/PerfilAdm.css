@@ -1,170 +1,171 @@
-/* CSS/perfil_admin.css */
-:root {
-    --primary: #1a1a2e;
-    --secondary: #16213e;
-    --accent: #0f3460;
-    --light: #f8f9fa;
-    --gray: #e9ecef;
-    --success: #28a745;
-    --danger: #dc3545;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    margin: 0;
-    padding: 2rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f5f7fb, #dfe6f1);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* ===== TOPO ===== */
+.topo {
+  background-color: #172A4E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* ===== PERFIL ===== */
 .perfil-container {
-    max-width: 500px;
-    width: 100%;
-    padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 60px 20px;
+}
+
+.perfil-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #0c1a36;
 }
 
 .perfil-card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s ease;
+  background-color: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  transition: 0.3s;
 }
 
-.perfil-card:hover {
-    transform: translateY(-5px);
+/* FOTO */
+.foto-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card-header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-    position: relative;
-}
-
-.card-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.admin-badge {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    background: #ff6b6b;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.card-body {
-    padding: 2rem;
-    text-align: center;
+.foto-label {
+  cursor: pointer;
 }
 
 .foto-perfil {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #eee;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
 }
 
 .foto-perfil:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#foto_perfil {
+  display: none;
+}
+
+/* Botão upload */
+.btn-upload {
+  background-color: #4059ad;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-upload:hover {
+  background-color: #30448d;
+}
+
+.msg-sucesso {
+  margin-top: 10px;
+  color: #2e8b57;
+  font-size: 0.9rem;
+}
+
+/* INFORMAÇÕES */
+.info {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .info h2 {
-    margin: 0 0 0.5rem;
-    font-size: 1.8rem;
-    color: var(--primary);
-    font-weight: 600;
+  color: #0c1a36;
+  font-size: 1.3rem;
 }
 
 .info p {
-    margin: 0.5rem 0;
-    color: #555;
-    font-size: 1rem;
-}
-
-.info p strong {
-    color: var(--accent);
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
 }
 
 .botoes {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.btn-custom {
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    border: none;
-    font-size: 0.9rem;
-    min-width: 140px;
+.botoes button {
+  background-color: #4059ad;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.btn-dashboard {
-    background: var(--success);
-    color: white;
+.botoes button:hover {
+  background-color: #30448d;
 }
 
-.btn-dashboard:hover {
-    background: #218838;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+/* ===== RODAPÉ ===== */
+footer {
+  background-color: #e8e8e8;
+  padding: 25px 40px;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.8;
 }
 
-.btn-sair {
-    background: var(--danger);
-    color: white;
+footer a {
+  color: #4059ad;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.btn-sair:hover {
-    background: #c82333;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(220,53,69,0.3);
+footer a:hover {
+  text-decoration: underline;
 }
 
-@media (max-width: 576px) {
-    .perfil-container {
-        padding: 0 0.5rem;
-    }
-    
-    .card-header h1 {
-        font-size: 1.3rem;
-    }
-    
-    .info h2 {
-        font-size: 1.5rem;
-    }
-    
-    .botoes {
-        flex-direction: column;
-    }
-    
-    .btn-custom {
-        width: 100%;
-    }
+footer p {
+  margin-top: 8px;
 }
