@@ -13,11 +13,26 @@ $conn = (new Database())->getConnection();
 $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
 $stmt = $conn->prepare("UPDATE usuario SET senha = ? WHERE email = ?");
-if ($stmt->execute([$senhaHash, $email])) {
-    echo "Senha atualizada com sucesso!";
-    echo '<a href="login.php"><button>Voltar para o Login</button></a>';
-    session_destroy(); // Limpa sessão por segurança
-} else {
-    echo "Erro ao atualizar a senha.";
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Redefinição de Senha</title>
+  <link rel="stylesheet" href="/zypher/CSS/SalvarSenha.css">
+</head>
+<body>
+  <div class="container">
+    <?php
+    if ($stmt->execute([$senhaHash, $email])) {
+        echo "<h2>Senha atualizada com sucesso!</h2>";
+        echo '<a href="login.php"><button>Voltar para o Login</button></a>';
+        session_destroy();
+    } else {
+        echo "<h2>Erro ao atualizar a senha.</h2>";
+    }
+    ?>
+  </div>
+</body>
+</html>
