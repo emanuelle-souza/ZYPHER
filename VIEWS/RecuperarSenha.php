@@ -47,11 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
+<link rel="stylesheet" href="/zypher/CSS/RecuperarSenha.css">
+
 <html>
 <head>
     <title>Recuperar Senha</title>
 </head>
 <body>
+  <div class="container">
     <h2>Recuperar Senha</h2>
 
     <?php if (!isset($_POST['email']) && !isset($_POST['codigo_verificacao'])): ?>
@@ -80,5 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($mensagem): ?>
         <p style="color: red;"><?= $mensagem ?></p>
     <?php endif; ?>
+        </div>
 </body>
 </html>

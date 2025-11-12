@@ -17,7 +17,7 @@ if (!isset($_SESSION)) {
     <div class="container">
         <div class="f1">
         <h1 class="title">LOGIN ADM</h1>
-        <br><br><br>
+        <br>
         <h3 class ="text">Bem-vindo de volta! Faça login para acessar sua conta administrativa!.</h3>
        
         <div class="form-box">
