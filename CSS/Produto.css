@@ -16,6 +16,8 @@ body {
 
 /* ---------- HEADER ---------- */
 /* ====== TOPO ====== */
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
 .topo {
     display: flex;
     justify-content: space-between;
@@ -29,45 +31,51 @@ body {
 }
 
 /* ====== BUSCA ====== */
-.topo .busca {
+.busca {
+    position: relative;
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    overflow: hidden; /* faz o botão e input se encaixarem */
-    height: 35px;
-    background-color: white;
 }
 
-.topo .busca input {
-    border: none;
-    padding: 0 10px;
-    flex: 1;
-    height: 100%;
-    font-size: 0.9rem;
+.busca input {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    width: 450px;
+    background-color: #1e293b;
+    color: white;
+    font-size: 1rem;
     outline: none;
+    transition: all 0.3s;
 }
 
-.topo .busca button {
+.busca input:hover,
+.busca input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.busca button {
+    position: absolute;
+    left: 1rem;
+    background: none;
     border: none;
-    background-color: #e0e0e0; /* cor do botão */
     cursor: pointer;
-    width: 40px;
-    height: 100%;
+    padding: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
 }
 
-.topo .busca button:hover {
-    background-color: #d0d0d0;
+.busca button img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
-.topo .busca button img {
-    width: 16px; /* tamanho da lupa */
-    height: 16px;
+.busca button:hover img {
+    opacity: 1;
 }
-
 
 .icones img {
     width: 30px;
@@ -99,7 +107,6 @@ body {
 .menu a:hover {
     color: #8a90cc;
 }
-
 
 /* ---------- CONTEÚDO DO PRODUTO ---------- */
 .produto-container {

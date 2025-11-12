@@ -27,9 +27,11 @@ $produtos = ProdutoController::listarProdutos();
                     <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
                 </a>
             </div>
-            <div class="busca">
-                <input type="text" placeholder="Buscar...">
-                <button>🔍</button>
+<div class="busca">
+                <button type="button">
+                    <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
+                </button>
+                <input type="text" placeholder="Buscar tênis...">
             </div>
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
@@ -49,6 +51,8 @@ $produtos = ProdutoController::listarProdutos();
         <nav class="menu">
             <a href="#">Feminino</a>
             <a href="#">Masculino</a>
+            <a href="#">Explorar</a>
+            <a href="#">Sobre nós</a>
         </nav>
     </header>
     <!-- BANNER (vídeo principal) -->
