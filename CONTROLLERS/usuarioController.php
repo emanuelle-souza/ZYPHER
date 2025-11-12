@@ -38,25 +38,25 @@ class usuarioController {
         include '../views/UpdateUsuario.php';
     }
 
-    public function updatemembro() {
+    // public function updatemembro() {
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $usuario = new Usuario();
-            $usuario->nome = $_POST['nome'];
-            $usuario->email = $_POST['email']; 
-            $usuario->telefone = $_POST['telefone'];
-            $usuario->cpf = $_POST['cpf'];
-            $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-            $usuario->id_usuario = $_POST['id_usuario'];
-            $usuario->membro = $_POST['membro = 1'];
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //         $usuario = new Usuario();
+    //         $usuario->nome = $_POST['nome'];
+    //         $usuario->email = $_POST['email']; 
+    //         $usuario->telefone = $_POST['telefone'];
+    //         $usuario->cpf = $_POST['cpf'];
+    //         $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    //         $usuario->id_usuario = $_POST['id_usuario'];
+    //         $usuario->membro = $_POST['membro = 1'];
 
-            if ($usuario->update()) {
-                header('Location: /zypher/views/PerfilMembro.php');
-            } else {
-                echo "Erro ao atualizar o cadastro.";
-            }
-        }
-    }
+    //         if ($usuario->update()) {
+    //             header('Location: /zypher/views/PerfilMembro.php');
+    //         } else {
+    //             echo "Erro ao atualizar o cadastro.";
+    //         }
+    //     }
+    // }
     
     public function deleteUsuarioByCpf() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
