@@ -15,6 +15,7 @@ class usuarioController {
             $usuario->telefone = $_POST['telefone'];
             $usuario->cpf = $_POST['cpf'];
             $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+            $usuario->membro = $_POST['membro = 0'];
 
 
             if ($usuario->saveusuario()){
@@ -47,7 +48,7 @@ class usuarioController {
             $usuario->cpf = $_POST['cpf'];
             $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
             $usuario->id_usuario = $_POST['id_usuario'];
-            $usuario->membro = $_POST['SET: TRUE'];
+            $usuario->membro = $_POST['membro = 1'];
 
             if ($usuario->update()) {
                 header('Location: /zypher/views/PerfilMembro.php');

@@ -29,13 +29,13 @@ class Usuario {
     if ($checkStmt->rowCount() > 0) {
         // Já existe → atualizar
         $query = "UPDATE " . $this->table_name . "
-                  SET nome = :nome, telefone = :telefone, cpf = :cpf, senha = :senha, membro = 1
+                  SET nome = :nome, telefone = :telefone, cpf = :cpf, senha = :senha, membro = 0
                   WHERE email = :email";
     } else {
         // Não existe → inserir novo
         $query = "INSERT INTO " . $this->table_name . " 
                   (nome, email, telefone, cpf, senha, membro)
-                  VALUES (:nome, :email, :telefone, :cpf, :senha, 1)";
+                  VALUES (:nome, :email, :telefone, :cpf, :senha, 0)";
     }
 
     $stmt = $this->conn->prepare($query);
@@ -77,20 +77,20 @@ class Usuario {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function updatemembro() {
-        $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha, membro = TRUE WHERE id_usuario = :id_usuario";
-        $stmt = $this->conn->prepare($query);
+    // public function updatemembro() {
+    //     $query = "UPDATE " . $this->table_name . " SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, senha = :senha, membro = TRUE WHERE id_usuario = :id_usuario";
+    //     $stmt = $this->conn->prepare($query);
 
-        // Bind params to the query
-        $stmt->bindParam(':nome', $this->nome);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':telefone', $this->telefone);
-        $stmt->bindParam(':cpf', $this->cpf);
-        $stmt->bindParam(':senha', $this->senha);
-        $stmt->bindParam(':id_usuario', $this->id_usuario);
+    //     // Bind params to the query
+    //     $stmt->bindParam(':nome', $this->nome);
+    //     $stmt->bindParam(':email', $this->email);
+    //     $stmt->bindParam(':telefone', $this->telefone);
+    //     $stmt->bindParam(':cpf', $this->cpf);
+    //     $stmt->bindParam(':senha', $this->senha);
+    //     $stmt->bindParam(':id_usuario', $this->id_usuario);
         
-        return $stmt->execute();
-    }
+    //     return $stmt->execute();
+    // }
 
     public function atualizarFoto($id, $caminho)
 {
@@ -99,8 +99,21 @@ class Usuario {
     $stmt->execute([$caminho, $id]);
 }
 
+public function updatemembro() {
+    // Verificar se o email já existe
+    $checkQuery = "SELECT id_usuario FROM " . $this->table_name . " WHERE email = :email";
+    $checkStmt = $this->conn->prepare($checkQuery);
+    $checkStmt->bindParam(':email', $this->email);
+    $checkStmt->execute();
 
+    if ($checkStmt->rowCount() > 0) {
+        // Já existe → atualizar
+        $query = "UPDATE " . $this->table_name . "
+                  SET nome = :nome, telefone = :telefone, cpf = :cpf, senha = :senha, membro = 1
+                  WHERE email = :email";
+    } 
 
 
 }
 
+}
