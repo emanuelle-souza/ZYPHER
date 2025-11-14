@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
         <a href="/zypher/views/PerfilAdministrador.php" title="Perfil do Admin">
             <img src="/zypher/MIDIA/perfil.png" alt="Perfil" width="24">
         </a>
+        
     <?php endif; ?>
             </div>
         </div>
