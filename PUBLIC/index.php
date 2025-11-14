@@ -8,7 +8,8 @@ error_reporting(E_ALL);
 require_once '../controllers/usuarioController.php';
 require_once '../controllers/enderecoController.php';
 require_once '../controllers/ProdutoController.php';
-
+require_once '../controllers/FuncionarioController.php';
+require_once '../controllers/AdministradorController.php';
 
 
 // Lógica de roteamento

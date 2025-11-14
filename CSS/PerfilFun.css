@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f5f7fb, #dfe6f1);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOPO ===== */
+.topo {
+  background-color: #172A4E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* ===== PERFIL ===== */
+.perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 60px 20px;
+}
+
+.perfil-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #0c1a36;
+}
+
+.perfil-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  transition: 0.3s;
+}
+
+/* FOTO */
+.foto-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foto-label {
+  cursor: pointer;
+}
+
+.foto-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #eee;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05);
+}
+
+#foto_perfil {
+  display: none;
+}
+
+/* Botão upload */
+.btn-upload {
+  background-color: #4059ad;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-upload:hover {
+  background-color: #30448d;
+}
+
+.msg-sucesso {
+  margin-top: 10px;
+  color: #2e8b57;
+  font-size: 0.9rem;
+}
+
+/* INFORMAÇÕES */
+.info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info h2 {
+  color: #0c1a36;
+  font-size: 1.3rem;
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.botoes {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.botoes button {
+  background-color: #4059ad;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.botoes button:hover {
+  background-color: #30448d;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  background-color: #e8e8e8;
+  padding: 25px 40px;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+footer a {
+  color: #4059ad;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin-top: 8px;
+}
