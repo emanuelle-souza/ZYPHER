@@ -34,7 +34,7 @@ if (!isset($_SESSION)) {
     </form>
 </div>
 
-        <p class= "text"><a href="/zypher/views/PoliticaCliente.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
+        <p class= "text"><a href="/zypher/views/PoliticaAdm.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 
     </div>
 
