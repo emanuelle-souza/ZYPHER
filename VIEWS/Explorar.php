@@ -1,19 +1,20 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore o Mundo dos Sneakers - Zypher Sneakers</title>
+    <title>Fale Conosco - Zypher Sneakers</title>
     <link rel="stylesheet" href="/zypher/CSS/Explorar.css">
 </head>
 <body>
     <!-- Cabeçalho / Menu -->
     <header>
         <div class="topo">
-  <div class="logo">
+     <div class="logo">
                 <a href="<?php 
     echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
         ? '/zypher/VIEWS/HomeMembro.php' 
@@ -22,7 +23,7 @@ session_start();
     <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
 </a>
             </div>
-            <div class="busca">
+<div class="busca">
                 <button type="button">
                     <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
                 </button>
@@ -31,12 +32,18 @@ session_start();
             <div class="icones">
                 <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
                 <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
-                <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
-                    <img src="/zypher/MIDIA/perfil.png" alt="perfil">
-                </a>
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                        <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                    </a>
+                <?php else: ?>
+                    <a href="/zypher/views/login.php" title="Entrar">
+                        <img src="/zypher/MIDIA/perfil.png" alt="Entrar">
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
-        <nav class="menu">
+       <nav class="menu">
             <a href="/zypher/views/Feminino.php">Feminino</a>
             <a href="/zypher/views/Masculino.php">Masculino</a>
             <a href="/zypher/views/Explorar.php">Explorar</a>
@@ -58,7 +65,7 @@ session_start();
             <!-- Coluna Esquerda - Curiosidades -->
             <div class="left-column">
                 <h2 class="section-title">
-                    🎯 Curiosidades
+                     Curiosidades
                 </h2>
                 
                 <!-- Card 1 -->
@@ -105,13 +112,12 @@ session_start();
             <!-- Coluna Central - Como Lavar -->
             <div class="center-column">
                 <h2 class="section-title">
-                    💧 Como Lavar
+                     Como Lavar
                 </h2>
 
                 <!-- Limpeza Básica -->
                 <div class="wash-box">
                     <div class="wash-header">
-                        <span class="wash-icon pink">🧼</span>
                         <h3>Limpeza Básica Regular</h3>
                     </div>
                     <ul class="wash-list">
@@ -125,7 +131,6 @@ session_start();
                 <!-- Manchas Difíceis -->
                 <div class="wash-box">
                     <div class="wash-header">
-                        <span class="wash-icon orange">🔥</span>
                         <h3>Manchas Difíceis</h3>
                     </div>
                     <ul class="wash-list">
@@ -139,7 +144,6 @@ session_start();
                 <!-- Materiais Especiais -->
                 <div class="wash-box">
                     <div class="wash-header">
-                        <span class="wash-icon purple">⭐</span>
                         <h3>Materiais Especiais</h3>
                     </div>
                     <ul class="wash-list">
@@ -154,7 +158,7 @@ session_start();
             <!-- Coluna Direita - Cuidados -->
             <div class="right-column">
                 <h2 class="section-title">
-                    ✅ Cuidados
+                     Cuidados
                 </h2>
 
                 <!-- Cards de Cuidados -->

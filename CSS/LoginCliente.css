@@ -34,28 +34,13 @@ body {
   overflow: hidden;
 }
 
-.f1::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(23, 42, 78, 0.05) 0%, transparent 70%);
-  animation: pulse 15s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.1) rotate(180deg); }
-}
 
 /* TÍTULO */
 .title {
   font-size: 52px;
   font-weight: 800;
   color: #1a1a1a;
-  margin-bottom: 20px;
+  margin-top: 30px;
   text-align: center;
   letter-spacing: -1px;
   text-transform: uppercase;
@@ -71,7 +56,7 @@ body {
   text-align: center;
   max-width: 500px;
   line-height: 1.8;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-weight: 400;
 }
 
@@ -209,21 +194,6 @@ body {
   overflow: hidden;
 }
 
-.f2::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 .logo {
   max-width: 70%;

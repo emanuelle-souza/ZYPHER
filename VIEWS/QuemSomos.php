@@ -11,14 +11,14 @@ $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Zypher Sneakers</title>
+    <title>Fale Conosco - Zypher Sneakers</title>
     <link rel="stylesheet" href="/zypher/CSS/SobreNos.css">
 </head>
 <body>
-     <!-- Cabeçalho / Menu -->
+    <!-- Cabeçalho / Menu -->
     <header>
         <div class="topo">
-  <div class="logo">
+     <div class="logo">
                 <a href="<?php 
     echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
         ? '/zypher/VIEWS/HomeMembro.php' 
@@ -47,7 +47,6 @@ $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null
                 <?php endif; ?>
             </div>
         </div>
-
        <nav class="menu">
             <a href="/zypher/views/Feminino.php">Feminino</a>
             <a href="/zypher/views/Masculino.php">Masculino</a>
