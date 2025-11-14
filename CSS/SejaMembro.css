@@ -1,475 +1,395 @@
-/* ===== SejaMembro.css ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* ========================================
+   SEJA MEMBRO - ZYPHER SNEAKERS (ATUALIZADO)
+   ======================================== */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    background-color: #001f3f;
+    color: #b0c4de;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ========================================
+   HEADER - IGUAL AO ZYPHER SNEAKERS
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0f1b31;
-    color: white;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #172A4E;
-    font-family: Arial, sans-serif;
-}
 
-/* Container principal do menu */
-.menu-container {
+/* =======================
+      CONFIGURAÇÕES DE MENU
+      - PRINCIPAL
+      - CATEGORIAS
+    ======================= */
+.topo {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #172A4E;
 }
 
-/* Logo */
-.logo {
+.topo .logo img {
+    height: 45px;
+}
+
+/* ====== BUSCA ====== */
+.busca {
+    position: relative;
     display: flex;
     align-items: center;
 }
 
-
-.logo img {
-    width: 200px;
-    height: auto;
-}
-
-/* Barra de pesquisa */
-.pesquisar {
-    display: flex;
-    align-items: center;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-
-.pesquisar input {
-    border: none;
-    background: none;
+.busca input {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    width: 450px;
+    background-color: #1e293b;
+    color: white;
+    font-size: 1rem;
     outline: none;
-    padding: 5px;
+    transition: all 0.3s;
 }
 
-.pesquisar button {
+.busca input:hover,
+.busca input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.busca button {
+    position: absolute;
+    left: 1rem;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
-.pesquisar button img {
+.busca button img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.busca button:hover img {
+    opacity: 1;
+}
+
+.icones img {
     width: 30px;
-}
-
-
-/* Ícones do lado direito */
-/* coroa */
-.icones .coroa img {
-    width: 50px; /* tamanho  */
-    height: 30px; /* altura */
-    object-fit: contain; /* ajusta a imagem sem distorcer */
-}
-
-/* perfil */
-.icones .perfil img {
-    width: 50px;
     height: 30px;
-    object-fit: contain;
-   
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
-/* carrinho */
-.icones .carrinho img {
-    width: 50px;
-    height: 30px;
-    object-fit: contain;
-   
+.icones img:hover {
+    transform: scale(1.1);
 }
 
-/* Menu categorias */
-.menu-categorias {
-    background-color: #BAC2CF;
-}
-
-.menu-categorias ul { /* Lista de categorias */
+/* ====== MENU ====== */
+.menu {
     display: flex;
     justify-content: center;
-    list-style: none; /* Remove os marcadores da lista */
+    background: #BAC2CF;
+    padding: 10px 0;
 }
 
-.menu-categorias ul li { /* Itens da lista */
-    margin: 10px 20px;
-}
-
-.menu-categorias ul li a { /* Links das categorias */
+.menu a {
+    margin: 0 20px;
     text-decoration: none;
-    color: black;
-    font-weight: "Poppins", sans-serif;
-    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
 }
 
-.menu-categorias ul li a:hover {
-    color: #172A4E; /* Cor do texto ao passar o mouse */
-    text-decoration: underline; /* Sublinhado ao passar o mouse */
+.menu a:hover {
+    color: #8a90cc;
 }
 
 
-/* ========== SEÇÃO DE CADASTRO ========== */
+/* ========================================
+   NAVEGAÇÃO - IGUAL AO PRINT
+   ======================================== */
+nav {
+    background-color: #a9b7c6;
+    padding: 12px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 35px;
+}
+
+nav ul li {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+nav ul li:hover {
+    color: #003366;
+}
+
+/* ========================================
+   SEÇÃO MEMBRO
+   ======================================== */
 .membro-section {
-    padding: 80px 0 50px;
-    background: linear-gradient(to bottom, #0f1b31 80%, #0d192e 100%);
+    padding: 40px 20px;
 }
 
 .container {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: auto;
+    gap: 50px;
     flex-wrap: wrap;
-    gap: 40px;
-    padding: 0 20px;
 }
 
-.membro-texto {
-    max-width: 500px;
+.membro-texto, .membro-form {
+    flex: 1;
+    min-width: 300px;
 }
 
 .membro-texto h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 15px;
     font-weight: 600;
-    line-height: 1.2;
 }
 
 .membro-texto p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #d1d1d1;
-    margin-bottom: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #b0c4de;
 }
 
-.membro-texto .preco {
-    font-size: 1.05rem;
-    line-height: 1.8;
+.preco {
+    color: #00bfff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
-.membro-texto .preco strong {
-    color: #ff320a;
-    font-size: 1.15rem;
-}
-
-/* ========== FORMULÁRIO DE PAGAMENTO ========== */
-.membro-form {
-    background: #0d192e;
-    padding: 35px 40px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
+/* Título do método de pagamento - BRANCO */
 .membro-form h3 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #e0e0e0;
-    font-size: 1.4rem;
-    width: 100%;
+    color: #ffffff !important;
+    font-size: 20px;
+    margin: 25px 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
 }
 
+.membro-form h3::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300bfff"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+/* Botões Cartão / PIX - LADO A LADO + AZUL CLARO */
 .metodo {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .metodo button {
-    flex: 1;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #5dade2;
-    background: #5dade2;
-    color: white;
-    cursor: pointer;
+    background-color: #87ceeb;
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.metodo button:hover {
-    background: #3498db;
-    border-color: #3498db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
 }
 
 .metodo button.ativo {
-    background: #3498db;
-    border-color: #3498db;
-    color: white;
+    background-color: #00bfff;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 191, 255, 0.3);
 }
 
+.metodo button:hover:not(.ativo) {
+    background-color: #9fd8f0;
+}
+
+/* Formulário */
 .form-pagamento {
-    animation: fadeIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .form-pagamento label {
+    color: #e0e0e0;
+    font-size: 14px;
+    margin-bottom: 6px;
     display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #00e6ff;
-    font-size: 0.95rem;
 }
 
 .form-pagamento input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #444;
+    background-color: #ffffff;
+    border: none;
+    padding: 12px 14px;
     border-radius: 6px;
-    background: #162238;
-    color: white;
-    font-size: 0.95rem;
-    outline: none;
-    transition: 0.2s;
-    box-sizing: border-box;
-}
-
-.form-pagamento input:focus {
-    border-color: #00e6ff;
-    box-shadow: 0 0 8px rgba(0, 230, 255, 0.3);
+    font-size: 15px;
+    color: #000000;
 }
 
 .form-pagamento input::placeholder {
-    color: #888;
+    color: #999999;
 }
 
 .duas-colunas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 10px;
+    display: flex;
+    gap: 12px;
 }
 
-.duas-colunas div label {
-    display: block;
-    margin-bottom: 5px;
+.duas-colunas > div {
+    flex: 1;
 }
 
-.duas-colunas input {
-    width: 100%;
-    box-sizing: border-box;
-}
-
+/* Resumo e botão pagar */
 .resumo {
-    margin-top: 20px;
-    border-top: 1px solid #444;
-    padding-top: 15px;
-    background: #0a1220;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    text-align: right;
+    margin: 20px 0 15px;
 }
 
 .resumo p {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    color: #00e6ff;
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
 }
 
+/* Botão Pagar - AZUL CLARO */
 .botao-pagar {
-    background: #5dade2;
-    color: white;
+    background-color: #87ceeb;
+    color: #000000;
     border: none;
-    width: 100%;
-    padding: 10px;
+    padding: 16px;
     border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    box-sizing: border-box;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .botao-pagar:hover {
-    background: #3498db;
+    background-color: #00bfff;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 191, 255, 0.4);
 }
 
 .botao-pagar:disabled {
-    background: #999;
+    background-color: #666;
     cursor: not-allowed;
+    transform: none;
 }
 
-.form-pagamento > p {
-    color: #d1d1d1;
-    margin: 15px 0;
+/* PIX */
+#form-pix p {
     text-align: center;
+    color: #cccccc;
+    font-size: 15px;
 }
 
-.form-pagamento > img {
+#form-pix img {
+    width: 180px;
+    margin: 15px auto;
+    display: block;
+    border: 1px solid #333;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* ========== FAQ SECTION ========== */
+#form-pix strong {
+    color: #00bfff;
+}
+
+/* FAQ */
 .faq-section {
-    text-align: center;
-    padding: 80px 20px;
-    background: #fff;
-    color: #111;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
 .faq-section h2 {
-    margin-bottom: 50px;
-    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+
+.faq details {
+    background-color: #112233;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq summary {
+    padding: 16px;
+    color: #ffffff;
     font-weight: 600;
-}
-
-.faq {
-    max-width: 1000px;
-    margin: auto;
-}
-
-details {
-    background: transparent;
-    color: #111;
-    border: none;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 0;
-    margin-bottom: 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    background-color: #001f3f;
 }
 
-details:last-child {
-    border-bottom: none;
+.faq p {
+    padding: 16px;
+    color: #b0c4de;
+    font-size: 15px;
 }
 
-summary {
-    list-style: none;
-    font-weight: 600;
-    font-size: 1.15rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0;
-    transition: all 0.3s;
-}
-
-summary:hover {
-    color: #ff320a;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: "▼";
-    font-size: 0.7em;
-    transition: transform 0.3s;
-    color: #757575;
-}
-
-details[open] summary::after {
-    transform: rotate(180deg);
-}
-
-details[open] summary {
-    color: #ff320a;
-}
-
-details p {
-    background: transparent;
-    color: #757575;
-    border-radius: 0;
-    margin: 0;
-    padding: 0 0 24px 0;
-    text-align: left;
-    font-size: 1rem;
-    line-height: 1.7;
-    box-shadow: none;
-    animation: aparecer 0.3s ease;
-}
-
-/* ========== ANIMAÇÕES ========== */
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes aparecer {
-    from { 
-        opacity: 0; 
-        transform: translateY(-10px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-/* ========== RESPONSIVIDADE ========== */
+/* Responsivo */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .membro-texto {
-        text-align: center;
-        max-width: 100%;
-        padding: 0 20px;
-    }
-    
-    .membro-texto h2 {
-        font-size: 2rem;
-    }
-    
-    .membro-form {
-        width: 90%;
-        max-width: 400px;
-    }
-
     .topo {
-        padding: 10px 20px;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 15px;
     }
-
-    .topo .busca {
-        order: 3;
+    .busca {
         width: 100%;
+        max-width: 300px;
     }
-
-    .membro-section {
-        padding: 40px 0 30px;
+    .container {
+        flex-direction: column;
+        gap: 30px;
     }
-
-    .faq-section {
-        padding: 40px 20px;
+    nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
-

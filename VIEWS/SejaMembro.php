@@ -60,9 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 </a>
             </div>
         <div class="busca">
-            <input type="text" placeholder="Buscar...">
-            <button>🔍</button>
-        </div>
+                <button type="button">
+                    <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
+                </button>
+                <input type="text" placeholder="Buscar tênis...">
+            </div>
         <div class="icones">
             <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
             <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>

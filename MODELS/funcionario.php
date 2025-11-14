@@ -1,49 +1,37 @@
 <?php
-
 require_once '../config/database.php';
 
 class Funcionario {
-    private $conn;
-    private $table_name = "funcionario";
-
-    public $funcionario;
-    public $email;
-    public $senha;
-    public $nome;
-   
-
+    private $pdo;
 
     public function __construct() {
+        require_once __DIR__ . '/../config/database.php';
         $database = new Database();
-        $this->conn = $database->getConnection();
+        $pdo = $database->getConnection();
+        $this->pdo = $pdo;
     }
 
- public function save() {
-    $query = "INSERT INTO " . $this->table_name . " (email, senha, nome) VALUES (:email, :senha, :nome)";
-    $stmt = $this->conn->prepare($query);
-
-    // Criptografar a senha corretamente
-    $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
-
-    $stmt->bindParam(':email', $this->email);
-    $stmt->bindParam(':senha', $senhaCriptografada);
-    $stmt->bindParam(':nome', $this->nome);
-
-    return $stmt->execute();
-}
-
-    public function getAll() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
+   
     public function buscarPorEmail($email) {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+        $sql = "SELECT * FROM funcionario WHERE email = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function login($email, $senha) {
+        $admin = $this->buscarPorEmail($email);
+        if ($admin && $senha === $admin['senha']) {
+            return $admin;
+        }
+        return false;
+    }
+
+    public function getById($id) {
+        $sql = "SELECT id_funcionario as id, nome, email, telefone FROM funcionario WHERE id_funcionario = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
+?>
