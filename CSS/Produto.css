@@ -148,10 +148,50 @@ body {
   margin-bottom: 10px;
 }
 
-.preco {
-  font-size: 18px;
-  margin: 15px 0;
-  font-weight: 500;
+.preco-container {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badge-produto {
+    display: inline-block;
+    background: #e63946;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+.preco-linha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ← ESSA LINHA ESTAVA FALTANDO */
+.preco-antigo {
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through; /* ← RISCADO */
+    font-weight: 500;
+}
+
+.preco-final {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d00000;
+}
+
+.parcelas {
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
 }
 
 #preco-pix {
@@ -244,6 +284,7 @@ body {
   height: 50px;
   border-radius: 50%;
 }
+
 
 /* Footer */
 footer {

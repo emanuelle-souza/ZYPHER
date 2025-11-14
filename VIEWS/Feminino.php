@@ -26,9 +26,13 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
     <header>
         <div class="topo">
             <div class="logo">
-                <a href="/zypher/VIEWS/HomeCliente.php">
-                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-                </a>
+                <a href="<?php 
+    echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
+        ? '/zypher/VIEWS/HomeMembro.php' 
+        : '/zypher/VIEWS/HomeCliente.php'; 
+?>">
+    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+</a>
             </div>
 <div class="busca">
                 <button type="button">

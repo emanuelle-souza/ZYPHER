@@ -18,8 +18,15 @@ if ($id) {
 }
 
 // --- Segurança e valores padrão ---
+// --- Segurança e valores padrão ---
 $nome = htmlspecialchars($produto['nome'] ?? 'Produto');
-$preco = isset($produto['preco']) ? floatval($produto['preco']) : 0.00;
+$preco_original = isset($produto['preco']) ? floatval($produto['preco']) : 0.00;
+$desconto = $produto['desconto'] ?? 0; // Pega do banco
+
+// Aplica desconto apenas se for membro
+$isMembro = isset($_SESSION['membro']) && $_SESSION['membro'];
+$preco_final = $isMembro ? $preco_original * (1 - $desconto / 100) : $preco_original;
+$tem_desconto = $isMembro && $desconto > 0;
 $descricao_curta = $produto['descricao_curta'] ?? $produto['descricao'] ?? '';
 $descricao_curta = htmlspecialchars($descricao_curta);
 $descricao_full = htmlspecialchars($produto['descricao'] ?? $descricao_curta);
@@ -63,11 +70,15 @@ $id_produto = intval($produto['id'] ?? $id);
 <body>
   <!-- Cabeçalho / Menu -->
     <header>
-        <div class="topo">
+               <div class="topo">
             <div class="logo">
-                <a href="/zypher/VIEWS/HomeCliente.php">
-                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-                </a>
+                <a href="<?php 
+    echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
+        ? '/zypher/VIEWS/HomeMembro.php' 
+        : '/zypher/VIEWS/HomeCliente.php'; 
+?>">
+    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+</a>
             </div>
                 <div class="busca">
                 <button type="button">
@@ -112,12 +123,24 @@ $id_produto = intval($produto['id'] ?? $id);
     </section>
 
     <section class="detalhes">
+
+<h1 id="nome-produto"><?= $nome ?></h1>
         <h1 id="nome-produto"><?= $nome ?></h1>
         <p class="descricao-curta"><?= $descricao_curta ?></p>
-        <p class="preco">
-            <span id="preco-pix">R$<?= number_format($preco, 2, ',', '.') ?> no pix</span> 
-            ou em até <span class="parcelas">12x sem juros</span>
-        </p>
+    <div class="preco-container">
+    <?php if ($tem_desconto): ?>
+        <div class="badge-produto">-<?= (int)$desconto ?>%</div>
+        <div class="preco-linha">
+            <span class="preco-antigo">R$ <?= number_format($preco_original, 2, ',', '.') ?></span>
+            <span class="preco-final">R$ <?= number_format($preco_final, 2, ',', '.') ?> no pix</span>
+        </div>
+    <?php else: ?>
+        <div class="preco-linha">
+            <span class="preco-final">R$ <?= number_format($preco_original, 2, ',', '.') ?> no pix</span>
+        </div>
+    <?php endif; ?>
+    <div class="parcelas">ou em até 12x sem juros</div>
+</div>
         
 <form action="../controllers/AdicionarCarrinho.php" method="POST" class="form-carrinho">
     <input type="hidden" name="id_produto" value="<?= $id_produto ?>">
