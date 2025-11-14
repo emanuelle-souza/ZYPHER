@@ -19,11 +19,13 @@ body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; }
 }
 
 .icones img {
-    width: 30px;
-    height: 30px;
+    width: 24px !important;    
+    height: 24px !important;
     margin-left: 15px;
     cursor: pointer;
     transition: transform 0.3s;
+    display: inline-block !important;
+    vertical-align: middle;
 }
 
 .icones img:hover {
@@ -181,3 +183,4 @@ footer p {
 .filtro-escondido {
     display: none !important;
 }
+
