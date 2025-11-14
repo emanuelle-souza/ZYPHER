@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+  color: #333;
+  padding: 20px;
+}
+
+.perfil-container {
+  max-width: 600px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD LIMPO */
+.form-card.polido {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  text-align: center;
+}
+
+/* TÍTULO CENTRAL */
+.titulo-central {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #172A4E;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* FORMULÁRIO */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #172A4E;
+  box-shadow: 0 0 0 4px rgba(23, 42, 78, 0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group.half {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* BOTÃO */
+.btn-salvar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 16px;
+  background: #172A4E;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-salvar:hover {
+  background: #0f1e38;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 42, 78, 0.2);
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .form-card.polido { padding: 30px 20px; }
+  .titulo-central { font-size: 1.5rem; }
+}
