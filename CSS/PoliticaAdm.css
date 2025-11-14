@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background-color: #e8e8e8 !important;
+    padding: 30px 40px !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+}
+footer p {
+    margin: 5px 0 !important;
+    color: #333 !important;
+}
+
+/* =======================
+      CONFIGURAÇÕES DE MENU
+      - PRINCIPAL
+      - CATEGORIAS
+    ======================= */
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #172A4E;
+}
+
+.topo .logo img {
+    height: 45px;
+}
+
+.icones img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icones img:hover {
+    transform: scale(1.1);
+}
+/* Conteúdo principal - Termos de Uso */
+.politicas {
+    max-width: 700px; 
+    margin: 50px auto; /* Centraliza horizontalmente */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    padding: 20px;
+    margin-top: -10px; /* Espaço acima do conteúdo */
+}
+
+.politicas h1 { /* Título */
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.politicas h1::after { /* Linha abaixo do título */
+    content: ""; /* Cria uma linha */
+    display: block; /* Faz a linha ocupar toda a largura do elemento pai */
+    width: 100%;
+    height: 2px;
+    background-color: #ccc; /* cor da linha */
+    margin-top: 10px;
+} 
+
+.politicas p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left; /* Alinha o texto à esquerda para melhor legibilidade */
+}

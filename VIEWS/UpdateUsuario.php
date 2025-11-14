@@ -1,35 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizar Cadastro</title>
-    <link rel="stylesheet" href="/zypher/views/css/*.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atualizar Cadastro</title>
+  <link rel="stylesheet" href="/zypher/CSS/perfil-atualizar.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Atualizar Cadastro</h1>
-<form action="/zypher/saveusuario" method="POST">
-    <input type="hidden" name="id_usuario">
+<div class="perfil-container">
 
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome"><br><br>
+  <!-- CARD PRINCIPAL -->
+  <div class="form-card polido">
+    
+    <!-- TÍTULO CENTRALIZADO -->
+    <h1 class="titulo-central">Atualizar Cadastro</h1>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"><br><br>
+    <!-- FORMULÁRIO -->
+    <form action="/zypher/saveusuario" method="POST" class="form-content">
+      <input type="hidden" name="id_usuario">
 
-    <label for="telefone">Telefone:</label>
-    <input type="text" id="telefone" name="telefone"><br><br>
+      <!-- NOME -->
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome completo">
+      </div>
 
-    <label for="cpf">CPF:</label>
-    <input type="number" id="cpf" name="cpf"><br><br>
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com">
+      </div>
 
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha"><br><br>
+      <!-- TELEFONE + CPF -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" placeholder="(11) 98765-4321">
+        </div>
+        <div class="form-group half">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+        </div>
+      </div>
 
-    <input type="submit" value="Atualizar Cadastro" href="PerfilUsuario.php" >
-</form>
+      <!-- SENHA -->
+      <div class="form-group">
+        <label for="senha">Nova Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Deixe em branco para manter atual">
+      </div>
+
+      <!-- BOTÃO -->
+      <button type="submit" class="btn-salvar">
+        <i class="bi bi-check2"></i> Atualizar Cadastro
+      </button>
+    </form>
+  </div>
+
+</div>
 
 </body>
 </html>
