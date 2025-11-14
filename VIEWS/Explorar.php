@@ -14,7 +14,7 @@ session_start();
     <!-- Cabeçalho / Menu -->
     <header>
         <div class="topo">
-           <div class="logo">
+     <div class="logo">
                 <a href="<?php 
     echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
         ? '/zypher/VIEWS/HomeMembro.php' 

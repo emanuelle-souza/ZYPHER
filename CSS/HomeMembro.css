@@ -12,70 +12,90 @@ body {
     color: #212529;
 }
 
-/* HEADER */
-header {
-    background: #172A4E;
-    color: white;
-}
 
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
+/* ---------- HEADER ---------- */
+/* ====== TOPO ====== */
 .topo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 40px;
+    padding: 10px 40px;
+    background-color: #172A4E;
 }
 
-.logo-img {
-    height: 50px;
+.topo .logo img {
+    height: 45px;
 }
 
+/* ====== BUSCA ====== */
 .busca {
     position: relative;
-    width: 380px;
+    display: flex;
+    align-items: center;
 }
 
 .busca input {
-    width: 100%;
-    padding: 12px 45px 12px 16px;
-    border: none;
-    border-radius: 30px;
-    background: #1e293b;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    width: 450px;
+    background-color: #1e293b;
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.busca input:hover,
+.busca input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .busca button {
     position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 1rem;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .busca button img {
     width: 20px;
+    height: 20px;
     opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.busca button:hover img {
+    opacity: 1;
 }
 
 .icones img {
-    width: 26px;
-    margin-left: 16px;
-    transition: 0.2s;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .icones img:hover {
     transform: scale(1.1);
 }
 
-/* MENU */
+/* ====== MENU ====== */
 .menu {
     display: flex;
     justify-content: center;
     background: #BAC2CF;
     padding: 10px 0;
 }
+
 .menu a {
     margin: 0 20px;
     text-decoration: none;
@@ -84,7 +104,7 @@ header {
 }
 
 .menu a:hover {
-    color: #5a6b8c;
+    color: #8a90cc;
 }
 
 /* ===== BANNER ===== */
@@ -221,25 +241,19 @@ header {
     z-index: 10;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
-    background: #e9ecef;
-    padding: 30px 40px;
-    text-align: center;
-    font-size: 13px;
-    color: #6c757d;
+    background-color: #e8e8e8 !important;
+    padding: 30px 40px !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
 }
-
-footer a {
-    color: #495057;
-    text-decoration: none;
-    margin: 0 8px;
+footer p {
+    margin: 5px 0 !important;
+    color: #333 !important;
 }
-
-footer a:hover {
-    text-decoration: underline;
-}
-
 /* RESPONSIVO */
 @media (max-width: 768px) {
     .topo { flex-direction: column; gap: 12px; padding: 16px; }

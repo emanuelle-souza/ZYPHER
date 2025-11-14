@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 
             <div id="form-pix" class="form-pagamento" style="display: none;">
                 <p>Escaneie o QR Code ou copie a chave PIX abaixo:</p>
-                <img src="/zypher/MIDIA/qrcode-fake.png" alt="QR Code PIX" style="width:180px; margin:10px auto; display:block;">
+                <img src="/zypher/MIDIA/QrCode.png" alt="QR Code PIX" style="width:180px; margin:10px auto; display:block;">
                 <p><strong>Chave:</strong> pix@zypher.com.br</p>
                 <button class="botao-pagar" onclick="confirmarPagamento('pix')">Confirmar Pagamento PIX</button>
             </div>

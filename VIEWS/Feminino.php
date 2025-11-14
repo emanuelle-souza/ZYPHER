@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 }
 
 $usuarioLogado = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+$isMembro = isset($_SESSION['membro']) && $_SESSION['membro'];
 
 // Busca apenas produtos da categoria "Feminino" (id_categoria = 1)
 $produtosFemininos = ProdutoController::listarPorCategoria(1);
@@ -18,7 +19,7 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feminino | Zypher Sneakers</title>
     <link rel="stylesheet" href="/zypher/CSS/HomeCliente.css">
-    <link rel="stylesheet" href="/zypher/CSS/Feminino.css"> <!-- Opcional: estilos específicos -->
+    <link rel="stylesheet" href="/zypher/CSS/Feminino.css">
 </head>
 <body>
 
@@ -26,18 +27,12 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
     <header>
         <div class="topo">
             <div class="logo">
-                <a href="<?php 
-    echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
-        ? '/zypher/VIEWS/HomeMembro.php' 
-        : '/zypher/VIEWS/HomeCliente.php'; 
-?>">
-    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-</a>
+                <a href="<?= $isMembro ? '/zypher/VIEWS/HomeMembro.php' : '/zypher/VIEWS/HomeCliente.php' ?>">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
             </div>
-<div class="busca">
-                <button type="button">
-                    <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
-                </button>
+            <div class="busca">
+                <button type="button"><img src="/zypher/MIDIA/Lupa.png" alt="Buscar"></button>
                 <input type="text" placeholder="Buscar tênis...">
             </div>
             <div class="icones">
@@ -55,7 +50,7 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
             </div>
         </div>
 
-       <nav class="menu">
+        <nav class="menu">
             <a href="/zypher/views/Feminino.php">Feminino</a>
             <a href="/zypher/views/Masculino.php">Masculino</a>
             <a href="/zypher/views/Explorar.php">Explorar</a>
@@ -64,13 +59,13 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
     </header>
 
     <!-- BANNER FEMININO -->
-<section class="banner-feminino">
-    <div class="banner-overlay"></div>
-    <div class="banner-content">
-        <h2>COLEÇÃO FEMININA</h2>
-        <p>Estilo, conforto e elegância</p>
-    </div>
-</section>
+    <section class="banner-feminino">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h2>COLEÇÃO FEMININA</h2>
+            <p>Estilo, conforto e elegância</p>
+        </div>
+    </section>
 
     <!-- PRODUTOS FEMININOS -->
     <section class="mais-vendidos">
@@ -88,9 +83,16 @@ $produtosFemininos = ProdutoController::listarPorCategoria(1);
                             <h3><?= htmlspecialchars($produto['nome']) ?></h3>
                             <p><?= htmlspecialchars($produto['descricao']) ?></p>
                             <span class="preco">
-                                R$ <?= number_format($produto['preco'] * (1 - $produto['desconto']/100), 2, ',', '.') ?>
-                                <?php if ($produto['desconto'] > 0): ?>
-                                    <del style="color: #999; font-size: 0.8rem;">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></del>
+                                <?php 
+                                $preco_final = $isMembro 
+                                    ? $produto['preco'] * (1 - $produto['desconto']/100) 
+                                    : $produto['preco'];
+                                ?>
+                                R$ <?= number_format($preco_final, 2, ',', '.') ?>
+                                <?php if ($isMembro && $produto['desconto'] > 0): ?>
+                                    <del style="color: #999; font-size: 0.8rem;">
+                                        R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                                    </del>
                                 <?php endif; ?>
                             </span>
                         </div>

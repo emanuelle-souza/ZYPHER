@@ -69,33 +69,34 @@ session_start();
             <div class="form-container">
                 <h2>Envie sua Mensagem</h2>
                 
-                <form class="contact-form" action="/zypher/VIEWS/MensagemEnviada.php" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" placeholder="Insira seu nome completo" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
-                        </div>
-                    </div>
+               <form class="contact-form" action="/zypher/controllers/FaleConosco.php" method="POST">
+    <input type="hidden" name="action" value="saveMensagem">
+    <!-- resto do formulário igual -->
+    <div class="form-row">
+        <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" placeholder="Insira seu nome completo" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
+        </div>
+    </div>
 
-                    <div class="form-group">
-                        <label for="assunto">Assunto *</label>
-                        <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?" required>
-                    </div>
+    <div class="form-group">
+        <label for="assunto">Assunto *</label>
+        <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?" required>
+    </div>
 
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem *</label>
-                        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
-                    </div>
+    <div class="form-group">
+        <label for="mensagem">Mensagem *</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+    </div>
 
-                    <button type="submit" class="submit-btn" onclick="return true;">
-                        <span>✈</span> Enviar Mensagem
-                    </button>
-                </form>
+    <button type="submit" class="submit-btn">
+        Enviar Mensagem
+    </button>
+</form>
             </div>
 
             <!-- Informações de Contato -->

@@ -8,25 +8,36 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-// 🔹 Conexão com o banco
+// Conexão com o banco
 $pdo = new PDO("mysql:host=localhost;dbname=ZYPHER_SNEAKERS;charset=utf8", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// 🔹 Sempre inicializa as variáveis
-$itens = [];
-$total = 0;
-
-// 🔹 Busca os itens do carrinho do usuário
+// Inicializa variáveis
 $itens = CarrinhoController::listarCarrinho($_SESSION['usuario_id']);
-if (is_array($itens)) {
-    foreach ($itens as $item) {
-        $preco = isset($item['preco']) ? (float)$item['preco'] : 0;
-        $quantidade = isset($item['quantidade']) ? (int)$item['quantidade'] : 1;
-        $total += $preco * $quantidade;
-    }
+$total_com_desconto = 0;
+$itens_com_preco_final = [];
+$isMembro = isset($_SESSION['membro']) && $_SESSION['membro'];
+
+// Calcula preço com desconto do membro e total
+foreach ($itens as $item) {
+    $preco_original = (float)($item['preco'] ?? 0);
+    $quantidade = (int)($item['quantidade'] ?? 1);
+    $desconto_membro = $isMembro ? (float)($item['desconto'] ?? 0) : 0;
+
+    $preco_final = $preco_original * (1 - $desconto_membro / 100);
+    $subtotal = $preco_final * $quantidade;
+    $total_com_desconto += $subtotal;
+
+    $itens_com_preco_final[] = [
+        'nome' => htmlspecialchars($item['nome'] ?? 'Produto'),
+        'tamanho' => htmlspecialchars($item['tamanho'] ?? ''),
+        'quantidade' => $quantidade,
+        'preco_final' => $preco_final,
+        'imagem' => htmlspecialchars($item['imagem'] ?? '/zypher/MIDIA/placeholder.png')
+    ];
 }
 
-// 🔹 Se o pagamento foi confirmado
+// Processa o pagamento
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento'])) {
     $id_usuario = $_SESSION['usuario_id'];
     $total = (float)($_POST['total'] ?? 0);
@@ -47,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 
     $id_pedido = $pdo->lastInsertId();
 
-    // Insere itens do carrinho em pedido_produto
+    // Insere itens
     $stmt_item = $pdo->prepare("
         INSERT INTO pedido_produto (id_pedido, id_produto, quantidade)
         VALUES (:id_pedido, :id_produto, :quantidade)
@@ -69,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -81,18 +91,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 
 <header>
     <div class="topo">
-        <div class="logo">
-            <a href="/zypher/VIEWS/HomeCliente.php">
-                <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
-            </a>
-        </div>
+           <div class="logo">
+                <a href="<?php 
+    echo (isset($_SESSION['membro']) && $_SESSION['membro']) 
+        ? '/zypher/VIEWS/HomeMembro.php' 
+        : '/zypher/VIEWS/HomeCliente.php'; 
+?>">
+    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+</a>
+            </div>
         <div class="busca">
-            <input type="text" placeholder="Buscar...">
-            <button>🔍</button>
+            <button type="button"><img src="/zypher/MIDIA/Lupa.png" alt="Buscar"></button>
+            <input type="text" placeholder="Buscar tênis...">
         </div>
         <div class="icones">
             <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
-            <a href="/zypher/views/CarrinhoCliente.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+            <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
                     <img src="/zypher/MIDIA/perfil.png" alt="perfil">
@@ -109,21 +123,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 <div class="container">
     <div class="itens-pedido">
         <h2>Itens do Pedido</h2>
-        <?php foreach ($itens as $item): ?>
-            <?php 
-                $nome = htmlspecialchars($item['nome'] ?? 'Produto');
-                $tamanho = htmlspecialchars($item['tamanho'] ?? '');
-                $quantidade = (int)($item['quantidade'] ?? 1);
-                $preco = (float)($item['preco'] ?? 0);
-                $imagem = htmlspecialchars($item['imagem'] ?? '/zypher/img/placeholder.png');
-                $subtotal = $preco * $quantidade;
-            ?>
+        <?php foreach ($itens_com_preco_final as $item): ?>
             <div class="item">
-                <img src="<?= $imagem ?>" alt="<?= $nome ?>" onerror="this.src='/zypher/img/placeholder.png'">
+                <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>" onerror="this.src='/zypher/MIDIA/placeholder.png'">
                 <div>
-                    <h4><?= $nome ?></h4>
-                    <p>Tam: <?= $tamanho ?> | Qtd: <?= $quantidade ?></p>
-                    <p><strong>R$ <?= number_format($preco, 2, ',', '.') ?></strong></p>
+                    <h4><?= $item['nome'] ?></h4>
+                    <p>Tam: <?= $item['tamanho'] ?> | Qtd: <?= $item['quantidade'] ?></p>
+                    <p><strong>R$ <?= number_format($item['preco_final'], 2, ',', '.') ?></strong></p>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -164,9 +170,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
             <select id="parcelas"></select>
 
             <div class="resumo">
-                <p>Subtotal: <span id="subtotal">R$ <?= number_format($total, 2, ',', '.') ?></span></p>
+                <p>Subtotal: <span id="subtotal">R$ <?= number_format($total_com_desconto, 2, ',', '.') ?></span></p>
                 <p>Desconto: <span id="desconto">- R$ 0,00</span></p>
-                <p><strong>Total: <span id="total">R$ <?= number_format($total, 2, ',', '.') ?></span></strong></p>
+                <p><strong>Total: <span id="total">R$ <?= number_format($total_com_desconto, 2, ',', '.') ?></span></strong></p>
             </div>
 
             <button class="botao-pagar" onclick="confirmarPagamento('cartao')">Pagar com Cartão</button>
@@ -174,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 
         <div id="form-pix" class="form-pagamento" style="display: none;">
             <p>Escaneie o QR Code ou copie a chave PIX abaixo:</p>
-            <img src="/zypher/MIDIA/qrcode-fake.png" alt="QR Code PIX" style="width:180px; margin:10px auto; display:block;">
+            <img src="/zypher/MIDIA/QrCode.png" alt="QR Code PIX" style="width:180px; margin:10px auto; display:block;">
             <p><strong>Chave:</strong> pix@zypher.com.br</p>
             <button class="botao-pagar" onclick="confirmarPagamento('pix')">Confirmar Pagamento PIX</button>
         </div>
@@ -184,17 +190,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_pagamento']
 <!-- MODAL DE CONFIRMAÇÃO -->
 <div id="modal-confirmado" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
     <div style="background:#fff; padding:40px; border-radius:10px; text-align:center;">
-        <h2 style="color:#28a745;">✅ Pagamento Confirmado!</h2>
+        <h2 style="color:#28a745;">Pagamento Confirmado!</h2>
         <p>Obrigado por comprar com a Zypher Sneakers!</p>
         <button onclick="fecharModal()" style="margin-top:15px; background:#001f3f; color:white; border:none; padding:10px 20px; border-radius:6px;">Voltar à Loja</button>
     </div>
 </div>
 
 <script>
-let subtotal = <?= $total ?>;
+let subtotal = <?= $total_com_desconto ?>;
 let desconto = 0;
 
-// Atualiza as parcelas (com valor na frente)
+// Atualiza as parcelas
 function atualizarParcelas() {
     const select = document.getElementById('parcelas');
     select.innerHTML = '';
@@ -239,7 +245,7 @@ function formatarValidade(input) {
     input.value = input.value.replace(/\D/g, '').replace(/(\d{2})(\d)/, '$1/$2');
 }
 
-// Simula confirmação
+// Confirma pagamento
 function confirmarPagamento(tipo) {
     const total = (subtotal - desconto).toFixed(2);
     const cupom = document.getElementById('cupom').value.trim();
@@ -265,7 +271,8 @@ function confirmarPagamento(tipo) {
 }
 
 function fecharModal() {
-    window.location.href = '/zypher/VIEWS/HomeCliente.php';
+    const isMembro = <?= (isset($_SESSION['membro']) && $_SESSION['membro']) ? 'true' : 'false' ?>;
+    window.location.href = isMembro ? '/zypher/VIEWS/HomeMembro.php' : '/zypher/VIEWS/HomeCliente.php';
 }
 </script>
 
