@@ -1,94 +1,252 @@
 <?php
-// VIEWS/Explorar.php - Página "Explorar" com layout de três colunas similar à imagem fornecida
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Explorar - Zypher Sneakers</title>
-    <link rel="stylesheet" href="../CSS/menu.css">
-    <style>
-        /* Estilos específicos da página Explorar (mantendo identidade visual) */
-        body { font-family: Arial, sans-serif; background:#fafafa; margin:0; padding:0; }
-        main { max-width:1200px; margin:24px auto; padding:0 16px; }
-        .explorar-grid { display:flex; gap:20px; align-items:flex-start; }
-        .col { flex:1; background:#fff; padding:18px; box-sizing:border-box; border-left:2px solid rgba(34,58,94,0.08); border-right:2px solid rgba(34,58,94,0.08); }
-        .col:first-child { border-left: none; }
-        .col:last-child { border-right: none; }
-
-        /* Coluna esquerda - Como lavar seu tênis */
-        .col-esquerda img.thumb { width:120px; height:auto; display:block; margin-bottom:12px; }
-        .como-lavar h3 { margin:0 0 10px 0; color:#223a5e; }
-        .como-lavar ol { padding-left:20px; color:#444; }
-        .como-lavar li { margin-bottom:8px; line-height:1.5; }
-
-        /* Coluna central - Curiosidades */
-        .curiosidades h3 { text-align:center; color:#223a5e; margin:0 0 14px 0; }
-        .curiosidades p { text-align:center; color:#666; line-height:1.7; }
-        .curiosidades .gallery { display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:14px; }
-        .curiosidades .gallery img { width:220px; height:auto; border-radius:4px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
-
-        /* Coluna direita - Cuidados */
-        .cuidados h3 { margin:0 0 10px 0; color:#223a5e; text-align:right; }
-        .cuidados p { text-align:justify; color:#444; line-height:1.6; }
-        .cuidados .small-images { display:flex; gap:8px; justify-content:flex-end; margin-top:12px; }
-        .cuidados .small-images img { width:72px; height:auto; border-radius:4px; }
-
-        /* Footer spacing */
-        footer { margin-top:24px; }
-
-        @media (max-width:980px) {
-            .explorar-grid { flex-direction:column; }
-            .col { border-left:none; border-right:none; }
-            .curiosidades .gallery img { width:90%; }
-            .col { padding:14px; }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore o Mundo dos Sneakers - Zypher Sneakers</title>
+    <link rel="stylesheet" href="/zypher/CSS/Explorar.css">
 </head>
 <body>
-
-<?php include 'inc/header.php'; ?>
-
-<main>
-    <div class="explorar-grid">
-        <aside class="col col-esquerda">
-            <img class="thumb" src="../MIDIA/banner.png" alt="Como lavar seu tênis">
-            <div class="como-lavar">
-                <h3>Como lavar seu tênis?</h3>
-                <ol>
-                    <li>Remova cadarços e palmilhas.</li>
-                    <li>Limpe com uma escova ou pano úmido.</li>
-                    <li>Lave à mão com água morna e sabão neutro.</li>
-                    <li>Enxágue bem e retire o excesso de água.</li>
-                    <li>Deixe secar à sombra. Simples e eficaz!</li>
-                </ol>
+    <!-- Cabeçalho / Menu -->
+    <header>
+        <div class="topo">
+            <div class="logo">
+                <a href="/zypher/VIEWS/HomeCliente.php">
+                    <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
+                </a>
             </div>
-        </aside>
-
-        <section class="col curiosidades">
-            <h3>CURIOSIDADES</h3>
-            <p>Muitos jogadores famosos já escolheram nossos tênis, que unem estilo, conforto e performance, refletindo a dedicação dos grandes atletas.</p>
-            <div class="gallery">
-                <img src="../MIDIA/FlipZypher.png" alt="Jogador em quadra">
-                <img src="../MIDIA/tenis-preto.png" alt="Tênis em close">
+            <div class="busca">
+                <button type="button">
+                    <img src="/zypher/MIDIA/Lupa.png" alt="Buscar">
+                </button>
+                <input type="text" placeholder="Buscar tênis...">
             </div>
-        </section>
-
-        <aside class="col cuidados">
-            <h3>CUIDADOS</h3>
-            <p>
-                Para cuidar bem dos seus tênis, limpe-os regularmente com um pano úmido, evite exposição direta ao sol e guarde-os em locais secos. Use protetores para manter o formato e siga as instruções de lavagem do fabricante para garantir maior durabilidade.
-            </p>
-            <div class="small-images">
-                <img src="../MIDIA/faleconosco.png" alt="Contato">
-                <img src="../MIDIA/image.png" alt="Produto destaque">
+            <div class="icones">
+                <a href="/zypher/views/SejaMembro.php"><img src="/zypher/MIDIA/coroa.png" alt="coroa"></a>
+                <a href="/zypher/views/Carrinho.php"><img src="/zypher/MIDIA/carrinho.png" alt="carrinho"></a>
+                <a href="/zypher/views/PerfilUsuario.php" title="Meu Perfil">
+                    <img src="/zypher/MIDIA/perfil.png" alt="perfil">
+                </a>
             </div>
-        </aside>
-    </div>
-</main>
+        </div>
+        <nav class="menu">
+            <a href="/zypher/views/Feminino.php">Feminino</a>
+            <a href="/zypher/views/Masculino.php">Masculino</a>
+            <a href="/zypher/views/Explorar.php">Explorar</a>
+            <a href="/zypher/views/QuemSomos.php">Sobre nós</a>
+        </nav>
+    </header>
 
-<?php include 'inc/footer.php'; ?>
+    <!-- Banner Principal -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Explore o Mundo dos Sneakers</h1>
+            <p>Descubra curiosidades fascinantes, aprenda a cuidar dos seus tênis e<br>mantenha-os sempre impecáveis</p>
+        </div>
+    </section>
 
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Coluna Esquerda - Curiosidades -->
+            <div class="left-column">
+                <h2 class="section-title">
+                    🎯 Curiosidades
+                </h2>
+                
+                <!-- Card 1 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=500" alt="A Origem dos Sneakers">
+                    <div class="card-body">
+                        <span class="badge-historia">História</span>
+                        <h3>A Origem dos Sneakers</h3>
+                        <p>O termo "sneaker" surgiu no fim do século XIX, alusão ao fato de borrowed permitiam às pessoas andar "sorrateiramente", sem fazer barulho.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Air Technology">
+                    <div class="card-body">
+                        <span class="badge-tech">Tecnologia</span>
+                        <h3>Air Technology</h3>
+                        <p>A tecnologia Air da Nike foi inventada por um engenheiro aeroespacial da NASA em 1979, revolucionando o conforto nos calçados esportivos.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=500" alt="Colecionismo Milionário">
+                    <div class="card-body">
+                        <span class="badge-mercado">Mercado</span>
+                        <h3>Colecionismo Milionário</h3>
+                        <p>O mercado de sneakers raros movimenta mais de $6 bilhões ao ano globalmente, com alguns pares valendo milhões de dólares.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" alt="Sustentabilidade">
+                    <div class="card-body">
+                        <span class="badge-futuro">Futuro</span>
+                        <h3>Sustentabilidade</h3>
+                        <p>Marcas inovadoras estão usando materiais reciclados, com alguns tênis feitos de até 90% de plástico oceânico reciclado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna Central - Como Lavar -->
+            <div class="center-column">
+                <h2 class="section-title">
+                    💧 Como Lavar
+                </h2>
+
+                <!-- Limpeza Básica -->
+                <div class="wash-box">
+                    <div class="wash-header">
+                        <span class="wash-icon pink">🧼</span>
+                        <h3>Limpeza Básica Regular</h3>
+                    </div>
+                    <ul class="wash-list">
+                        <li><span class="bullet">1</span> Remova os cadarços e palmilhas antes de lavar</li>
+                        <li><span class="bullet">2</span> Use uma escova macia com água morna e sabão neutro</li>
+                        <li><span class="bullet">3</span> Evite máquina de lavar - pode danificar a cola e estrutura</li>
+                        <li><span class="bullet">4</span> Seque à sombra a sombra, nunca ao sol direto</li>
+                    </ul>
+                </div>
+
+                <!-- Manchas Difíceis -->
+                <div class="wash-box">
+                    <div class="wash-header">
+                        <span class="wash-icon orange">🔥</span>
+                        <h3>Manchas Difíceis</h3>
+                    </div>
+                    <ul class="wash-list">
+                        <li><span class="bullet">1</span> Para sola branca: mistura de bicarbonato e água oxigenada</li>
+                        <li><span class="bullet">2</span> Para tecido: sabão de coco e escova macia</li>
+                        <li><span class="bullet">3</span> Para couro: pano úmido e hidratante específico</li>
+                        <li><span class="bullet">4</span> Nunca use produtos químicos agressivos</li>
+                    </ul>
+                </div>
+
+                <!-- Materiais Especiais -->
+                <div class="wash-box">
+                    <div class="wash-header">
+                        <span class="wash-icon purple">⭐</span>
+                        <h3>Materiais Especiais</h3>
+                    </div>
+                    <ul class="wash-list">
+                        <li><span class="bullet">1</span> Camurça: escova específica e spray protetor</li>
+                        <li><span class="bullet">2</span> Couro: hidratante e pomada incolor</li>
+                        <li><span class="bullet">3</span> Mesh/tecido: limpeza delicada com água fria</li>
+                        <li><span class="bullet">4</span> Nobuck: pano úmido e evite excesso de água</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Coluna Direita - Cuidados -->
+            <div class="right-column">
+                <h2 class="section-title">
+                    ✅ Cuidados
+                </h2>
+
+                <!-- Cards de Cuidados -->
+                <div class="care-card-small blue">
+                    <span class="care-icon-small">📦</span>
+                    <div class="care-content-small">
+                        <h4>Armazenamento Correto</h4>
+                        <p>Guarde em local arejado, longe de umidade e luz solar direta. Use boxes ou prateleiras.</p>
+                    </div>
+                </div>
+
+                <div class="care-card-small purple">
+                    <span class="care-icon-small">🔄</span>
+                    <div class="care-content-small">
+                        <h4>Rodízio de Tênis</h4>
+                        <p>Evite usar o mesmo par todos os dias. Alterne entre 3 pares para prolongar a vida de cada um.</p>
+                    </div>
+                </div>
+
+                <div class="care-card-small green">
+                    <span class="care-icon-small">🛡️</span>
+                    <div class="care-content-small">
+                        <h4>Proteção Preventiva</h4>
+                        <p>Use spray impermeabilizante regularmente, especialmente antes da primeira vez de usar.</p>
+                    </div>
+                </div>
+
+                <div class="care-card-small orange">
+                    <span class="care-icon-small">👖</span>
+                    <div class="care-content-small">
+                        <h4>Palmilhas e Cadarços</h4>
+                        <p>Troque palmilhas a cada 3-6 meses para manter o conforto e higiene. Cadarços podem ser lavados.</p>
+                    </div>
+                </div>
+
+                <!-- Checklist -->
+                <div class="checklist-box">
+                    <h3>✓ Checklist Diário</h3>
+                    <label><input type="checkbox"> Remova sujeiras após o uso</label>
+                    <label><input type="checkbox"> Deixar arejar por 24h</label>
+                    <label><input type="checkbox"> Limpar sujeiras superficiais</label>
+                    <label><input type="checkbox"> Guardar em local apropriado</label>
+                </div>
+
+                <!-- Galeria de Imagens -->
+                <div class="image-gallery">
+                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Sneakers 1">
+                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Sneakers 2">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+     <!-- Seção de Vídeos -->
+    <section class="video-section">
+        <div class="video-container">
+            <h2 class="video-title">Aprenda com Nossos Vídeos</h2>
+            <div class="video-grid">
+                <!-- Vídeo 1 -->
+                 <a href="https://www.youtube.com/watch?v=xVIBYWCo6C8" target="_blank" class="video-link">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600" alt="Como Lavar Tênis">
+                        <button class="play-button">▶</button>
+                    </div>
+                    <div class="video-info">
+                        <h3>Como Lavar Tênis Corretamente</h3>
+                        <p> Passo a passo e técnicas profissionais de limpeza para manter seus sneakers sempre novos, confira aqui!</p>
+                    </div>
+                </div>
+                </a>
+
+                <!-- Vídeo 2 -->
+                 <a href="https://www.youtube.com/watch?v=KCOq8myLAVc" target="_blank" class="video-link">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600" alt="Cuidados Essenciais">
+                        <button class="play-button">▶</button>
+                    </div>
+                    <div class="video-info">
+                        <h3>Venha conhecer os tênis sustentáveis</h3>
+                        <p>Tênis ecológicos da Nike utilizam couro reciclado e tinta vegetal. Curadoria: Bernardo Gradin, especialista em soluções sustentáveis</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+        <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
+        <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+        <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
