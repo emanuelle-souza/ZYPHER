@@ -1,10 +1,9 @@
 <?php
-<<<<<<< HEAD
+
 require_once '../models/FaleConosco.php';
-=======
 // INICIA A SESSÃO (OBRIGATÓRIO!)
 session_start();
->>>>>>> 3bac3a3be09ff2902c1bebe22614d4d8c4172f00
+
 
 require_once '../models/administrador.php';
 
@@ -15,20 +14,19 @@ class FaleConoscoController {
     }
 
     public function saveMensagem() {
-<<<<<<< HEAD
+
     // Cria uma nova mensagem
     $mensagem = new Mensagem();
     $mensagem->nome = $_POST['nome'];
     $mensagem->email = $_POST['e-mail']; 
     $mensagem->assunto = $_POST['assunto'];
     $mensagem->mensagem = $_POST['mensagem'];
-=======
+
         // Validação
         if (!isset($_POST['nome'], $_POST['email'], $_POST['assunto'], $_POST['mensagem'])) {
             header("Location: /zypher/VIEWS/MensagemEnviada.php?status=erro");
             exit;
         }
->>>>>>> 3bac3a3be09ff2902c1bebe22614d4d8c4172f00
 
         $nome = trim($_POST['nome']);
         $email = trim($_POST['email']);
