@@ -1,5 +1,5 @@
 <?php
-require_once '../models/administrador.php';
+require_once '../models/FaleConosco.php';
 
 
 class FaleConoscoController {
@@ -9,7 +9,7 @@ class FaleConoscoController {
         require_once '../views/fale_conosco.php';
     }
 
-    public function saveAdministrador() {
+    public function saveMensagem() {
     // Cria uma nova mensagem
     $mensagem = new Mensagem();
     $mensagem->nome = $_POST['nome'];
