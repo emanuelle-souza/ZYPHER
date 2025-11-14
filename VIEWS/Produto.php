@@ -124,7 +124,7 @@ $id_produto = intval($produto['id'] ?? $id);
 
     <section class="detalhes">
 
-<h1 id="nome-produto"><?= $nome ?></h1>
+
         <h1 id="nome-produto"><?= $nome ?></h1>
         <p class="descricao-curta"><?= $descricao_curta ?></p>
     <div class="preco-container">

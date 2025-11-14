@@ -21,10 +21,10 @@ $produtos = ProdutoController::listarProdutos();
 </head>
 <body>
     <!-- HEADER -->
-    <header>
-       <div class="topo">
+   <header>
+        <div class="topo">
             <div class="logo">
-                <a href="/zypher/VIEWS/HomeCliente.php">
+                <a href="/zypher/VIEWS/HomeMembro.php">
                     <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers" class="logo-img">
                 </a>
             </div>
@@ -48,7 +48,6 @@ $produtos = ProdutoController::listarProdutos();
                 <?php endif; ?>
             </div>
         </div>
-
 
         <nav class="menu">
             <a href="/zypher/views/Feminino.php">Feminino</a>
@@ -104,12 +103,12 @@ $produtos = ProdutoController::listarProdutos();
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
-        <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> | 
-        <a href="/zypher/VIEWS/FaleConosco.php">Fale Conosco</a>
-        <p>© 2025 Zypher Sneakers. Todos os direitos reservados.</p>
-    </footer>
+    
+ <footer>
+    <a href="/zypher/VIEWS/Politicas.php">Política de Privacidade</a> | 
+       <a href="/zypher/VIEWS/Termos.php">Termos de Uso</a> |  
+    <a href="/zypher/VIEWS/FaleConosco.php">Fale conosco</a>
+    <p>&copy; 2025 Zypher Sneakers. Todos os direitos reservados.</p>
+</footer>
 </body>
 </html>
