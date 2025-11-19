@@ -1,18 +1,16 @@
 <?php
-// /zypher/views/suporte.php
 session_start();
 if (!isset($_SESSION['funcionario_id'])) {
     header("Location: LoginFuncionario.php");
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suporte - Zypher Sneakers</title>
+    <title>Painel de Suporte</title>
     <link rel="stylesheet" href="/zypher/CSS/Suporte.css">
     <style>
         body { font-family: Arial; margin: 0; background: #f4f4f4; }
@@ -31,45 +29,52 @@ if (!isset($_SESSION['funcionario_id'])) {
 <body>
     <div class="container">
         <h1>Painel de Suporte</h1>
-        <p>Bem-vindo, <strong><?php echo $_SESSION['funcionario_nome'] ?? 'Funcionário'; ?></strong> | <a href="logout_funcionario.php">Sair</a></p>
+        <p>Bem-vindo, <strong><?= $_SESSION['funcionario_nome'] ?? 'Funcionário' ?></strong> | <a href="logout_funcionario.php">Sair</a></p>
 
         <?php if (isset($_GET['status'])): ?>
-            <p class="<?php echo $_GET['status'] === 'sucesso' ? 'sucesso' : 'erro'; ?>">
-                <?php echo $_GET['status'] === 'sucesso' ? 'Resposta enviada!' : 'Erro ao responder.'; ?>
+            <p class="<?= $_GET['status'] === 'sucesso' ? 'sucesso' : 'erro' ?>">
+                <?= $_GET['status'] === 'sucesso' ? 'Resposta enviada com sucesso!' : 'Erro ao enviar resposta.' ?>
             </p>
         <?php endif; ?>
 
         <h2>Mensagens Recebidas</h2>
 
-        <?php foreach ($mensagens as $m): ?>
-            <div class="card <?php echo $m['status'] === 'respondida' ? 'respondida' : 'pendente'; ?>">
-                <p><strong>ID:</strong> #<?php echo $m['id_fale_conosco']; ?></p>
-                <p><strong>Cliente:</strong> <?php echo htmlspecialchars($m['nome']); ?> 
-                   <?php if ($m['nome_usuario']): ?> (<?php echo htmlspecialchars($m['nome_usuario']); ?>)<?php endif; ?>
-                </p>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($m['email']); ?></p>
-                <p><strong>Assunto:</strong> <?php echo htmlspecialchars($m['assunto']); ?></p>
-                <p><strong>Mensagem:</strong><br><?php echo nl2br(htmlspecialchars($m['mensagem'])); ?></p>
-
-                <p class="status">
-                    Status: <strong><?php echo $m['status'] === 'respondida' ? 'Respondida' : 'Pendente'; ?></strong>
-                    <?php if ($m['data_resposta']): ?>
-                        em <?php echo date('d/m/Y H:i', strtotime($m['data_resposta'])); ?>
-                        por <?php echo htmlspecialchars($m['nome_funcionario']); ?>
-                    <?php endif; ?>
-                </p>
-
-                <?php if ($m['status'] === 'respondida'): ?>
-                    <p><strong>Resposta:</strong><br><?php echo nl2br(htmlspecialchars($m['resposta'])); ?></p>
-                <?php else: ?>
-                    <form action="/zypher/controllers/SuporteController.php" method="POST">
-                        <input type="hidden" name="id_fale_conosco" value="<?php echo $m['id_fale_conosco']; ?>">
-                        <textarea name="resposta" placeholder="Escreva sua resposta aqui..." required></textarea>
-                        <button type="submit" class="btn">Enviar Resposta</button>
-                    </form>
-                <?php endif; ?>
+        <?php if (empty($mensagens)): ?>
+            <div class="card" style="text-align:center; color:#666; padding:40px;">
+                <h3>Nenhuma mensagem no momento</h3>
+                <p>Tudo tranquilo por aqui!</p>
             </div>
-        <?php endforeach; ?>
+        <?php else: ?>
+            <?php foreach ($mensagens as $m): ?>
+                <div class="card <?= ($m['status'] ?? 'pendente') === 'respondida' ? 'respondida' : 'pendente' ?>">
+                    <p><strong>ID:</strong> #<?= $m['id_fale_conosco'] ?></p>
+                    <p><strong>Cliente:</strong> <?= htmlspecialchars($m['nome']) ?>
+                        <?= !empty($m['nome_usuario']) ? ' (' . htmlspecialchars($m['nome_usuario']) . ')' : '' ?>
+                    </p>
+                    <p><strong>Email:</strong> <?= htmlspecialchars($m['email']) ?></p>
+                    <p><strong>Assunto:</strong> <?= htmlspecialchars($m['assunto']) ?></p>
+                    <p><strong>Mensagem:</strong><br><?= nl2br(htmlspecialchars($m['mensagem'])) ?></p>
+
+                    <p class="status">
+                        Status: <strong><?= ($m['status'] ?? 'pendente') === 'respondida' ? 'Respondida' : 'Pendente' ?></strong>
+                        <?php if (!empty($m['data_resposta'])): ?>
+                            em <?= date('d/m/Y H:i', strtotime($m['data_resposta'])) ?>
+                            por <?= htmlspecialchars($m['nome_funcionario'] ?? 'Suporte') ?>
+                        <?php endif; ?>
+                    </p>
+
+                    <?php if (($m['status'] ?? 'pendente') === 'respondida'): ?>
+                        <p><strong>Sua resposta:</strong><br><?= nl2br(htmlspecialchars($m['resposta'])) ?></p>
+                    <?php else: ?>
+                        <form action="/zypher/controllers/SuporteController.php" method="POST">
+                            <input type="hidden" name="id_fale_conosco" value="<?= $m['id_fale_conosco'] ?>">
+                            <textarea name="resposta" placeholder="Escreva sua resposta aqui..." required></textarea>
+                            <button type="submit" class="btn">Enviar Resposta</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </body>
 </html>

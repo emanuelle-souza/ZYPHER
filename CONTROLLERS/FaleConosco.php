@@ -1,11 +1,5 @@
 <?php
-
-require_once '../models/FaleConosco.php';
-// INICIA A SESSÃO (OBRIGATÓRIO!)
 session_start();
-
-
-require_once '../models/administrador.php';
 
 class FaleConoscoController {
 
@@ -14,59 +8,55 @@ class FaleConoscoController {
     }
 
     public function saveMensagem() {
-
-    // Cria uma nova mensagem
-    $mensagem = new Mensagem();
-    $mensagem->nome = $_POST['nome'];
-    $mensagem->email = $_POST['e-mail']; 
-    $mensagem->assunto = $_POST['assunto'];
-    $mensagem->mensagem = $_POST['mensagem'];
-
         // Validação
         if (!isset($_POST['nome'], $_POST['email'], $_POST['assunto'], $_POST['mensagem'])) {
-            header("Location: /zypher/VIEWS/MensagemEnviada.php?status=erro");
+            header("Location: ../views/MensagemEnviada.php?status=erro");
             exit;
         }
 
-        $nome = trim($_POST['nome']);
-        $email = trim($_POST['email']);
+        $nome    = trim($_POST['nome']);
+        $email   = trim($_POST['email']);
         $assunto = trim($_POST['assunto']);
-        $mensagem = trim($_POST['mensagem']);
-        $id_usuario = $_SESSION['usuario_id'] ?? null; // AGORA VAI PEGAR!
+        $mensagem= trim($_POST['mensagem']);
+        $id_usuario = $_SESSION['usuario_id'] ?? null;
 
         if (empty($nome) || empty($email) || empty($assunto) || empty($mensagem)) {
-            header("Location: /zypher/VIEWS/MensagemEnviada.php?status=erro&msg=campos");
+            header("Location: ../views/MensagemEnviada.php?status=erro");
             exit;
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header("Location: /zypher/VIEWS/MensagemEnviada.php?status=erro&msg=email");
+            header("Location: ../views/MensagemEnviada.php?status=erro");
             exit;
         }
 
-        // Conexão
-        $pdo = new PDO("mysql:host=localhost;dbname=ZYPHER_SNEAKERS;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Conexão direta (igual antes)
+        try {
+            $pdo = new PDO("mysql:host=localhost;dbname=ZYPHER_SNEAKERS;charset=utf8mb4", "root", "");
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Inserir
-        $stmt = $pdo->prepare("
-            INSERT INTO fale_conosco (id_usuario, nome, email, assunto, mensagem)
-            VALUES (?, ?, ?, ?, ?)
-        ");
+            $sql = "INSERT INTO fale_conosco 
+                    (id_usuario, nome, email, assunto, mensagem, status) 
+                    VALUES (?, ?, ?, ?, ?, 'pendente')";
 
-        $success = $stmt->execute([$id_usuario, $nome, $email, $assunto, $mensagem]);
+            $stmt = $pdo->prepare($sql);
+            $sucesso = $stmt->execute([$id_usuario, $nome, $email, $assunto, $mensagem]);
 
-        if ($success) {
-            header("Location: /zypher/VIEWS/MensagemEnviada.php?status=sucesso");
-        } else {
-            header("Location: /zypher/VIEWS/MensagemEnviada.php?status=erro&msg=banco");
+            header("Location: ../views/MensagemEnviada.php?status=" . ($sucesso ? "sucesso" : "erro"));
+            exit;
+
+        } catch (Exception $e) {
+            header("Location: ../views/MensagemEnviada.php?status=erro");
+            exit;
         }
-        exit;
     }
 }
 
 // Roteamento
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'saveMensagem') {
-    $controller = new FaleConoscoController();
+$controller = new FaleConoscoController();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller->saveMensagem();
+} else {
+    $controller->showForm();
 }
