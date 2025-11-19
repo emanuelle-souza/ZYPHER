@@ -30,43 +30,29 @@ body {
 }
 
 /* ====== BUSCA ====== */
-.topo .busca {
+.busca {
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 35px;
-    background-color: white;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 8px 15px;
+    flex: 0 1 400px;
 }
 
-.topo .busca input {
+.busca input {
     border: none;
-    padding: 0 10px;
-    flex: 1;
-    height: 100%;
-    font-size: 0.9rem;
     outline: none;
+    background: transparent;
+    flex: 1;
+    padding: 5px;
+    font-size: 14px;
 }
 
-.topo .busca button {
+.busca button {
+    background: transparent;
     border: none;
-    background-color: #e0e0e0;
     cursor: pointer;
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-
-.topo .busca button:hover {
-    background-color: #d0d0d0;
-}
-
-.topo .busca button img {
-    width: 16px;
-    height: 16px;
+    font-size: 18px;
 }
 
 .icones {
