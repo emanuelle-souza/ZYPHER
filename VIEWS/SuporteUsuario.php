@@ -4,6 +4,8 @@ if (!isset($_SESSION['funcionario_id'])) {
     header("Location: LoginFuncionario.php");
     exit;
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
