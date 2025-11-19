@@ -15,7 +15,7 @@ class FaleConoscoController {
         }
 
         $nome    = trim($_POST['nome']);
-        $email   = trim($_POST['email']);
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
         $assunto = trim($_POST['assunto']);
         $mensagem= trim($_POST['mensagem']);
         $id_usuario = $_SESSION['usuario_id'] ?? null;
@@ -31,22 +31,23 @@ class FaleConoscoController {
         }
 
         // Conexão direta (igual antes)
-        try {
+                try {
             $pdo = new PDO("mysql:host=localhost;dbname=ZYPHER_SNEAKERS;charset=utf8mb4", "root", "");
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            // INSERT SEM A COLUNA data_envio (essa coluna provavelmente não existe na sua tabela)
             $sql = "INSERT INTO fale_conosco 
                     (id_usuario, nome, email, assunto, mensagem, status) 
                     VALUES (?, ?, ?, ?, ?, 'pendente')";
 
             $stmt = $pdo->prepare($sql);
-            $sucesso = $stmt->execute([$id_usuario, $nome, $email, $assunto, $mensagem]);
+            $stmt->execute([$id_usuario, $nome, $email, $assunto, $mensagem]);
 
-            header("Location: ../views/MensagemEnviada.php?status=" . ($sucesso ? "sucesso" : "erro"));
+            header("Location: ../views/MensagemEnviada.php?status=sucesso");
             exit;
 
         } catch (Exception $e) {
-            header("Location: ../views/MensagemEnviada.php?status=erro");
+            header("Location: ../views/MensagemEnviada.php?status=erro&msg=banco");
             exit;
         }
     }
