@@ -36,8 +36,6 @@ if (!isset($_SESSION)) {
 </div>
 
         <p class="CADASTRO"><a href="/zypher/views/usuarioform.php">CADASTRAR-SE</a></p><br>
-       
-        <p class="MEMBRO"><a href="/zypher/views/SejaMembro.php">SOU MEMBRO</a></p><br>
 
         <p class= "text"><a href="/zypher/views/Politicas.php">Ao entrar, você concorda com nossos Termos de Uso e Política de Privacidade.</a></p>
 
