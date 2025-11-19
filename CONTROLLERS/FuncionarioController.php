@@ -20,7 +20,6 @@ class FuncionarioController {
 
         if ($funcionarioExistente) {
             // Se sua senha estiver em hash, use password_verify()
-            // Se estiver salva como texto puro (como está agora), use == mesmo
             if ($senha === $funcionarioExistente['senha']) {  // ou password_verify($senha, $hash)
 
                 // LOGIN COM SUCESSO
@@ -28,7 +27,7 @@ class FuncionarioController {
                 $_SESSION['funcionario_nome']   = $funcionarioExistente['nome'];
                 $_SESSION['funcionario_email']  = $funcionarioExistente['email'];
 
-                // VAI DIRETO PRO SUPORTE (controller, não view!)
+                // VAI DIRETO PRO SUPORTE 
                 header('Location: /zypher/controllers/SuporteController.php');
                 exit;
             } else {

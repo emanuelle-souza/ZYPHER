@@ -2,39 +2,67 @@
 require_once '../config/database.php';
 
 class Funcionario {
+    private $conn;
     private $pdo;
 
     public function __construct() {
         require_once __DIR__ . '/../config/database.php';
         $database = new Database();
-        $pdo = $database->getConnection();
-        $this->pdo = $pdo;
+        $this->conn = $database->getConnection();
+        // manter compatibilidade com código que usa $this->pdo
+        $this->pdo = $this->conn;
     }
 
    
     public function buscarPorEmail($email) {
         $sql = "SELECT * FROM funcionario WHERE email = ?";
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function login($email, $senha) {
-        $admin = $this->buscarPorEmail($email);
-        if ($admin && $senha === $admin['senha']) {
-            return $admin;
+       $funcionario = $this->buscarPorEmail($email);
+        if ($funcionario && $senha ===$funcionario['senha']) {
+            return$funcionario;
         }
         return false;
     }
 
     public function getById($id) {
-        $sql = "SELECT id_funcionario as id, nome, email, telefone FROM funcionario WHERE id_funcionario = ?";
-        $stmt = $this->pdo->prepare($sql);
+        // Retorna todos os campos do funcionário para permitir obter caminho da foto (se existir)
+        $sql = "SELECT * FROM funcionario WHERE id_funcionario = ?";
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+
+    public function atualizarFotoFun($id_funcionario, $caminho)
+    {
+        try {
+            // colunas candidatas onde o caminho da foto pode estar armazenado
+            $possibleCols = ['foto_perfil', 'foto', 'foto_funcionario', 'imagem'];
+            foreach ($possibleCols as $col) {
+                $check = $this->conn->prepare("SHOW COLUMNS FROM funcionario LIKE ?");
+                $check->execute([$col]);
+                if ($check->fetch()) {
+                    $sql = "UPDATE funcionario SET {$col} = ? WHERE id_funcionario = ?";
+                    $stmt = $this->conn->prepare($sql);
+                    return (bool)$stmt->execute([$caminho, $id_funcionario]);
+                }
+            }
+
+            // Nenhuma coluna compatível encontrada
+            error_log('atualizarFotoFun: nenhuma coluna de foto encontrada na tabela funcionario');
+            return false;
+        } catch (PDOException $e) {
+            error_log('Erro atualizarFotoFun: ' . $e->getMessage());
+            return false;
+        }
+    }
 }
+
 
     class Mensagem {
     private $conn;

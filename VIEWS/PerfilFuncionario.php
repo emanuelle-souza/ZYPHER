@@ -1,29 +1,30 @@
 <?php
 session_start();
+require_once '../models/Funcionario.php';
 
-if (!isset($_SESSION['id_funcionario'])) {
-    header('Location: /zypher/views/LoginFuncionario.php');
+// Verifica se o usuário está logado
+if (!isset($_SESSION['funcionario_id'])) {
+    header('Location: /zypher/views/login.php');
     exit();
 }
 
-// Caminho da foto do funcionarioin (padrão)
-$fotoPath = isset($_SESSION['foto_funcionario']) && file_exists($_SESSION['foto_funcionario'])
-    ? $_SESSION['foto_funcionario']
-    : '/zypher/MIDIA/perfil.png';
+require_once __DIR__ . '/../controllers/FuncionarioController.php';
 
-// Upload de foto
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
-    $uploadDir = __DIR__ . '/../uploads/funcionarioin/';
-    if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+// Busca dados do funcionário via model (inclui possíveis colunas de foto)
+$funcModel = new Funcionario();
+$funcionario = $funcModel->getById($_SESSION['funcionario_id']);
 
-    $fileTmp = $_FILES['foto_perfil']['tmp_name'];
-    $fileName = 'funcionarioin_' . $_SESSION['id_funcionario'] . '.jpg';
-    $destino = $uploadDir . $fileName;
-
-    if (move_uploaded_file($fileTmp, $destino)) {
-        $_SESSION['foto_funcionario'] = '/zypher/uploads/funcionarioin/' . $fileName;
-        $fotoPath = $_SESSION['foto_funcionario'];
-        $mensagem = "Foto atualizada com sucesso!";
+// Determina caminho da foto: prioriza session, depois colunas possíveis do DB, senão imagem padrão
+$fotoPath = '/zypher/MIDIA/perfil.png';
+if (!empty($_SESSION['foto_funcionario'])) {
+    $fotoPath = $_SESSION['foto_funcionario'];
+} elseif (!empty($funcionario)) {
+    // possíveis nomes de coluna onde o caminho pode estar
+    foreach (['foto_perfil','foto','foto_funcionario','imagem','caminho_foto'] as $col) {
+        if (!empty($funcionario[$col])) {
+            $fotoPath = $funcionario[$col];
+            break;
+        }
     }
 }
 ?>
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do funcionarioinistrador</title>
+    <title>Perfil do funcionario</title>
     <link rel="stylesheet" href="/zypher/CSS/PerfilFun.css">
 </head>
 <body>
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
     <!-- Cabeçalho -->
     <header class="topo">
         <div class="logo">
-            <a href="/zypher/views/Homefuncionario.php">
+            <a href="/zypher/views/SuporteUsuario.php">
                 <img src="/zypher/MIDIA/LogoDeitado.png" alt="Zypher Sneakers">
             </a>
         </div>
@@ -51,24 +52,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
         <h1>PERFIL DO FUNCIONARIO</h1>
 
         <section class="perfil-card">
-            <form action="" method="POST" enctype="multipart/form-data" class="foto-form">
-                <label for="foto_perfil" class="foto-label">
-                    <img src="<?= htmlspecialchars($fotoPath) ?>" alt="Foto do funcionarioin" class="foto-perfil" id="preview-foto">
-                </label>
-                <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" onchange="previewImagem(event)">
-                <button type="submit" class="btn-upload">Salvar Foto</button>
-                <?php if (!empty($mensagem)): ?>
-                    <p class="msg-sucesso"><?= $mensagem ?></p>
-                <?php endif; ?>
-            </form>
+            <form action="/zypher/views/uploadFotoFun.php" method="POST" enctype="multipart/form-data" class="form-foto">
+            <input type="hidden" name="id_funcionario" value="<?= $_SESSION['funcionario_id'] ?>">
+            <label for="foto-upload">
+        <img src="<?= htmlspecialchars($fotoPath) ?>" 
+             alt="Foto de Perfil" class="foto-perfil" id="foto-preview">
+    </label>
+            <input type="file" name="foto" id="foto-upload" accept="image/*" style="display: none;" onchange="this.form.submit()">
+</form>
+<?php if (!empty($_SESSION['msg_foto'])): ?>
+    <p class="msg-foto"><?= htmlspecialchars($_SESSION['msg_foto']) ?></p>
+    <?php unset($_SESSION['msg_foto']); ?>
+<?php endif; ?>
 
             <div class="info">
-                <h2><?= htmlspecialchars($_SESSION['nome']) ?></h2>
-                <p><strong>E-mail:</strong> <?= htmlspecialchars($_SESSION['email']) ?></p>
+                <h2><?= htmlspecialchars($_SESSION['funcionario_nome'] ?? 'Nome não informado') ?></h2>
+                <p><strong>E-mail:</strong> <?= htmlspecialchars($_SESSION['funcionario_email'] ?? 'Não informado') ?></p>
 
                 <div class="botoes">
-                    <button onclick="window.location.href='/zypher/views/.php'">VOLTAR À HOMEPAGE</button>
-                    <button onclick="window.location.href='/zypher/views/logout-funcionario.php'">SAIR</button>
+                    <button onclick="window.location.href='/zypher/views/SuporteUsuario.php'">VOLTAR À HOMEPAGE</button>
+                    <button onclick="window.location.href='/zypher/views/logout-fun.php'">SAIR</button>
                 </div>
             </div>
         </section>
