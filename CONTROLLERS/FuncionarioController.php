@@ -2,37 +2,44 @@
 require_once __DIR__ . '/../config/database.php';
 require_once '../models/funcionario.php';
 
-
 class FuncionarioController {
     
     public function loginFuncionario() {
         session_start();
 
-        $email = $_POST['email'];
+        if (!isset($_POST['email']) || !isset($_POST['senha'])) {
+            header('Location: /zypher/views/LoginFuncionario.php');
+            exit;
+        }
+
+        $email = trim($_POST['email']);
         $senha = $_POST['senha'];
 
         $funcionario = new Funcionario();
         $funcionarioExistente = $funcionario->buscarPorEmail($email);
 
         if ($funcionarioExistente) {
-            // Verifica senha — troque para password_verify se estiver usando hash
-            if ($senha == $funcionarioExistente['senha']) {
+            // Se sua senha estiver em hash, use password_verify()
+            // Se estiver salva como texto puro (como está agora), use == mesmo
+            if ($senha === $funcionarioExistente['senha']) {  // ou password_verify($senha, $hash)
 
-                $_SESSION['funcionario_id'] = $funcionarioExistente['id_funcionario'];
-                $_SESSION['funcionario_nome'] = $funcionarioExistente['nome'];
-                $_SESSION['funcionario_email'] = $funcionarioExistente['email'];
+                // LOGIN COM SUCESSO
+                $_SESSION['funcionario_id']     = $funcionarioExistente['id_funcionario'];
+                $_SESSION['funcionario_nome']   = $funcionarioExistente['nome'];
+                $_SESSION['funcionario_email']  = $funcionarioExistente['email'];
 
-                // Redireciona para a home
-                header('Location: /zypher/views/SuporteUsuario.php');
-                exit();
+                // VAI DIRETO PRO SUPORTE (controller, não view!)
+                header('Location: /zypher/controllers/SuporteController.php');
+                exit;
             } else {
-                echo "<script>alert('Senha incorreta!'); window.location.href='/zypher/views/loginFuncionario.php';</script>";
+                $_SESSION['erro_login'] = "Senha incorreta!";
+                header('Location: /zypher/views/LoginFuncionario.php');
+                exit;
             }
         } else {
-            echo "<script>alert('Funcionário não encontrado!'); window.location.href='/zypher/views/login.php';</script>";
+            $_SESSION['erro_login'] = "Funcionário não encontrado!";
+            header('Location: /zypher/views/LoginFuncionario.php');
+            exit;
         }
     }
-
-   
 }
-?>
