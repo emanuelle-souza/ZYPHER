@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login cliente</title>
+    <title>Login ADM</title>
     <link rel="stylesheet" href="/zypher/CSS/LoginAdm.css">
 </head>
 <body>
